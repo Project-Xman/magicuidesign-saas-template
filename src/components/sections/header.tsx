@@ -31,7 +31,7 @@ export default function Header() {
   return (
     <header
       className={
-        "relative sticky top-0 z-50 py-2 bg-background/60 backdrop-blur"
+        "relative sticky top-0 z-50 py-2 bg-background/60 backdrop-blur-sm"
       }
     >
       <div className="flex justify-between items-center container">
@@ -39,7 +39,7 @@ export default function Header() {
           href="/"
           title="brand-logo"
           className="relative mr-6 flex items-center space-x-2"
-        >
+          >
           <Icons.logo className="w-auto h-[40px]" />
           <span className="font-bold text-xl">{siteConfig.name}</span>
         </Link>
@@ -53,7 +53,7 @@ export default function Header() {
             <div className="gap-2 flex">
               <Link
                 href="/login"
-                className={buttonVariants({ variant: "outline" })}
+                className={buttonVariants({ variant: "outline-solid" })}
               >
                 Login
               </Link>
@@ -63,9 +63,9 @@ export default function Header() {
                   buttonVariants({ variant: "default" }),
                   "w-full sm:w-auto text-background flex gap-2"
                 )}
-              >
+                >
                 <Icons.logo className="h-6 w-6" />
-                Get Started for Free
+                Get Started
               </Link>
             </div>
           </div>

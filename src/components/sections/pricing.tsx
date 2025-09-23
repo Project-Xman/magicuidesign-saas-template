@@ -22,7 +22,7 @@ export default function PricingSection() {
   };
 
   return (
-    <Section title="Pricing" subtitle="Choose the plan that's right for you">
+    <Section title="Pricing" subtitle="Flexible plans for businesses of all sizes">
       <div className="flex justify-center mb-10">
         <span className="mr-2 font-semibold">Monthly</span>
         <label className="relative inline-flex items-center cursor-pointer">
@@ -65,10 +65,10 @@ export default function PricingSection() {
               opacity: { duration: 0.5 },
             }}
             className={cn(
-              `rounded-2xl border-[1px] p-6 bg-background text-center lg:flex lg:flex-col lg:justify-center relative`,
-              plan.isPopular ? "border-primary border-[2px]" : "border-border",
+              `rounded-2xl border p-6 bg-background text-center lg:flex lg:flex-col lg:justify-center relative`,
+              plan.isPopular ? "border-primary border-2" : "border-border",
               index === 0 || index === siteConfig.pricing.length - 1
-                ? "z-0 transform translate-x-0 translate-y-0 -translate-z-[50px] rotate-y-[10deg]"
+                ? "z-0 transform translate-x-0 translate-y-0 -translate-z-[50px] rotate-y-10"
                 : "z-10",
               index === 0 && "origin-right",
               index === siteConfig.pricing.length - 1 && "origin-left"
@@ -116,7 +116,7 @@ export default function PricingSection() {
                 href={plan.href}
                 className={cn(
                   buttonVariants({
-                    variant: "outline",
+                    variant: "outline-solid",
                   }),
                   "group relative w-full gap-2 overflow-hidden text-lg font-semibold tracking-tighter",
                   "transform-gpu ring-offset-current transition-all duration-300 ease-out hover:ring-2 hover:ring-primary hover:ring-offset-1 hover:bg-primary hover:text-white",
@@ -124,7 +124,7 @@ export default function PricingSection() {
                     ? "bg-primary text-white"
                     : "bg-white text-black"
                 )}
-              >
+                >
                 {plan.buttonText}
               </Link>
               <p className="mt-6 text-xs leading-5 text-muted-foreground">

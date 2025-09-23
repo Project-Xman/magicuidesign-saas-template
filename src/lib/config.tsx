@@ -6,16 +6,16 @@ import { RiInstagramFill } from "react-icons/ri";
 export const BLUR_FADE_DELAY = 0.15;
 
 export const siteConfig = {
-  name: "acme.ai",
-  description: "Automate your workflow with AI",
+  name: "Fincorp",
+  description: "Empowering businesses with innovative financial solutions",
   url: process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000",
-  keywords: ["SaaS", "Template", "Next.js", "React", "Tailwind CSS"],
+  keywords: ["Fintech", "Financial Services", "Banking", "Investment", "Compliance"],
   links: {
-    email: "support@acme.ai",
-    twitter: "https://twitter.com/magicuidesign",
-    discord: "https://discord.gg/87p2vpsat5",
-    github: "https://github.com/magicuidesign/magicui",
-    instagram: "https://instagram.com/magicuidesign/",
+    email: "support@fincorp.com",
+    twitter: "https://twitter.com/fincorp",
+    discord: "https://discord.gg/fincorp",
+    github: "https://github.com/fincorp",
+    instagram: "https://instagram.com/fincorp/",
   },
   header: [
     {
@@ -23,25 +23,25 @@ export const siteConfig = {
       content: {
         main: {
           icon: <Icons.logo className="h-6 w-6" />,
-          title: "AI-Powered Automation",
-          description: "Streamline your workflow with intelligent automation.",
+          title: "Financial Technology Solutions",
+          description: "Advanced fintech tools for modern businesses.",
           href: "#",
         },
         items: [
           {
             href: "#",
-            title: "Task Automation",
-            description: "Automate repetitive tasks and save time.",
+            title: "Portfolio Management",
+            description: "Manage investments and track performance.",
           },
           {
             href: "#",
-            title: "Workflow Optimization",
-            description: "Optimize your processes with AI-driven insights.",
+            title: "Risk Analytics",
+            description: "Assess and mitigate financial risks.",
           },
           {
             href: "#",
-            title: "Intelligent Scheduling",
-            description: "AI-powered scheduling for maximum efficiency.",
+            title: "Automated Compliance",
+            description: "Ensure regulatory compliance effortlessly.",
           },
         ],
       },
@@ -53,33 +53,32 @@ export const siteConfig = {
           {
             title: "For Small Businesses",
             href: "#",
-            description: "Tailored automation solutions for growing companies.",
+            description: "Financial tools tailored for growing companies.",
           },
           {
             title: "Enterprise",
             href: "#",
-            description: "Scalable AI automation for large organizations.",
+            description: "Scalable solutions for large organizations.",
           },
           {
-            title: "Developers",
+            title: "Investment Firms",
             href: "#",
-            description: "API access and integration tools for developers.",
+            description: "Specialized tools for investment management.",
           },
           {
-            title: "Healthcare",
+            title: "Banks & Lenders",
             href: "#",
-            description: "Specialized automation for healthcare workflows.",
+            description: "Secure banking and lending solutions.",
           },
           {
-            title: "Finance",
+            title: "Fintech Startups",
             href: "#",
-            description: "AI-driven process automation for financial services.",
+            description: "Innovative platforms for fintech innovation.",
           },
           {
-            title: "Education",
+            title: "Compliance Officers",
             href: "#",
-            description:
-              "Streamline administrative tasks in educational institutions.",
+            description: "Streamline regulatory compliance processes.",
           },
         ],
       },
@@ -91,105 +90,106 @@ export const siteConfig = {
   ],
   pricing: [
     {
-      name: "BASIC",
+      name: "STARTER",
       href: "#",
-      price: "$19",
+      price: "$29",
       period: "month",
-      yearlyPrice: "$16",
+      yearlyPrice: "$24",
       features: [
         "1 User",
-        "5GB Storage",
-        "Basic Support",
-        "Limited API Access",
-        "Standard Analytics",
+        "Basic Portfolio Tracking",
+        "Standard Reports",
+        "Email Support",
+        "Mobile App Access",
       ],
-      description: "Perfect for individuals and small projects",
-      buttonText: "Subscribe",
+      description: "Perfect for individual investors and small businesses",
+      buttonText: "Get Started",
       isPopular: false,
     },
     {
-      name: "PRO",
+      name: "PROFESSIONAL",
       href: "#",
-      price: "$49",
+      price: "$79",
       period: "month",
-      yearlyPrice: "$40",
+      yearlyPrice: "$65",
       features: [
         "5 Users",
-        "50GB Storage",
-        "Priority Support",
-        "Full API Access",
         "Advanced Analytics",
+        "Risk Assessment Tools",
+        "Priority Support",
+        "API Integration",
       ],
-      description: "Ideal for growing businesses and teams",
-      buttonText: "Subscribe",
+      description: "Ideal for growing investment firms and teams",
+      buttonText: "Get Started",
       isPopular: true,
     },
     {
       name: "ENTERPRISE",
       href: "#",
-      price: "$99",
+      price: "$199",
       period: "month",
-      yearlyPrice: "$82",
+      yearlyPrice: "$165",
       features: [
         "Unlimited Users",
-        "500GB Storage",
-        "24/7 Premium Support",
         "Custom Integrations",
-        "AI-Powered Insights",
+        "White-label Solutions",
+        "24/7 Premium Support",
+        "Dedicated Account Manager",
       ],
-      description: "For large-scale operations and high-volume users",
-      buttonText: "Subscribe",
+      description: "For large financial institutions and high-volume operations",
+      buttonText: "Contact Sales",
       isPopular: false,
     },
   ],
   faqs: [
     {
-      question: "What is acme.ai?",
+      question: "What is Fincorp?",
       answer: (
         <span>
-          acme.ai is a platform that helps you build and manage your AI-powered
-          applications. It provides tools and services to streamline the
-          development and deployment of AI solutions.
+          Fincorp is a comprehensive financial technology platform that provides
+          tools for portfolio management, risk assessment, compliance, and
+          investment analytics to help businesses and individuals make informed
+          financial decisions.
         </span>
       ),
     },
     {
-      question: "How can I get started with acme.ai?",
+      question: "How can I get started with Fincorp?",
       answer: (
         <span>
-          You can get started with acme.ai by signing up for an account on our
-          website, creating a new project, and following our quick-start guide.
-          We also offer tutorials and documentation to help you along the way.
+          You can get started with Fincorp by signing up for an account on our
+          website, selecting a plan that fits your needs, and following our
+          onboarding guide. Our team is available to assist you every step of
+          the way.
         </span>
       ),
     },
     {
-      question: "What types of AI models does acme.ai support?",
+      question: "What financial instruments does Fincorp support?",
       answer: (
         <span>
-          acme.ai supports a wide range of AI models, including but not limited
-          to natural language processing, computer vision, and predictive
-          analytics. We continuously update our platform to support the latest
-          AI technologies.
+          Fincorp supports a wide range of financial instruments including
+          stocks, bonds, ETFs, mutual funds, cryptocurrencies, and derivatives.
+          We continuously expand our support for new asset classes.
         </span>
       ),
     },
     {
-      question: "Is acme.ai suitable for beginners in AI development?",
+      question: "Is Fincorp suitable for beginners in investing?",
       answer: (
         <span>
-          Yes, acme.ai is designed to be user-friendly for both beginners and
-          experienced developers. We offer intuitive interfaces, pre-built
-          templates, and extensive learning resources to help users of all skill
-          levels create AI-powered applications.
+          Yes, Fincorp is designed to be user-friendly for both beginners and
+          experienced investors. We offer intuitive dashboards, educational
+          resources, and customizable tools to help users of all skill levels
+          manage their finances effectively.
         </span>
       ),
     },
     {
-      question: "What kind of support does acme.ai provide?",
+      question: "What kind of support does Fincorp provide?",
       answer: (
         <span>
-          acme.ai provides comprehensive support including documentation, video
+          Fincorp provides comprehensive support including documentation, video
           tutorials, a community forum, and dedicated customer support. We also
           offer premium support plans for enterprises with more complex needs.
         </span>
@@ -202,8 +202,8 @@ export const siteConfig = {
       links: [
         { href: "#", text: "Features", icon: null },
         { href: "#", text: "Pricing", icon: null },
-        { href: "#", text: "Documentation", icon: null },
-        { href: "#", text: "API", icon: null },
+        { href: "#", text: "API Documentation", icon: null },
+        { href: "#", text: "Integrations", icon: null },
       ],
     },
     {
@@ -219,10 +219,10 @@ export const siteConfig = {
     {
       title: "Resources",
       links: [
-        { href: "#", text: "Community", icon: null },
+        { href: "#", text: "Help Center", icon: null },
         { href: "#", text: "Contact", icon: null },
-        { href: "#", text: "Support", icon: null },
-        { href: "#", text: "Status", icon: null },
+        { href: "#", text: "Security", icon: null },
+        { href: "#", text: "Compliance", icon: null },
       ],
     },
     {

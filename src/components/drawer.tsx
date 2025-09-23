@@ -25,7 +25,7 @@ export default function drawerDemo() {
               href="/"
               title="brand-logo"
               className="relative mr-6 flex items-center space-x-2"
-            >
+              >
               <Icons.logo className="w-auto h-[40px]" />
               <span className="font-bold text-xl">{siteConfig.name}</span>
             </Link>
@@ -37,7 +37,7 @@ export default function drawerDemo() {
                   {item.trigger ? (
                     <span className="font-semibold">{item.trigger}</span>
                   ) : (
-                    <Link href={item.href || ""} className="font-semibold">
+                    <Link href={item.href || ""} className="font-semibold" >
                       {item.label}
                     </Link>
                   )}
@@ -49,7 +49,7 @@ export default function drawerDemo() {
         <DrawerFooter>
           <Link
             href="/login"
-            className={buttonVariants({ variant: "outline" })}
+            className={buttonVariants({ variant: "outline-solid" })}
           >
             Login
           </Link>
@@ -59,7 +59,7 @@ export default function drawerDemo() {
               buttonVariants({ variant: "default" }),
               "w-full sm:w-auto text-background flex gap-2"
             )}
-          >
+            >
             <Icons.logo className="h-6 w-6" />
             Get Started for Free
           </Link>

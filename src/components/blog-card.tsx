@@ -11,8 +11,8 @@ export default function BlogCard({
   priority?: boolean;
 }) {
   return (
-    <Link href={`/blog/${data.slug}`} className="block">
-      <div className="bg-background rounded-lg p-4 mb-4 border hover:shadow-sm transition-shadow duration-200">
+    <Link href={`/blog/${data.slug}`} className="block" >
+      <div className="bg-background rounded-lg p-4 mb-4 border hover:shadow-xs transition-shadow duration-200">
         {data.image && (
           <Image
             className="rounded-t-lg object-cover border"

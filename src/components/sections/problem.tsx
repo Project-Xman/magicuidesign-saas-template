@@ -7,19 +7,19 @@ const problems = [
   {
     title: "Data Overload",
     description:
-      "Businesses struggle to make sense of vast amounts of complex data, missing out on valuable insights that could drive growth and innovation.",
+      "Financial teams face overwhelming volumes of transactions and market data, making it hard to extract reliable insights for decision-making.",
     icon: Brain,
   },
   {
     title: "Slow Decision-Making",
     description:
-      "Traditional data processing methods are too slow, causing businesses to lag behind market changes and miss crucial opportunities.",
+      "Legacy systems and manual processes slow down critical financial operations, delaying trades, approvals, and reconciliations.",
     icon: Zap,
   },
   {
     title: "Data Security Concerns",
     description:
-      "With increasing cyber threats, businesses worry about the safety of their sensitive information when adopting new technologies.",
+      "Protecting sensitive financial and customer data is paramount amid growing regulatory and cybersecurity pressures.",
     icon: Shield,
   },
 ];

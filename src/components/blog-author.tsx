@@ -56,7 +56,7 @@ export default function Author({
       className="group flex items-center space-x-3"
       target="_blank"
       rel="noopener noreferrer"
-    >
+      >
       <Image
         src={image}
         alt={name}

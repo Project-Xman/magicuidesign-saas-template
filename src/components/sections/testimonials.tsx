@@ -139,16 +139,15 @@ const testimonials = [
   },
   {
     name: "Michael Brown",
-    role: "Data Scientist at FinTech Innovations",
+    role: "Head of Analytics at Meridian Bank",
     img: "https://randomuser.me/api/portraits/men/1.jpg",
     description: (
       <p>
-        Leveraging #DataCrunch&apos;s AI for our financial models has given us
-        an edge in predictive accuracy.
+        Fincorp&apos;s analytics platform improved our forecasting accuracy and
+        reduced portfolio volatility.
         <Highlight>
-          Our investment strategies are now powered by real-time data analytics.
-        </Highlight>{" "}
-        Transformative for the finance industry.
+          We now make faster, data-driven investment decisions with confidence.
+        </Highlight>
       </p>
     ),
   },
@@ -305,8 +304,8 @@ export default function Testimonials() {
               </Marquee>
             ))}
         </div>
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 w-full bg-gradient-to-t from-background from-20%"></div>
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-1/4 w-full bg-gradient-to-b from-background from-20%"></div>
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 w-full bg-linear-to-t from-background from-20%"></div>
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-1/4 w-full bg-linear-to-b from-background from-20%"></div>
       </div>
     </Section>
   );

@@ -182,7 +182,7 @@ export default function Features({
         <div className="max-w-6xl mx-auto ">
           <div className="">
             <div
-              className={`hidden md:flex order-1 md:order-[0]  ${
+              className={`hidden md:flex order-1 md:order-0  ${
                 ltr ? "md:order-2 md:justify-end" : "justify-start"
               }`}
             >
@@ -302,7 +302,7 @@ export default function Features({
 
             <ul
               ref={carouselRef}
-              className="flex h-full snap-x flex-nowrap overflow-x-auto py-10 [-ms-overflow-style:none] [-webkit-mask-image:linear-gradient(90deg,transparent,black_20%,white_80%,transparent)] [mask-image:linear-gradient(90deg,transparent,black_20%,white_80%,transparent)] [scrollbar-width:none] md:hidden [&::-webkit-scrollbar]:hidden snap-mandatory"
+              className="flex h-full snap-x flex-nowrap overflow-x-auto py-10 [-ms-overflow-style:none] [-webkit-mask-image:linear-gradient(90deg,transparent,black_20%,white_80%,transparent)] mask-[linear-gradient(90deg,transparent,black_20%,white_80%,transparent)] [scrollbar-width:none] md:hidden [&::-webkit-scrollbar]:hidden snap-mandatory"
               style={{
                 padding: "50px calc(50%)",
               }}

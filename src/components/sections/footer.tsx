@@ -26,7 +26,7 @@ export default function Footer() {
                     <Link
                       href={link.href}
                       className="group inline-flex cursor-pointer items-center justify-start gap-1 text-muted-foreground duration-200 hover:text-foreground hover:opacity-90"
-                    >
+                      >
                       {link.icon && link.icon}
                       {link.text}
                       <ChevronRight className="h-4 w-4 translate-x-0 transform opacity-0 transition-all duration-300 ease-out group-hover:translate-x-1 group-hover:opacity-100" />
@@ -40,7 +40,7 @@ export default function Footer() {
         <div className="max-w-6xl mx-auto border-t py-2 grid md:grid-cols-2 h-full justify-between w-full grid-cols-1 gap-1">
           <span className="text-sm tracking-tight text-foreground">
             Copyright © {new Date().getFullYear()}{" "}
-            <Link href="/" className="cursor-pointer">
+            <Link href="/" className="cursor-pointer" >
               {siteConfig.name}
             </Link>{" "}
             - {siteConfig.description}
