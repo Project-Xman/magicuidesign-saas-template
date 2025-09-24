@@ -180,12 +180,12 @@ function HeroFlow() {
           animate={{ scale: [1, 1.05, 1] }}
           transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
         >
-          <div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center">
+          <div className="w-16 h-16 bg-secondary rounded-full flex items-center justify-center">
             <svg className="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
           </div>
-          <span className="text-sm font-medium text-accent">Earn</span>
+          <span className="text-sm font-medium text-secondary">Earn</span>
         </motion.div>
 
         <motion.div
@@ -193,9 +193,9 @@ function HeroFlow() {
           animate={{ x: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity, delay: 1 }}
         >
-          <div className="w-6 h-0.5 bg-accent"></div>
-          <div className="w-2 h-2 bg-accent rounded-full"></div>
-          <div className="w-6 h-0.5 bg-accent"></div>
+          <div className="w-6 h-0.5 bg-secondary"></div>
+          <div className="w-2 h-2 bg-secondary rounded-full"></div>
+          <div className="w-6 h-0.5 bg-secondary"></div>
         </motion.div>
 
         <motion.div
