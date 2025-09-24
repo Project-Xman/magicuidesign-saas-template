@@ -12,7 +12,7 @@ const features = [
     title: "5-Minute Payroll Processing",
     description:
       "Process unlimited employees in minutes, not hours. Our AI handles all calculations, tax deductions, and compliance checks automatically.",
-    className: "hover:bg-primary/10 transition-all duration-500 ease-out",
+    className: undefined,
     content: (
       <>
         <Safari
@@ -27,12 +27,11 @@ const features = [
     title: "Instant Wage Access",
     description:
       "Employees access earned wages instantly through our app—no waiting, no stress, no payday loan debt. Happy employees, better retention.",
-    className:
-      "order-3 xl:order-0 hover:bg-secondary/10 transition-all duration-500 ease-out",
+    className: "order-3 xl:order-0",
     content: (
-        <Safari
-          src={`/dashboard.png`}
-          url="https://fincorp.com"
+      <Safari
+        src={`/dashboard.png`}
+        url="https://fincorp.com"
         className="-mb-32 mt-4 max-h-64 w-full px-4 select-none drop-shadow-[0_0_28px_rgba(0,0,0,.1)] group-hover:translate-y-[-10px] transition-all duration-300"
       />
     ),
@@ -41,8 +40,7 @@ const features = [
     title: "Zero-Error Compliance",
     description:
       "Our AI stays updated with all tax regulations automatically. Every payroll is 99.9% accurate with built-in audit trails and compliance reporting.",
-    className:
-      "md:row-span-2 hover:bg-accent/10 transition-all duration-500 ease-out",
+    className: "md:row-span-2",
     content: (
       <>
         <FlickeringGrid
@@ -67,8 +65,7 @@ const features = [
     title: "Complete HR Freedom",
     description:
       "Free your HR team from payroll drudgery. Focus on strategic initiatives while FinWage handles the complex, time-consuming calculations.",
-    className:
-      "flex-row order-4 md:col-span-2 md:flex-row xl:order-0 hover:bg-warning/10 transition-all duration-500 ease-out",
+    className: "order-4 md:col-span-2 xl:order-0",
     content: (
       <>
         <Ripple className="absolute -bottom-full" />
@@ -87,7 +84,7 @@ export default function Component() {
     <Section
       title="The FinWage Solution"
       subtitle="Everything your payroll needs, automated and error-free"
-      description="Stop spending hours on payroll. FinWage's AI-powered platform handles everything—from calculations to compliance—so you can focus on growing your business."
+      description="Stop spending hours on payroll. FinWage’s AI-powered platform handles everything—from calculations to compliance—so you can focus on growing your business."
       className="bg-primary-light/20 dark:bg-neutral-900"
     >
       <div className="mx-auto mt-16 grid max-w-sm grid-cols-1 gap-6 text-gray-500 md:max-w-3xl md:grid-cols-2 xl:grid-rows-2 md:grid-rows-3 xl:max-w-6xl xl:auto-rows-fr xl:grid-cols-3">
@@ -95,7 +92,7 @@ export default function Component() {
           <motion.div
             key={index}
             className={cn(
-              "group relative items-start overflow-hidden bg-neutral-50 dark:bg-neutral-800 p-6 rounded-2xl",
+              "group relative flex h-full flex-col gap-6 overflow-hidden rounded-2xl border border-border/60 bg-neutral-50 p-6 shadow-sm transition-all duration-500 ease-out hover:-translate-y-1 hover:bg-white hover:shadow-lg dark:border-white/10 dark:bg-neutral-800 dark:hover:bg-neutral-700",
               feature.className
             )}
             initial={{ opacity: 0, y: 50 }}
@@ -116,7 +113,7 @@ export default function Component() {
               <p className="text-foreground">{feature.description}</p>
             </div>
             {feature.content}
-            <div className="absolute bottom-0 left-0 h-32 w-full bg-linear-to-t from-neutral-50 dark:from-neutral-900 pointer-events-none"></div>
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-neutral-50 via-neutral-50/80 to-transparent transition-colors duration-500 group-hover:from-white dark:from-neutral-900 dark:via-neutral-900/80 dark:group-hover:from-neutral-700"></div>
           </motion.div>
         ))}
       </div>

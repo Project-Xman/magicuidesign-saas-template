@@ -3,12 +3,50 @@
 import { motion } from "framer-motion";
 
 import { Icons } from "@/components/icons";
+import { BorderBeam } from "@/components/magicui/border-beam";
+import BlurFade from "@/components/magicui/blur-fade";
+import Marquee from "@/components/magicui/marquee";
+import Ripple from "@/components/magicui/ripple";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import HeroVideoDialog from "../magicui/hero-video";
 
 const ease = [0.16, 1, 0.3, 1];
+
+const audienceCards = [
+  {
+    title: "For Employers",
+    description: "Boost retention 27% and cut payroll processing time from hours to minutes with AI-backed automations.",
+    href: "/employers",
+    cta: "Explore employer platform",
+  },
+  {
+    title: "For Employees",
+    description: "Access up to 60% of earned wages instantly, budget smarter, and build savings with automated safeguards.",
+    href: "/employees",
+    cta: "Visit employee hub",
+  },
+];
+
+const impactMetrics = [
+  {
+    label: "Avg. launch time",
+    value: "5 min",
+  },
+  {
+    label: "Uptake in 90 days",
+    value: "+63%",
+  },
+  {
+    label: "Support satisfaction",
+    value: "4.9/5",
+  },
+  {
+    label: "Processed volume",
+    value: "$3.2B",
+  },
+];
 
 function HeroPill() {
   return (
@@ -124,7 +162,7 @@ function HeroCTA() {
           <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2V6z" />
           </svg>
-          I'm an Employer
+          I’m an Employer
         </Link>
         <Link
           href="/employees"
@@ -134,10 +172,47 @@ function HeroCTA() {
           )}
           aria-label="Employee portal - Access your earned wages instantly"
         >
-          I'm an Employee
+          I’m an Employee
         </Link>
       </motion.div>
     </>
+  );
+}
+
+function HeroAudienceCards() {
+  return (
+    <div className="mx-auto mt-10 grid w-full max-w-5xl grid-cols-1 gap-4 sm:grid-cols-2">
+      {audienceCards.map((card, index) => (
+        <BlurFade key={card.title} delay={0.1 * index} inView className="h-full">
+          <Link
+            href={card.href}
+            className="group relative flex h-full flex-col gap-3 overflow-hidden rounded-2xl border border-primary/15 bg-white/60 p-6 text-left shadow-md shadow-primary/5 transition hover:-translate-y-1 hover:border-primary/40 hover:bg-white/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 dark:bg-neutral-900/60"
+            aria-label={card.cta}
+          >
+            <span className="text-xs font-semibold uppercase tracking-[0.28em] text-primary/80">
+              {card.title}
+            </span>
+            <h3 className="text-2xl font-semibold text-foreground">
+              {card.cta}
+            </h3>
+            <p className="text-sm text-muted-foreground leading-6">
+              {card.description}
+            </p>
+            <span className="inline-flex items-center gap-2 text-sm font-semibold text-primary">
+              Learn more
+              <motion.span
+                animate={{ x: [0, 4, 0] }}
+                transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+                aria-hidden="true"
+              >
+                →
+              </motion.span>
+            </span>
+            <BorderBeam size={200} duration={16} borderWidth={1} delay={index * 2} className="opacity-40" />
+          </Link>
+        </BlurFade>
+      ))}
+    </div>
   );
 }
 
@@ -254,21 +329,43 @@ function HeroFlow() {
   );
 }
 
+function HeroMetrics() {
+  return (
+    <div className="relative isolate mt-20 flex w-full flex-col items-center">
+      <div className="pointer-events-none absolute inset-0 mx-auto max-w-5xl rounded-full bg-primary/10 blur-3xl" aria-hidden="true" />
+      <div className="w-full max-w-4xl overflow-hidden rounded-full border border-primary/15 bg-background/70 shadow-lg shadow-primary/10 backdrop-blur">
+        <Marquee pauseOnHover className="[--duration:28s]">
+          {impactMetrics.map((metric) => (
+            <div key={metric.label} className="flex min-w-[220px] items-center justify-center gap-2 px-6 py-3">
+              <span className="text-2xl font-semibold text-primary">{metric.value}</span>
+              <span className="text-sm uppercase tracking-[0.28em] text-muted-foreground">
+                {metric.label}
+              </span>
+            </div>
+          ))}
+        </Marquee>
+      </div>
+    </div>
+  );
+}
+
 export default function Hero() {
   return (
     <section id="hero" aria-labelledby="hero-title" role="banner">
-      <div className="relative flex w-full flex-col items-center justify-start px-4 pt-32 sm:px-6 sm:pt-24 md:pt-32 lg:px-8">
+      <div className="relative flex w-full flex-col items-center justify-start overflow-hidden px-4 pt-32 sm:px-6 sm:pt-24 md:pt-32 lg:px-8">
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(61,99,255,0.18),_transparent_55%)]" aria-hidden="true" />
+        <Ripple className="-z-10 opacity-80" />
+        <BorderBeam size={320} duration={20} borderWidth={1} className="pointer-events-none opacity-40" />
         <HeroPill />
         <header>
           <HeroTitles />
         </header>
         <HeroCTA />
+        <HeroAudienceCards />
         <HeroAnimation />
+        <HeroMetrics />
 
-        {/* white gradient sits above the bottom and the flow is rendered after it */}
-        <div className="pointer-events-none absolute inset-x-0 -bottom-12 h-1/3 bg-gradient-to-t from-white via-white/80 to-transparent lg:h-1/4 z-0" aria-hidden="true"></div>
-
-        {/* Place the flow after the white gradient so it displays above it */}
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-background via-background/70 to-transparent lg:h-1/4" aria-hidden="true" />
         <HeroFlow />
       </div>
     </section>
