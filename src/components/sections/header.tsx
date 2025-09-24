@@ -8,6 +8,7 @@ import { siteConfig } from "@/lib/config";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { useState } from "react";
+import { Info } from "lucide-react";
 
 const navItems = [
   { name: "Home", link: "/" },
@@ -49,7 +50,7 @@ export default function Header() {
     <>
       <StickyBanner className="bg-gradient-to-r from-primary/20 to-secondary/20 backdrop-blur-md border-b border-primary/10">
         <div className="flex items-center justify-center gap-2 text-sm">
-          <span>�</span>
+          <Info className="h-4 w-4 text-primary" aria-label="Info" />
           <span>Finwage - it's your wage. Access earned wages instantly!</span>
           <Link href="/employees" className="underline hover:no-underline">
             Learn more →
