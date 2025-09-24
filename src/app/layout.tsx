@@ -37,7 +37,6 @@ export default function RootLayout({
           defaultTheme="light"
           enableSystem={false}
         >
-          <AnimatedBackground />
           {children}
           {/* <ThemeToggle /> */}
           <TailwindIndicator />

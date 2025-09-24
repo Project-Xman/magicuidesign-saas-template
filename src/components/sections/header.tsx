@@ -8,7 +8,7 @@ import { siteConfig } from "@/lib/config";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { useState } from "react";
-import { Info } from "lucide-react";
+import { Info, X } from "lucide-react";
 
 const navItems = [
   { name: "Home", link: "/" },
@@ -45,18 +45,45 @@ const floatingDockItems = [
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [navbarVisible, setNavbarVisible] = useState(false);
+  const [bannerVisible, setBannerVisible] = useState(true);
 
   return (
     <>
-      <StickyBanner className="bg-gradient-to-r from-primary/20 to-secondary/20 backdrop-blur-md border-b border-primary/10">
-        <div className="flex items-center justify-center gap-2 text-sm">
-          <Info className="h-4 w-4 text-primary" aria-label="Info" />
-          <span>Finwage - it's your wage. Access earned wages instantly!</span>
-          <Link href="/employees" className="underline hover:no-underline">
-            Learn more →
-          </Link>
+      {bannerVisible && (
+        <StickyBanner className="border-b border-destructive/30 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow-sm">
+          <div className="mx-auto flex w-full max-w-5xl items-center justify-between gap-3 px-3 py-1.5 text-xs md:px-4 md:text-sm">
+        <div className="flex items-center gap-2 text-muted-foreground">
+          <span className="flex h-7 w-7 items-center justify-center rounded-full bg-destructive/10">
+            <Info className="h-4 w-4 text-destructive" aria-hidden="true" />
+          </span>
+          <div>
+            <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-destructive md:text-xs">
+          Service Alert
+            </span>
+            <p className="text-xs text-foreground md:text-sm">
+          Servers are currently unavailable. Please try again shortly.
+            </p>
+          </div>
         </div>
-      </StickyBanner>
+        <div className="flex items-center gap-2">
+          <Link
+            href="/status"
+            className="inline-flex items-center rounded-full bg-destructive px-2.5 py-1 text-[10px] font-semibold text-destructive-foreground shadow-sm transition hover:bg-destructive/90 md:text-xs"
+          >
+            View status
+          </Link>
+          <button
+            type="button"
+            onClick={() => setBannerVisible(false)}
+            className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-border text-muted-foreground transition hover:bg-muted hover:text-foreground"
+            aria-label="Dismiss service alert"
+          >
+            <X className="h-3.5 w-3.5" aria-hidden="true" />
+          </button>
+        </div>
+          </div>
+        </StickyBanner>
+      )}
 
       <Navbar onVisibleChange={setNavbarVisible}>
         <NavBody>
