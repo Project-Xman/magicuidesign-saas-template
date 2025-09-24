@@ -9,6 +9,8 @@ import {
 } from "@/components/ui/carousel";
 import Image from "next/image";
 import { MdOutlineFormatQuote } from "react-icons/md";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
 
 const companies = [
   "Google",
@@ -21,6 +23,33 @@ const companies = [
   "Spotify",
 ];
 
+const sampleTestimonials = Array.from({ length: 7 }).map((_, i) => ({
+  quote:
+    "There is a lot of exciting stuff going on in the stars above us that make astronomy so much fun. The truth is the universe is a constantly changing, moving, some would say \"living\" thing because you just never know what you are going to see on any given night of stargazing.",
+  name: [
+    "Leslie Alexander",
+    "Alex Morgan",
+    "Jordan Lee",
+    "Riley Patel",
+    "Taylor Nguyen",
+    "Samira Khan",
+    "Chris O'Neil",
+  ][i % 7],
+  designation: [
+    "UI Designer",
+    "Head of Product",
+    "CTO",
+    "Design Lead",
+    "VP Engineering",
+    "Customer Success",
+    "Founder",
+  ][i % 7],
+  avatar: `https://randomuser.me/api/portraits/${
+    i % 2 === 0 ? "women" : "men"
+  }/${20 + i}.jpg`,
+  company: companies[i % companies.length],
+}));
+
 export default function Component() {
   return (
     <Section
@@ -30,49 +59,48 @@ export default function Component() {
       <Carousel>
         <div className="max-w-2xl mx-auto relative">
           <CarouselContent>
-            {Array.from({ length: 7 }).map((_, index) => (
+            {sampleTestimonials.map((item, index) => (
               <CarouselItem key={index}>
-                <div className="p-2 pb-5">
-                  <div className="text-center">
-                    <MdOutlineFormatQuote className="text-4xl text-themeDarkGray my-4 mx-auto" />
+                <div className="p-4">
+                  <div className="card-featured card-premium p-6 md:p-8 flex flex-col items-center text-center">
+                    <MdOutlineFormatQuote className="text-5xl text-primary mb-4" />
                     <BlurFade delay={0.25} inView>
-                      <h4 className="text-1xl font-semibold max-w-lg mx-auto px-10">
-                        There is a lot of exciting stuff going on in the stars
-                        above us that make astronomy so much fun. The truth is
-                        the universe is a constantly changing, moving, some
-                        would say “living” thing because you just never know
-                        what you are going to see on any given night of
-                        stargazing.
-                      </h4>
+                      <blockquote className="text-lg text-body max-w-2xl px-4 md:px-12">
+                        {item.quote}
+                      </blockquote>
                     </BlurFade>
-                    <BlurFade delay={0.25 * 2} inView>
-                      <div className="mt-8">
-                        <Image
-                          width={0}
-                          height={40}
-                          key={index}
-                          src={`https://cdn.magicui.design/companies/${
-                            companies[index % companies.length]
-                          }.svg`}
-                          alt={`${companies[index % companies.length]} Logo`}
-                          className="mx-auto w-auto h-[40px] grayscale opacity-30"
+
+                    <div className="flex items-center gap-4 mt-6">
+                      <Avatar className="ring-2 ring-primary">
+                        <AvatarImage
+                          src={`https://randomuser.me/api/portraits/${
+                            index % 2 === 0 ? "women" : "men"
+                          }/${30 + index}.jpg`}
                         />
-                      </div>
-                    </BlurFade>
-                    <div className="">
-                      <BlurFade delay={0.25 * 3} inView>
-                        <h4 className="text-1xl font-semibold my-2">
-                          Leslie Alexander
+                      </Avatar>
+                      <div className="text-left">
+                        <h4 className="text-base font-semibold text-body">
+                          {item.name}
                         </h4>
-                      </BlurFade>
-                    </div>
-                    <BlurFade delay={0.25 * 4} inView>
-                      <div className=" mb-3">
-                        <span className="text-sm text-themeDarkGray">
-                          UI Designer
-                        </span>
+                        <p className="text-sm text-muted">{item.designation}</p>
                       </div>
-                    </BlurFade>
+                    </div>
+
+                    <div className="mt-6">
+                      <Image
+                        width={140}
+                        height={32}
+                        src={`https://cdn.magicui.design/companies/${item.company}.svg`}
+                        alt={`${item.company} logo`}
+                        className="mx-auto w-auto h-[32px] grayscale opacity-50"
+                      />
+                    </div>
+
+                    <div className="mt-6">
+                      <Button variant="outline" size="sm">
+                        Read case study
+                      </Button>
+                    </div>
                   </div>
                 </div>
               </CarouselItem>

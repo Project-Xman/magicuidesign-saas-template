@@ -5,21 +5,21 @@ import { Brain, Shield, Zap } from "lucide-react";
 
 const problems = [
   {
-    title: "Data Overload",
+    title: "Payroll Takes Forever",
     description:
-      "Financial teams face overwhelming volumes of transactions and market data, making it hard to extract reliable insights for decision-making.",
+      "HR teams spend hours each pay period calculating wages, taxes, and deductions manually—time that could be spent on strategic initiatives.",
     icon: Brain,
   },
   {
-    title: "Slow Decision-Making",
+    title: "Employees Can't Wait",
     description:
-      "Legacy systems and manual processes slow down critical financial operations, delaying trades, approvals, and reconciliations.",
+      "74% of employees live paycheck to paycheck. Waiting two weeks for earned wages creates financial stress and impacts productivity.",
     icon: Zap,
   },
   {
-    title: "Data Security Concerns",
+    title: "Compliance Nightmares",
     description:
-      "Protecting sensitive financial and customer data is paramount amid growing regulatory and cybersecurity pressures.",
+      "Tax regulations change constantly. One small error in payroll can result in costly penalties and damage your company's reputation.",
     icon: Shield,
   },
 ];
@@ -27,8 +27,8 @@ const problems = [
 export default function Component() {
   return (
     <Section
-      title="Problem"
-      subtitle="Manually entering your data is a hassle."
+      title="The Payroll Pain Points"
+      subtitle="Why traditional payroll is broken and costing you money"
     >
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
         {problems.map((problem, index) => (

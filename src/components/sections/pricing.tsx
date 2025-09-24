@@ -1,136 +1,145 @@
 "use client";
 
+import { CometCard } from "@/components/ui/comet-card";
+import { GlareCard } from "@/components/ui/glare-card";
 import Section from "@/components/section";
 import { buttonVariants } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { siteConfig } from "@/lib/config";
-import useWindowSize from "@/lib/hooks/use-window-size";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { Check } from "lucide-react";
+import { Check, Star } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
-import { FaStar } from "react-icons/fa";
 
 export default function PricingSection() {
   const [isMonthly, setIsMonthly] = useState(true);
-  const { isDesktop } = useWindowSize();
 
   const handleToggle = () => {
     setIsMonthly(!isMonthly);
   };
 
   return (
-    <Section title="Pricing" subtitle="Flexible plans for businesses of all sizes">
-      <div className="flex justify-center mb-10">
-        <span className="mr-2 font-semibold">Monthly</span>
+    <Section title="Pricing" subtitle="Choose the perfect plan for your payroll needs">
+      <div className="flex justify-center items-center mb-10 gap-4">
+        <span className={`font-semibold ${isMonthly ? 'text-foreground' : 'text-muted-foreground'}`}>Monthly</span>
         <label className="relative inline-flex items-center cursor-pointer">
           <Label>
             <Switch checked={!isMonthly} onCheckedChange={handleToggle} />
           </Label>
         </label>
-        <span className="ml-2 font-semibold">Yearly</span>
+        <span className={`font-semibold ${!isMonthly ? 'text-foreground' : 'text-muted-foreground'}`}>Yearly</span>
+        <div className="ml-2 px-2 py-1 bg-primary/10 text-primary text-sm rounded-full">
+          Save 20%
+        </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 sm:2 gap-4">
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
         {siteConfig.pricing.map((plan, index) => (
           <motion.div
             key={index}
-            initial={{ y: 50, opacity: 1 }}
-            whileInView={
-              isDesktop
-                ? {
-                    y: 0,
-                    opacity: 1,
-                    x:
-                      index === siteConfig.pricing.length - 1
-                        ? -30
-                        : index === 0
-                        ? 30
-                        : 0,
-                    scale:
-                      index === 0 || index === siteConfig.pricing.length - 1
-                        ? 0.94
-                        : 1.0,
-                  }
-                : {}
-            }
+            initial={{ y: 50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{
-              duration: 1.6,
-              type: "spring",
-              stiffness: 100,
-              damping: 30,
-              delay: 0.4,
-              opacity: { duration: 0.5 },
+              duration: 0.8,
+              delay: index * 0.2,
             }}
-            className={cn(
-              `rounded-2xl border p-6 bg-background text-center lg:flex lg:flex-col lg:justify-center relative`,
-              plan.isPopular ? "border-primary border-2" : "border-border",
-              index === 0 || index === siteConfig.pricing.length - 1
-                ? "z-0 transform translate-x-0 translate-y-0 -translate-z-[50px] rotate-y-10"
-                : "z-10",
-              index === 0 && "origin-right",
-              index === siteConfig.pricing.length - 1 && "origin-left"
-            )}
+            className="flex justify-center"
           >
-            {plan.isPopular && (
-              <div className="absolute top-0 right-0 bg-primary py-0.5 px-2 rounded-bl-xl rounded-tr-xl flex items-center">
-                <FaStar className="text-white" />
-                <span className="text-white ml-1 font-sans font-semibold">
-                  Popular
-                </span>
-              </div>
+            {plan.isPopular ? (
+              <CometCard className="w-full max-w-sm">
+                <div className="relative p-8 bg-gradient-to-br from-background to-muted/30 rounded-2xl border border-primary/20 backdrop-blur-sm h-full">
+                  {plan.isPopular && (
+                    <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-primary to-secondary py-1 px-4 rounded-full flex items-center gap-1 shadow-lg">
+                      <Star className="h-4 w-4 text-white fill-current" />
+                      <span className="text-white text-sm font-semibold">Most Popular</span>
+                    </div>
+                  )}
+
+                  <div className="text-center">
+                    <h3 className="text-xl font-bold text-foreground mb-2">{plan.name}</h3>
+                    <div className="mb-4">
+                      <span className="text-4xl font-bold text-foreground">
+                        {isMonthly ? plan.price : plan.yearlyPrice}
+                      </span>
+                      {plan.period !== "Next 3 months" && (
+                        <span className="text-muted-foreground">/{plan.period}</span>
+                      )}
+                    </div>
+                    <p className="text-sm text-muted-foreground mb-6">
+                      {isMonthly ? "billed monthly" : "billed annually"}
+                    </p>
+                  </div>
+
+                  <ul className="space-y-3 mb-8">
+                    {plan.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-start gap-3">
+                        <Check className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                        <span className="text-sm">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <Link
+                    href={plan.href}
+                    className={cn(
+                      buttonVariants({ variant: "default" }),
+                      "w-full bg-primary hover:bg-primary-hover text-primary-foreground font-semibold py-3 rounded-xl transition-all duration-200"
+                    )}
+                  >
+                    {plan.buttonText}
+                  </Link>
+
+                  <p className="text-xs text-muted-foreground text-center mt-4">
+                    {plan.description}
+                  </p>
+                </div>
+              </CometCard>
+            ) : (
+              <GlareCard className="w-full max-w-sm">
+                <div className="p-8 card-premium h-full hover:border-primary/20 transition-all duration-300">
+                  <div className="text-center">
+                    <h3 className="text-xl font-bold text-foreground mb-2">{plan.name}</h3>
+                    <div className="mb-4">
+                      <span className="text-4xl font-bold text-foreground">
+                        {isMonthly ? plan.price : plan.yearlyPrice}
+                      </span>
+                      {plan.period !== "Next 3 months" && (
+                        <span className="text-muted-foreground">/{plan.period}</span>
+                      )}
+                    </div>
+                    <p className="text-sm text-muted-foreground mb-6">
+                      {isMonthly ? "billed monthly" : "billed annually"}
+                    </p>
+                  </div>
+
+                  <ul className="space-y-3 mb-8">
+                    {plan.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-start gap-3">
+                        <Check className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                        <span className="text-sm">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <Link
+                    href={plan.href}
+                    className={cn(
+                      buttonVariants({ variant: "outline" }),
+                      "w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground font-semibold py-3 rounded-xl transition-all duration-200"
+                    )}
+                  >
+                    {plan.buttonText}
+                  </Link>
+
+                  <p className="text-xs text-muted-foreground text-center mt-4">
+                    {plan.description}
+                  </p>
+                </div>
+              </GlareCard>
             )}
-            <div>
-              <p className="text-base font-semibold text-muted-foreground">
-                {plan.name}
-              </p>
-              <p className="mt-6 flex items-center justify-center gap-x-2">
-                <span className="text-5xl font-bold tracking-tight text-foreground">
-                  {isMonthly ? plan.price : plan.yearlyPrice}
-                </span>
-                {plan.period !== "Next 3 months" && (
-                  <span className="text-sm font-semibold leading-6 tracking-wide text-muted-foreground">
-                    / {plan.period}
-                  </span>
-                )}
-              </p>
-
-              <p className="text-xs leading-5 text-muted-foreground">
-                {isMonthly ? "billed monthly" : "billed annually"}
-              </p>
-
-              <ul className="mt-5 gap-2 flex flex-col">
-                {plan.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-center">
-                    <Check className="mr-2 h-4 w-4 text-primary" />
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <hr className="w-full my-4" />
-
-              <Link
-                href={plan.href}
-                className={cn(
-                  buttonVariants({
-                    variant: "outline-solid",
-                  }),
-                  "group relative w-full gap-2 overflow-hidden text-lg font-semibold tracking-tighter",
-                  "transform-gpu ring-offset-current transition-all duration-300 ease-out hover:ring-2 hover:ring-primary hover:ring-offset-1 hover:bg-primary hover:text-white",
-                  plan.isPopular
-                    ? "bg-primary text-white"
-                    : "bg-white text-black"
-                )}
-                >
-                {plan.buttonText}
-              </Link>
-              <p className="mt-6 text-xs leading-5 text-muted-foreground">
-                {plan.description}
-              </p>
-            </div>
           </motion.div>
         ))}
       </div>

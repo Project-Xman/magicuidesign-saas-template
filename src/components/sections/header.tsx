@@ -1,85 +1,136 @@
 "use client";
 
-import Drawer from "@/components/drawer";
+import { FloatingDock } from "@/components/ui/floating-dock";
 import { Icons } from "@/components/icons";
-import Menu from "@/components/menu";
+import { Navbar, NavBody, NavItems, MobileNav, MobileNavHeader, MobileNavMenu, MobileNavToggle, NavbarLogo } from "@/components/ui/resizable-navbar";
+import { StickyBanner } from "@/components/ui/sticky-banner";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { buttonVariants } from "@/components/ui/button";
 import { siteConfig } from "@/lib/config";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+
+const navItems = [
+  { name: "Home", link: "/" },
+  { name: "How It Works", link: "/how-it-works" },
+  { name: "Employers", link: "/employers" },
+  { name: "Employees", link: "/employees" },
+  { name: "About", link: "/about" },
+  { name: "Contact", link: "/contact" },
+];
+
+const floatingDockItems = [
+  {
+    title: "Home",
+    icon: <Icons.logo className="h-full w-full" />,
+    href: "/",
+  },
+  {
+    title: "GitHub",
+    icon: <Icons.github className="h-full w-full" />,
+    href: "https://github.com",
+  },
+  {
+    title: "Twitter",
+    icon: <Icons.twitter className="h-full w-full" />,
+    href: "https://twitter.com",
+  },
+  {
+    title: "LinkedIn",
+    icon: <Icons.google className="h-full w-full" />,
+    href: "https://linkedin.com",
+  },
+];
 
 export default function Header() {
-  const [addBorder, setAddBorder] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setAddBorder(true);
-      } else {
-        setAddBorder(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header
-      className={
-        "relative sticky top-0 z-50 py-2 bg-background/60 backdrop-blur-sm"
-      }
-    >
-      <div className="flex justify-between items-center container">
-        <Link
-          href="/"
-          title="brand-logo"
-          className="relative mr-6 flex items-center space-x-2"
-          >
-          <Icons.logo className="w-auto h-[40px]" />
-          <span className="font-bold text-xl">{siteConfig.name}</span>
-        </Link>
+    <>
+      <StickyBanner className="bg-gradient-to-r from-primary/20 to-secondary/20 backdrop-blur-md border-b border-primary/10">
+        <div className="flex items-center justify-center gap-2 text-sm">
+          <span>�</span>
+          <span>Finwage - it's your wage. Access earned wages instantly!</span>
+          <Link href="/employees" className="underline hover:no-underline">
+            Learn more →
+          </Link>
+        </div>
+      </StickyBanner>
 
-        <div className="hidden lg:block">
-          <div className="flex items-center ">
-            <nav className="mr-10">
-              <Menu />
-            </nav>
+      <Navbar>
+        <NavBody>
+          <NavbarLogo />
+          <NavItems items={navItems} />
+          <div className="flex items-center gap-4">
+            <ThemeToggle />
+            <Link
+              href="/employees"
+              className={cn(
+                buttonVariants({ variant: "ghost" }),
+                "text-foreground hover:bg-primary/10"
+              )}
+            >
+              For Employees
+            </Link>
+            <Link
+              href="/contact#demo"
+              className={cn(
+                buttonVariants({ variant: "default" }),
+                "bg-primary hover:bg-primary/90 text-primary-foreground"
+              )}
+            >
+              Book Demo
+            </Link>
+          </div>
+        </NavBody>
 
-            <div className="gap-2 flex">
+        <MobileNav>
+          <MobileNavHeader>
+            <NavbarLogo />
+            <MobileNavToggle
+              isOpen={mobileMenuOpen}
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            />
+          </MobileNavHeader>
+          <MobileNavMenu isOpen={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)}>
+            {navItems.map((item) => (
               <Link
-                href="/login"
-                className={buttonVariants({ variant: "outline-solid" })}
+                key={item.name}
+                href={item.link}
+                className="block px-4 py-2 text-sm text-foreground hover:bg-primary/10 rounded-md"
+                onClick={() => setMobileMenuOpen(false)}
               >
-                Login
+                {item.name}
+              </Link>
+            ))}
+            <div className="flex flex-col gap-2 mt-4 pt-4 border-t border-border">
+              <Link
+                href="/employees"
+                className={cn(
+                  buttonVariants({ variant: "ghost" }),
+                  "justify-start"
+                )}
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                For Employees
               </Link>
               <Link
-                href="/signup"
+                href="/contact#demo"
                 className={cn(
                   buttonVariants({ variant: "default" }),
-                  "w-full sm:w-auto text-background flex gap-2"
+                  "justify-start"
                 )}
-                >
-                <Icons.logo className="h-6 w-6" />
-                Get Started
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Book Demo
               </Link>
             </div>
-          </div>
-        </div>
-        <div className="mt-2 cursor-pointer block lg:hidden">
-          <Drawer />
-        </div>
-      </div>
-      <hr
-        className={cn(
-          "absolute w-full bottom-0 transition-opacity duration-300 ease-in-out",
-          addBorder ? "opacity-100" : "opacity-0"
-        )}
-      />
-    </header>
+          </MobileNavMenu>
+        </MobileNav>
+      </Navbar>
+
+      <FloatingDock items={floatingDockItems} desktopClassName="fixed bottom-4 right-4 z-10" />
+    </>
   );
 }

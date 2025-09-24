@@ -1,0 +1,55 @@
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.dark .background {
+  background: #1a1a1a;
+}
+
+.gradientLayer {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background: linear-gradient(
+    45deg,
+    rgba(29, 68, 195, 0.3),
+    rgba(60, 95, 221, 0.3),
+    rgba(105, 126, 232, 0.3),
+    rgba(246, 65, 98, 0.2),
+    rgba(248, 124, 137, 0.2)
+  );
+  filter: blur(100px);
+  animation: gradientWave 15s ease-in-out infinite;
+}
+
+.dark .gradientLayer {
+  background: linear-gradient(
+    45deg,
+    rgba(29, 68, 195, 0.5),
+    rgba(60, 95, 221, 0.5),
+    rgba(105, 126, 232, 0.4),
+    rgba(246, 65, 98, 0.3),
+    rgba(248, 124, 137, 0.3)
+  );
+}
+
+@keyframes gradientWave {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(25%, 25%) rotate(45deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}

@@ -9,10 +9,10 @@ import { motion } from "framer-motion";
 
 const features = [
   {
-    title: "Advanced AI Algorithms",
+    title: "5-Minute Payroll Processing",
     description:
-      "Proprietary models that power predictive analytics, fraud detection, and automated decisioning for financial operations.",
-    className: "hover:bg-red-500/10 transition-all duration-500 ease-out",
+      "Process unlimited employees in minutes, not hours. Our AI handles all calculations, tax deductions, and compliance checks automatically.",
+    className: "hover:bg-primary/10 transition-all duration-500 ease-out",
     content: (
       <>
         <Safari
@@ -24,11 +24,11 @@ const features = [
     ),
   },
   {
-    title: "Secure Data Handling",
+    title: "Instant Wage Access",
     description:
-      "Enterprise-grade encryption, role-based access, and audit trails to keep financial data secure and compliant.",
+      "Employees access earned wages instantly through our app—no waiting, no stress, no payday loan debt. Happy employees, better retention.",
     className:
-      "order-3 xl:order-0 hover:bg-blue-500/10 transition-all duration-500 ease-out",
+      "order-3 xl:order-0 hover:bg-secondary/10 transition-all duration-500 ease-out",
     content: (
         <Safari
           src={`/dashboard.png`}
@@ -38,11 +38,11 @@ const features = [
     ),
   },
   {
-    title: "Seamless Integration",
+    title: "Zero-Error Compliance",
     description:
-      "Connect with core banking systems, trading platforms, and accounting tools with pre-built connectors and APIs.",
+      "Our AI stays updated with all tax regulations automatically. Every payroll is 99.9% accurate with built-in audit trails and compliance reporting.",
     className:
-      "md:row-span-2 hover:bg-orange-500/10 transition-all duration-500 ease-out",
+      "md:row-span-2 hover:bg-accent/10 transition-all duration-500 ease-out",
     content: (
       <>
         <FlickeringGrid
@@ -64,11 +64,11 @@ const features = [
     ),
   },
   {
-    title: "Customizable Solutions",
+    title: "Complete HR Freedom",
     description:
-      "Tailorable workflows and dashboards to match your compliance, reporting, and operational requirements.",
+      "Free your HR team from payroll drudgery. Focus on strategic initiatives while FinWage handles the complex, time-consuming calculations.",
     className:
-      "flex-row order-4 md:col-span-2 md:flex-row xl:order-0 hover:bg-green-500/10 transition-all duration-500 ease-out",
+      "flex-row order-4 md:col-span-2 md:flex-row xl:order-0 hover:bg-warning/10 transition-all duration-500 ease-out",
     content: (
       <>
         <Ripple className="absolute -bottom-full" />
@@ -85,10 +85,10 @@ const features = [
 export default function Component() {
   return (
     <Section
-      title="Solution"
-      subtitle="Empower Your Business with AI Workflows"
-      description="Generic AI tools won't suffice. Our platform is purpose-built to provide exceptional AI-driven solutions for your unique business needs."
-      className="bg-neutral-100 dark:bg-neutral-900"
+      title="The FinWage Solution"
+      subtitle="Everything your payroll needs, automated and error-free"
+      description="Stop spending hours on payroll. FinWage's AI-powered platform handles everything—from calculations to compliance—so you can focus on growing your business."
+      className="bg-primary-light/20 dark:bg-neutral-900"
     >
       <div className="mx-auto mt-16 grid max-w-sm grid-cols-1 gap-6 text-gray-500 md:max-w-3xl md:grid-cols-2 xl:grid-rows-2 md:grid-rows-3 xl:max-w-6xl xl:auto-rows-fr xl:grid-cols-3">
         {features.map((feature, index) => (

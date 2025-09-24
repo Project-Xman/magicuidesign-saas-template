@@ -1,6 +1,7 @@
 import { TailwindIndicator } from "@/components/tailwind-indicator";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ThemeToggle } from "@/components/theme-toggle";
+import AnimatedBackground from "@/components/animated-background";
 import { cn, constructMetadata } from "@/lib/utils";
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
@@ -31,13 +32,14 @@ export default function RootLayout({
           "min-h-screen bg-background antialiased w-full mx-auto scroll-smooth"
         )}
       >
+        <AnimatedBackground />
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
           enableSystem={false}
         >
           {children}
-          <ThemeToggle />
+          {/* <ThemeToggle /> */}
           <TailwindIndicator />
         </ThemeProvider>
       </body>

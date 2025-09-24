@@ -49,7 +49,7 @@ export default function drawerDemo() {
         <DrawerFooter>
           <Link
             href="/login"
-            className={buttonVariants({ variant: "outline-solid" })}
+            className={buttonVariants({ variant: "outline" })}
           >
             Login
           </Link>

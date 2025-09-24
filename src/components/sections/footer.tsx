@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer>
+    <footer className="relative bg-background/80 backdrop-blur-md border-t border-border/50">
       <div className="max-w-6xl mx-auto py-16 sm:px-10 px-5 pb-0">
         <a
           href="/"
@@ -19,7 +19,7 @@ export default function Footer() {
         <div className="grid md:grid-cols-3 lg:grid-cols-4 sm:grid-cols-2 mt-8">
           {siteConfig.footer.map((section, index) => (
             <div key={index} className="mb-5">
-              <h2 className="font-semibold">{section.title}</h2>
+              <h2 className="font-semibold text-foreground">{section.title}</h2>
               <ul>
                 {section.links.map((link, linkIndex) => (
                   <li key={linkIndex} className="my-2">
@@ -37,22 +37,22 @@ export default function Footer() {
             </div>
           ))}
         </div>
-        <div className="max-w-6xl mx-auto border-t py-2 grid md:grid-cols-2 h-full justify-between w-full grid-cols-1 gap-1">
+        <div className="max-w-6xl mx-auto border-t border-border/50 py-2 grid md:grid-cols-2 h-full justify-between w-full grid-cols-1 gap-1">
           <span className="text-sm tracking-tight text-foreground">
             Copyright © {new Date().getFullYear()}{" "}
-            <Link href="/" className="cursor-pointer" >
+            <Link href="/" className="cursor-pointer hover:text-primary transition-colors" >
               {siteConfig.name}
             </Link>{" "}
             - {siteConfig.description}
           </span>
           <ul className="flex justify-start md:justify-end text-sm tracking-tight text-foreground">
             <li className="mr-3 md:mx-4">
-              <Link href="#" target="_blank" rel="noopener noreferrer">
+              <Link href="#" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
                 Privacy Policy
               </Link>
             </li>
             <li className="mr-3 md:mx-4">
-              <Link href="#" target="_blank" rel="noopener noreferrer">
+              <Link href="#" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
                 Terms of Service
               </Link>
             </li>
