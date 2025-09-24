@@ -10,12 +10,13 @@ import {
 import Image from "next/image";
 import { AnimatedThemeToggler } from "./animated-theme-toggler";
 
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 
 
 interface NavbarProps {
   children: React.ReactNode;
   className?: string;
+  onVisibleChange?: (visible: boolean) => void;
 }
 
 interface NavBodyProps {
@@ -51,7 +52,7 @@ interface MobileNavMenuProps {
   onClose: () => void;
 }
 
-export const Navbar = ({ children, className }: NavbarProps) => {
+export const Navbar = ({ children, className, onVisibleChange }: NavbarProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll({
     target: ref,
@@ -66,6 +67,10 @@ export const Navbar = ({ children, className }: NavbarProps) => {
       setVisible(false);
     }
   });
+
+  useEffect(() => {
+    onVisibleChange?.(visible);
+  }, [visible, onVisibleChange]);
 
   return (
     <motion.div
@@ -102,7 +107,7 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
         damping: 50,
       }}
       style={{
-        minWidth: "800px",
+        minWidth: "1000px",
       }}
       className={cn(
         "relative z-60 mx-auto hidden w-full max-w-7xl flex-row items-center justify-between self-start rounded-full bg-transparent px-4 py-2 lg:flex dark:bg-transparent",
@@ -299,3 +304,4 @@ export const NavbarButton = ({
     </Tag>
   );
 };
+

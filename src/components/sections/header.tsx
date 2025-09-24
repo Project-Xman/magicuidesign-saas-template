@@ -43,6 +43,7 @@ const floatingDockItems = [
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [navbarVisible, setNavbarVisible] = useState(false);
 
   return (
     <>
@@ -56,15 +57,17 @@ export default function Header() {
         </div>
       </StickyBanner>
 
-      <Navbar>
+      <Navbar onVisibleChange={setNavbarVisible}>
         <NavBody>
           <NavbarLogo />
           <NavItems items={navItems} />
           <div className="flex items-center gap-4">
             <NavbarThemeToggle />
-            <NavbarButton as={Link} href="/employees" variant="secondary" aria-label="Access employee portal and benefits">
-              For Employees
-            </NavbarButton>
+            {!navbarVisible && (
+              <NavbarButton as={Link} href="/employees" variant="secondary" aria-label="Access employee portal and benefits">
+                For Employees
+              </NavbarButton>
+            )}
             <NavbarButton as={Link} href="/contact#demo" variant="primary" aria-label="Schedule a product demonstration">
               Book Demo
             </NavbarButton>
