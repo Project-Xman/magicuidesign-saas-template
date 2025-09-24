@@ -1,5 +1,5 @@
-import Marquee from "@/components/magicui/marquee";
 import Image from "next/image";
+import styles from "./logos.module.css";
 
 const companies = [
   "Google",
@@ -27,19 +27,24 @@ export default function Logos() {
           </p>
         </div>
         <div className="relative">
-          <Marquee className="max-w-full [--duration:30s]">
-            {companies.map((logo, idx) => (
-              <div key={idx} className="mx-8 flex items-center justify-center">
-                <Image
-                  width={140}
-                  height={56}
-                  src={`https://cdn.magicui.design/companies/${logo}.svg`}
-                  className="h-14 w-auto dark:brightness-0 dark:invert grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all duration-300"
-                  alt={`${logo} - Trusted FinWage customer`}
-                />
-              </div>
-            ))}
-          </Marquee>
+          <div className={styles.logoCarousel}>
+            <div className={styles.logoSlide}>
+              {[...companies, ...companies, ...companies].map((logo, idx) => (
+                <div 
+                  key={idx} 
+                  className={`${styles.logo} transform hover:scale-110 transition-all duration-500`}
+                >
+                  <Image
+                    width={160}
+                    height={64}
+                    src={`https://cdn.magicui.design/companies/${logo}.svg`}
+                    className="h-16 w-auto dark:brightness-0 dark:invert grayscale opacity-80 hover:opacity-100 hover:grayscale-0 transition-all duration-300"
+                    alt={`${logo} - Trusted FinWage customer`}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
           <div className="pointer-events-none absolute inset-y-0 left-0 h-full w-1/4 bg-gradient-to-r from-muted/30 to-transparent"></div>
           <div className="pointer-events-none absolute inset-y-0 right-0 h-full w-1/4 bg-gradient-to-l from-muted/30 to-transparent"></div>
         </div>
