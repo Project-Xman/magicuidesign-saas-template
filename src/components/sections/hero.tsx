@@ -14,30 +14,46 @@ function HeroPill() {
   return (
     <motion.a
       href="/blog/introducing-fincorp"
-      className="flex w-auto items-center space-x-2 rounded-full bg-primary/10 px-3 py-2 ring-2 ring-primary/20 whitespace-pre backdrop-blur-sm hover:bg-primary/15 transition-all duration-200"
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease }}
+      className="group relative flex w-full max-w-xl items-center gap-4 overflow-hidden rounded-full border border-primary/25 bg-white/75 px-4 py-3 text-sm shadow-lg shadow-primary/10 backdrop-blur transition-all duration-300 hover:border-primary/45 hover:shadow-primary/25 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
+      initial={{ opacity: 0, y: -28, scale: 0.95 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      whileHover={{ y: -2 }}
+      whileFocus={{ y: -2 }}
+      transition={{ duration: 0.7, ease }}
+      aria-label="Read our blog post - Introducing Fincorp"
     >
-      <div className="w-fit rounded-full bg-accent px-3 py-1 text-center text-xs font-semibold text-white shadow-lg">
-        � Trusted
-      </div>
-      <p className="text-sm font-medium text-primary">
-        Finwage - it's your wage
-      </p>
-      <svg
-        width="12"
-        height="12"
-        className="ml-1"
-        viewBox="0 0 12 12"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M8.78141 5.33312L5.20541 1.75712L6.14808 0.814453L11.3334 5.99979L6.14808 11.1851L5.20541 10.2425L8.78141 6.66645H0.666748V5.33312H8.78141Z"
-          fill="var(--primary)"
-        />
-      </svg>
+      <span
+        aria-hidden="true"
+        className="absolute inset-y-0 left-0 w-24 skew-x-[-18deg] bg-gradient-to-r from-primary/25 via-primary/10 to-transparent transition-transform duration-500 group-hover:translate-x-10"
+      />
+      <span className="relative z-10 flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-primary/70 px-3 py-1 text-xs font-semibold text-primary-foreground shadow-sm">
+        <motion.span
+          className="flex h-5 w-5 items-center justify-center rounded-full bg-white/25"
+          animate={{ rotate: [0, 12, -12, 0] }}
+          transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut" }}
+          aria-hidden="true"
+        >
+          <svg className="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M10 1.5l2.12 4.3 4.73.69-3.43 3.35.81 4.86L10 12.87l-4.23 2.83.81-4.86-3.43-3.35 4.73-.69L10 1.5z" />
+          </svg>
+        </motion.span>
+        Featured insight
+      </span>
+      <span className="relative z-10 flex min-w-0 flex-1 items-center justify-between gap-3 text-primary">
+        <span className="truncate text-sm font-medium">
+          Finwage introduces same-day pay for modern teams
+        </span>
+        <motion.span
+          className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full border border-primary/30 bg-primary/10 text-primary transition-colors duration-300 group-hover:border-primary/60 group-hover:bg-primary group-hover:text-primary-foreground"
+          animate={{ x: [0, 4, 0] }}
+          transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+          aria-hidden="true"
+        >
+          <svg className="h-3 w-3" viewBox="0 0 12 12" fill="currentColor">
+            <path d="M4.25 2.25L8 6l-3.75 3.75L3.5 8l2-2-2-2 0.75-1.75z" />
+          </svg>
+        </motion.span>
+      </span>
     </motion.a>
   );
 }
