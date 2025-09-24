@@ -22,15 +22,21 @@ export default function PricingSection() {
 
   return (
     <Section title="Pricing" subtitle="Choose the perfect plan for your payroll needs">
-      <div className="flex justify-center items-center mb-10 gap-4">
-        <span className={`font-semibold ${isMonthly ? 'text-foreground' : 'text-muted-foreground'}`}>Monthly</span>
+      <div className="flex justify-center items-center mb-10 gap-4" role="group" aria-labelledby="billing-toggle">
+        <span id="billing-toggle" className="sr-only">Choose billing frequency</span>
+        <span className={`font-semibold ${isMonthly ? 'text-foreground' : 'text-muted-foreground'}`} aria-hidden="true">Monthly</span>
         <label className="relative inline-flex items-center cursor-pointer">
-          <Label>
-            <Switch checked={!isMonthly} onCheckedChange={handleToggle} />
+          <Label className="sr-only">
+            {isMonthly ? "Switch to yearly billing" : "Switch to monthly billing"}
           </Label>
+          <Switch 
+            checked={!isMonthly} 
+            onCheckedChange={handleToggle}
+            aria-describedby="billing-savings"
+          />
         </label>
-        <span className={`font-semibold ${!isMonthly ? 'text-foreground' : 'text-muted-foreground'}`}>Yearly</span>
-        <div className="ml-2 px-2 py-1 bg-primary/10 text-primary text-sm rounded-full">
+        <span className={`font-semibold ${!isMonthly ? 'text-foreground' : 'text-muted-foreground'}`} aria-hidden="true">Yearly</span>
+        <div id="billing-savings" className="ml-2 px-2 py-1 bg-primary/10 text-primary text-sm rounded-full">
           Save 20%
         </div>
       </div>
@@ -85,8 +91,8 @@ export default function PricingSection() {
                   <Link
                     href={plan.href}
                     className={cn(
-                      buttonVariants({ variant: "default" }),
-                      "w-full bg-primary hover:bg-primary-hover text-primary-foreground font-semibold py-3 rounded-xl transition-all duration-200"
+                      buttonVariants({ variant: "premium", size: "lg" }),
+                      "w-full font-semibold rounded-xl"
                     )}
                   >
                     {plan.buttonText}
@@ -127,8 +133,8 @@ export default function PricingSection() {
                   <Link
                     href={plan.href}
                     className={cn(
-                      buttonVariants({ variant: "outline" }),
-                      "w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground font-semibold py-3 rounded-xl transition-all duration-200"
+                      buttonVariants({ variant: "outline", size: "lg" }),
+                      "w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground font-semibold rounded-xl"
                     )}
                   >
                     {plan.buttonText}

@@ -62,10 +62,10 @@ export default function Header() {
           <NavItems items={navItems} />
           <div className="flex items-center gap-4">
             <NavbarThemeToggle />
-            <NavbarButton as={Link} href="/employees" variant="secondary">
+            <NavbarButton as={Link} href="/employees" variant="secondary" aria-label="Access employee portal and benefits">
               For Employees
             </NavbarButton>
-            <NavbarButton as={Link} href="/contact#demo" variant="primary">
+            <NavbarButton as={Link} href="/contact#demo" variant="primary" aria-label="Schedule a product demonstration">
               Book Demo
             </NavbarButton>
           </div>
@@ -80,24 +80,27 @@ export default function Header() {
             />
           </MobileNavHeader>
           <MobileNavMenu isOpen={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)}>
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.link}
-                className="block px-4 py-2 text-sm text-foreground hover:bg-primary/10 rounded-md"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {item.name}
-              </Link>
-            ))}
-            <div className="flex flex-col gap-2 mt-4 pt-4 border-t border-border">
-              <NavbarButton as={Link} href="/employees" variant="secondary" className="justify-start" onClick={() => setMobileMenuOpen(false)}>
-                For Employees
-              </NavbarButton>
-              <NavbarButton as={Link} href="/contact#demo" variant="primary" className="justify-start" onClick={() => setMobileMenuOpen(false)}>
-                Book Demo
-              </NavbarButton>
-            </div>
+            <nav role="navigation" aria-label="Mobile navigation">
+              {navItems.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.link}
+                  className="block px-4 py-2 text-sm text-foreground hover:bg-primary/10 rounded-md focus:ring-2 focus:ring-primary focus:outline-none"
+                  onClick={() => setMobileMenuOpen(false)}
+                  aria-label={`Navigate to ${item.name}`}
+                >
+                  {item.name}
+                </Link>
+              ))}
+              <div className="flex flex-col gap-2 mt-4 pt-4 border-t border-border">
+                <NavbarButton as={Link} href="/employees" variant="secondary" className="justify-start" onClick={() => setMobileMenuOpen(false)} aria-label="Access employee portal and benefits">
+                  For Employees
+                </NavbarButton>
+                <NavbarButton as={Link} href="/contact#demo" variant="primary" className="justify-start" onClick={() => setMobileMenuOpen(false)} aria-label="Schedule a product demonstration">
+                  Book Demo
+                </NavbarButton>
+              </div>
+            </nav>
           </MobileNavMenu>
         </MobileNav>
       </Navbar>

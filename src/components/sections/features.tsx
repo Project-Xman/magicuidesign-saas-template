@@ -1,7 +1,10 @@
+"use client";
+
 import { BentoCard, BentoGrid } from "@/components/ui/bento-grid";
 import { CometCard } from "@/components/ui/comet-card";
 import { GlareCard } from "@/components/ui/glare-card";
 import Section from "@/components/section";
+import { motion } from "framer-motion";
 import {
   BarChart3,
   Brain,
@@ -115,18 +118,33 @@ export default function Component() {
       >
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {interactiveFeatures.map((feature, index) => (
-            <div key={feature.title} className="text-center">
-              <div className="card-premium p-8 h-full flex flex-col items-center">
-                <div className="mb-4">
+            <motion.div 
+              key={feature.title} 
+              className="text-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+            >
+              <div className="card-premium p-8 h-full flex flex-col items-center group hover:card-featured transition-all duration-300 interactive-lift">
+                <motion.div 
+                  className="mb-4"
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
                   {feature.icon}
-                </div>
-                <div className="text-4xl font-bold text-primary mb-2">
+                </motion.div>
+                <motion.div 
+                  className="text-4xl font-bold text-primary mb-2"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ type: "spring", stiffness: 400 }}
+                >
                   {feature.stats}
-                </div>
-                <h3 className="text-xl font-semibold mb-3 text-secondary">{feature.title}</h3>
-                <p className="text-muted-foreground text-lg leading-relaxed">{feature.description}</p>
+                </motion.div>
+                <h3 className="text-xl font-semibold mb-3 text-secondary group-hover:text-primary transition-colors">{feature.title}</h3>
+                <p className="text-muted-foreground text-lg leading-relaxed group-hover:text-foreground transition-colors">{feature.description}</p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </Section>
@@ -137,25 +155,45 @@ export default function Component() {
         subtitle="Everything you need to revolutionize your payroll management"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature) => (
-            <div key={feature.name} className="card-premium p-8 group hover:card-featured transition-all duration-300">
+          {features.map((feature, index) => (
+            <motion.div 
+              key={feature.name} 
+              className="card-premium p-8 group hover:card-featured transition-all duration-300 interactive-lift"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              whileHover={{ scale: 1.02 }}
+            >
               <div className="flex items-center mb-4">
-                <div className="p-3 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                <motion.div 
+                  className="p-3 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors"
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
                   <feature.Icon className="h-8 w-8 text-primary" />
-                </div>
+                </motion.div>
               </div>
-              <h3 className="text-xl font-semibold mb-3 text-secondary">{feature.name}</h3>
-              <p className="text-muted-foreground text-lg leading-relaxed mb-4">{feature.description}</p>
-              <a 
+              <h3 className="text-xl font-semibold mb-3 text-secondary group-hover:text-primary transition-colors">{feature.name}</h3>
+              <p className="text-muted-foreground text-lg leading-relaxed mb-4 group-hover:text-foreground transition-colors">{feature.description}</p>
+              <motion.a 
                 href={feature.href} 
                 className="inline-flex items-center text-primary hover:text-primary-hover font-medium transition-colors"
+                whileHover={{ x: 4 }}
+                transition={{ type: "spring", stiffness: 400 }}
               >
                 {feature.cta} 
-                <svg className="ml-1 h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                <motion.svg 
+                  className="ml-1 h-4 w-4" 
+                  viewBox="0 0 20 20" 
+                  fill="currentColor"
+                  whileHover={{ x: 2 }}
+                  transition={{ type: "spring", stiffness: 400 }}
+                >
                   <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
-                </svg>
-              </a>
-            </div>
+                </motion.svg>
+              </motion.a>
+            </motion.div>
           ))}
         </div>
       </Section>

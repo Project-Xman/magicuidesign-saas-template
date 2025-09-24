@@ -46,6 +46,7 @@ function HeroTitles() {
   return (
     <div className="flex w-full max-w-4xl flex-col space-y-6 overflow-hidden pt-8">
       <motion.h1
+        id="hero-title"
         className="text-center text-4xl font-bold leading-tight text-primary sm:text-5xl md:text-6xl lg:text-7xl"
         initial={{ filter: "blur(10px)", opacity: 0, y: 50 }}
         animate={{ filter: "blur(0px)", opacity: 1, y: 0 }}
@@ -99,11 +100,12 @@ function HeroCTA() {
         <Link
           href="/employers"
           className={cn(
-            buttonVariants({ variant: "default" }),
-            "w-full sm:w-auto text-primary-foreground bg-primary hover:bg-primary-hover flex gap-2 px-8 py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105"
+            buttonVariants({ variant: "premium", size: "xl" }),
+            "w-full sm:w-auto text-primary-foreground flex gap-2 text-lg font-semibold rounded-xl focus:ring-2 focus:ring-primary focus:ring-offset-2"
           )}
+          aria-label="Employer portal - Discover payroll solutions for your business"
           >
-          <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2V6z" />
           </svg>
           I'm an Employer
@@ -111,9 +113,10 @@ function HeroCTA() {
         <Link
           href="/employees"
           className={cn(
-            buttonVariants({ variant: "outline" }),
-            "w-full sm:w-auto border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-4 text-lg font-semibold rounded-xl transition-all duration-200"
+            buttonVariants({ variant: "outline", size: "xl" }),
+            "w-full sm:w-auto border-primary text-primary hover:bg-primary hover:text-primary-foreground text-lg font-semibold rounded-xl focus:ring-2 focus:ring-primary focus:ring-offset-2"
           )}
+          aria-label="Employee portal - Access your earned wages instantly"
         >
           I'm an Employee
         </Link>
@@ -237,15 +240,17 @@ function HeroFlow() {
 
 export default function Hero() {
   return (
-    <section id="hero">
+    <section id="hero" aria-labelledby="hero-title" role="banner">
       <div className="relative flex w-full flex-col items-center justify-start px-4 pt-32 sm:px-6 sm:pt-24 md:pt-32 lg:px-8">
         <HeroPill />
-        <HeroTitles />
+        <header>
+          <HeroTitles />
+        </header>
         <HeroCTA />
         <HeroAnimation />
 
         {/* white gradient sits above the bottom and the flow is rendered after it */}
-        <div className="pointer-events-none absolute inset-x-0 -bottom-12 h-1/3 bg-gradient-to-t from-white via-white/80 to-transparent lg:h-1/4 z-0"></div>
+        <div className="pointer-events-none absolute inset-x-0 -bottom-12 h-1/3 bg-gradient-to-t from-white via-white/80 to-transparent lg:h-1/4 z-0" aria-hidden="true"></div>
 
         {/* Place the flow after the white gradient so it displays above it */}
         <HeroFlow />
