@@ -12,8 +12,14 @@ export default function Footer() {
           title={siteConfig.name}
           className="relative mr-6 flex items-center space-x-2"
         >
-          <Icons.logo className="w-auto h-[40px]" />
-          <span className="font-bold text-xl">{siteConfig.name}</span>
+          <img
+            src="/logo.png"
+            alt="logo"
+            width={40}
+            height={40}
+            className="w-auto h-[40px]"
+            style={{ color: 'transparent' }}
+          />
         </a>
 
         <div className="grid md:grid-cols-3 lg:grid-cols-4 sm:grid-cols-2 mt-8">
