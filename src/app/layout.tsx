@@ -32,12 +32,12 @@ export default function RootLayout({
           "min-h-screen bg-background antialiased w-full mx-auto scroll-smooth"
         )}
       >
-        <AnimatedBackground />
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
           enableSystem={false}
         >
+          <AnimatedBackground />
           {children}
           {/* <ThemeToggle /> */}
           <TailwindIndicator />

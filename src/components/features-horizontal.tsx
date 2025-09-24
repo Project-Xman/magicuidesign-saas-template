@@ -292,13 +292,13 @@ export default function Features({
                 <div className="aspect-auto h-full w-full rounded-xl border border-neutral-300/50 bg-gray-200 p-1 min-h-[600px]"></div>
               )}
               <BorderBeam
-                size={400}
-                duration={12}
-                delay={9}
-                borderWidth={1.5}
-                colorFrom="hsl(var(--primary))"
-                colorTo="hsl(var(--primary)/0)"
-              />
+                  size={400}
+                  duration={12}
+                  delay={9}
+                  borderWidth={1.5}
+                  colorFrom="var(--primary)"
+                  colorTo="transparent"
+                />
             </div>
 
             <ul

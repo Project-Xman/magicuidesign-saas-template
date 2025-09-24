@@ -1,43 +1,31 @@
 "use client";
 
 import { Moon, Sun } from "lucide-react";
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useRef, useCallback } from "react";
 import { flushSync } from "react-dom";
 import { cn } from "@/lib/utils";
+import { useTheme } from "next-themes";
 
 type Props = {
   className?: string;
 };
 
 export const AnimatedThemeToggler = ({ className }: Props) => {
-  const [isDark, setIsDark] = useState(false);
+  const { theme, setTheme, resolvedTheme } = useTheme();
   const buttonRef = useRef<HTMLButtonElement>(null);
 
-  useEffect(() => {
-    const updateTheme = () => {
-      setIsDark(document.documentElement.classList.contains("dark"));
-    };
-
-    updateTheme();
-
-    const observer = new MutationObserver(updateTheme);
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["class"],
-    });
-
-    return () => observer.disconnect();
-  }, []);
+  const isDark = resolvedTheme === "dark" || theme === "dark";
 
   const toggleTheme = useCallback(async () => {
     if (!buttonRef.current) return;
 
+    // Determine the target theme
+    const target = isDark ? "light" : "dark";
+
     await document.startViewTransition(() => {
       flushSync(() => {
-        const newTheme = !isDark;
-        setIsDark(newTheme);
-        document.documentElement.classList.toggle("dark");
-        localStorage.setItem("theme", newTheme ? "dark" : "light");
+        // Use next-themes to update theme and let ThemeProvider handle the DOM class
+        setTheme(target);
       });
     }).ready;
 
@@ -50,6 +38,7 @@ export const AnimatedThemeToggler = ({ className }: Props) => {
       Math.max(top, window.innerHeight - top),
     );
 
+    // Animate a circular reveal on the root element to match the transition
     document.documentElement.animate(
       {
         clipPath: [
@@ -63,7 +52,7 @@ export const AnimatedThemeToggler = ({ className }: Props) => {
         pseudoElement: "::view-transition-new(root)",
       },
     );
-  }, [isDark]);
+  }, [isDark, setTheme]);
 
   return (
     <button ref={buttonRef} onClick={toggleTheme} className={cn(className)}>

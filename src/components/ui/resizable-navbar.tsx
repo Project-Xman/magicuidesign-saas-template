@@ -8,6 +8,7 @@ import {
   useMotionValueEvent,
 } from "motion/react";
 import Image from "next/image";
+import { AnimatedThemeToggler } from "./animated-theme-toggler";
 
 import React, { useRef, useState } from "react";
 
@@ -129,7 +130,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
         <a
           onMouseEnter={() => setHovered(idx)}
           onClick={onItemClick}
-          className="relative px-4 py-2 text-neutral-600 dark:text-neutral-300"
+          className="relative px-4 py-2 text-subtle"
           key={`link-${idx}`}
           href={item.link}
         >
@@ -225,9 +226,9 @@ export const MobileNavToggle = ({
   onClick: () => void;
 }) => {
   return isOpen ? (
-    <IconX className="text-black dark:text-white" onClick={onClick} />
+    <IconX className="text-readable" onClick={onClick} />
   ) : (
-    <IconMenu2 className="text-black dark:text-white" onClick={onClick} />
+    <IconMenu2 className="text-readable" onClick={onClick} />
   );
 };
 
@@ -235,7 +236,7 @@ export const NavbarLogo = () => {
   return (
     <a
       href="#"
-      className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-black"
+      className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-readable"
     >
       <Image
         src="https://assets.aceternity.com/logo-dark.png"
@@ -243,8 +244,19 @@ export const NavbarLogo = () => {
         width={30}
         height={30}
       />
-      <span className="font-medium text-black dark:text-white">Startup</span>
+      <span className="font-medium text-readable">Startup</span>
     </a>
+  );
+};
+
+export const NavbarThemeToggle = ({ className }: { className?: string }) => {
+  return (
+    <AnimatedThemeToggler 
+      className={cn(
+        "relative z-20 p-2 rounded-full bg-background border border-border text-foreground hover:bg-accent hover:text-accent-foreground transition-colors duration-200",
+        className
+      )} 
+    />
   );
 };
 
@@ -266,15 +278,15 @@ export const NavbarButton = ({
   | React.ComponentPropsWithoutRef<"button">
 )) => {
   const baseStyles =
-    "px-4 py-2 rounded-md bg-white button bg-white text-black text-sm font-bold relative cursor-pointer hover:-translate-y-0.5 transition duration-200 inline-block text-center";
+    "px-4 py-2 rounded-md text-sm font-bold relative cursor-pointer hover:-translate-y-0.5 transition duration-200 inline-block text-center";
 
   const variantStyles = {
     primary:
-      "shadow-[0_0_24px_rgba(34,42,53,0.06),0_1px_1px_rgba(0,0,0,0.05),0_0_0_1px_rgba(34,42,53,0.04),0_0_4px_rgba(34,42,53,0.08),0_16px_68px_rgba(47,48,55,0.05),0_1px_0_rgba(255,255,255,0.1)_inset]",
-    secondary: "bg-transparent shadow-none dark:text-white",
-    dark: "bg-black text-white shadow-[0_0_24px_rgba(34,42,53,0.06),0_1px_1px_rgba(0,0,0,0.05),0_0_0_1px_rgba(34,42,53,0.04),0_0_4px_rgba(34,42,53,0.08),0_16px_68px_rgba(47,48,55,0.05),0_1px_0_rgba(255,255,255,0.1)_inset]",
+      "bg-background text-foreground border border-border shadow-sm hover:bg-accent hover:text-accent-foreground",
+    secondary: "bg-transparent text-readable hover:bg-accent hover:text-accent-foreground",
+    dark: "bg-primary text-primary-foreground shadow-sm hover:bg-primary/90",
     gradient:
-      "bg-linear-to-b from-blue-500 to-blue-700 text-white shadow-[0px_2px_0px_0px_rgba(255,255,255,0.3)_inset]",
+      "bg-primary text-primary-foreground shadow-sm",
   };
 
   return (

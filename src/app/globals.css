@@ -189,7 +189,7 @@ body {
 }
 @layer base {
   :root {
-    --background: oklch(1.0000 0 0);
+    --background: oklch(1.0000 0 0); /* white */
     --foreground: oklch(0.1408 0.0044 285.8229);
     --card: oklch(0.9846 0.0017 247.8389);
     --card-foreground: oklch(0.1408 0.0044 285.8229);
@@ -228,20 +228,20 @@ body {
     --font-serif: serif;
     --font-mono: monospace;
     --radius: 0.5rem;
-    --shadow-2xs: 0px 4px 8px -2px hsl(0 0% 0% / 0.05);
-    --shadow-xs: 0px 4px 8px -2px hsl(0 0% 0% / 0.05);
-    --shadow-sm: 0px 4px 8px -2px hsl(0 0% 0% / 0.10), 0px 1px 2px -3px hsl(0 0% 0% / 0.10);
-    --shadow: 0px 4px 8px -2px hsl(0 0% 0% / 0.10), 0px 1px 2px -3px hsl(0 0% 0% / 0.10);
-    --shadow-md: 0px 4px 8px -2px hsl(0 0% 0% / 0.10), 0px 2px 4px -3px hsl(0 0% 0% / 0.10);
-    --shadow-lg: 0px 4px 8px -2px hsl(0 0% 0% / 0.10), 0px 4px 6px -3px hsl(0 0% 0% / 0.10);
-    --shadow-xl: 0px 4px 8px -2px hsl(0 0% 0% / 0.10), 0px 8px 10px -3px hsl(0 0% 0% / 0.10);
-    --shadow-2xl: 0px 4px 8px -2px hsl(0 0% 0% / 0.25);
+  --shadow-2xs: 0px 4px 8px -2px rgba(0,0,0,0.05);
+  --shadow-xs: 0px 4px 8px -2px rgba(0,0,0,0.05);
+  --shadow-sm: 0px 4px 8px -2px rgba(0,0,0,0.10), 0px 1px 2px -3px rgba(0,0,0,0.10);
+  --shadow: 0px 4px 8px -2px rgba(0,0,0,0.10), 0px 1px 2px -3px rgba(0,0,0,0.10);
+  --shadow-md: 0px 4px 8px -2px rgba(0,0,0,0.10), 0px 2px 4px -3px rgba(0,0,0,0.10);
+  --shadow-lg: 0px 4px 8px -2px rgba(0,0,0,0.10), 0px 4px 6px -3px rgba(0,0,0,0.10);
+  --shadow-xl: 0px 4px 8px -2px rgba(0,0,0,0.10), 0px 8px 10px -3px rgba(0,0,0,0.10);
+  --shadow-2xl: 0px 4px 8px -2px rgba(0,0,0,0.25);
     --tracking-normal: 0px;
     --spacing: 0.25rem;
   }
  
   .dark {
-    --background: oklch(0.1469 0.0041 49.2499);
+    --background: oklch(1.0000 0 0); /* force white even in dark theme */
     --foreground: oklch(0.9842 0.0034 247.8575);
     --card: oklch(0.2103 0.0059 285.8852);
     --card-foreground: oklch(0.9842 0.0034 247.8575);
@@ -280,14 +280,14 @@ body {
     --font-serif: serif;
     --font-mono: monospace;
     --radius: 0.5rem;
-    --shadow-2xs: 0px 4px 8px -2px hsl(0 0% 0% / 0.10);
-    --shadow-xs: 0px 4px 8px -2px hsl(0 0% 0% / 0.10);
-    --shadow-sm: 0px 4px 8px -2px hsl(0 0% 0% / 0.20), 0px 1px 2px -3px hsl(0 0% 0% / 0.20);
-    --shadow: 0px 4px 8px -2px hsl(0 0% 0% / 0.20), 0px 1px 2px -3px hsl(0 0% 0% / 0.20);
-    --shadow-md: 0px 4px 8px -2px hsl(0 0% 0% / 0.20), 0px 2px 4px -3px hsl(0 0% 0% / 0.20);
-    --shadow-lg: 0px 4px 8px -2px hsl(0 0% 0% / 0.20), 0px 4px 6px -3px hsl(0 0% 0% / 0.20);
-    --shadow-xl: 0px 4px 8px -2px hsl(0 0% 0% / 0.20), 0px 8px 10px -3px hsl(0 0% 0% / 0.20);
-    --shadow-2xl: 0px 4px 8px -2px hsl(0 0% 0% / 0.50);
+  --shadow-2xs: 0px 4px 8px -2px rgba(0,0,0,0.10);
+  --shadow-xs: 0px 4px 8px -2px rgba(0,0,0,0.10);
+  --shadow-sm: 0px 4px 8px -2px rgba(0,0,0,0.20), 0px 1px 2px -3px rgba(0,0,0,0.20);
+  --shadow: 0px 4px 8px -2px rgba(0,0,0,0.20), 0px 1px 2px -3px rgba(0,0,0,0.20);
+  --shadow-md: 0px 4px 8px -2px rgba(0,0,0,0.20), 0px 2px 4px -3px rgba(0,0,0,0.20);
+  --shadow-lg: 0px 4px 8px -2px rgba(0,0,0,0.20), 0px 4px 6px -3px rgba(0,0,0,0.20);
+  --shadow-xl: 0px 4px 8px -2px rgba(0,0,0,0.20), 0px 8px 10px -3px rgba(0,0,0,0.20);
+  --shadow-2xl: 0px 4px 8px -2px rgba(0,0,0,0.50);
   }
 }
 
@@ -302,6 +302,10 @@ body {
     font-size: var(--font-size-base);
     line-height: var(--line-height-normal);
     font-weight: var(--font-weight-normal);
+    letter-spacing: var(--tracking-normal);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   /* Professional Typography Hierarchy */
@@ -398,17 +402,12 @@ body {
     mix-blend-mode: normal;
   }
 
+  /* Removed glass blur effects for better readability */
   .glass {
-    background: color-mix(in srgb, var(--color-card) 85%, white);
-    backdrop-filter: blur(8px);
-    border: 1px solid color-mix(in srgb, var(--color-card) 20%, white);
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
     border-radius: 12px;
-    box-shadow: 0 4px 30px color-mix(in srgb, var(--color-foreground) 10%, transparent);
-  }
-
-  .dark .glass {
-    background: color-mix(in srgb, var(--color-card) 85%, black);
-    border: 1px solid color-mix(in srgb, var(--color-card) 30%, black);
+    box-shadow: 0 2px 8px color-mix(in srgb, var(--color-foreground) 5%, transparent);
   }
 
   /* Professional text hierarchy utilities */
@@ -417,7 +416,7 @@ body {
   }
   
   .text-secondary {
-    color: var(--color-muted);
+    color: var(--color-muted-foreground);
   }
   
   .text-body {
@@ -425,7 +424,16 @@ body {
   }
   
   .text-muted {
-    color: var(--color-muted);
+    color: var(--color-muted-foreground);
+  }
+
+  /* Semantic text colors for better contrast */
+  .text-readable {
+    color: var(--color-foreground);
+  }
+
+  .text-subtle {
+    color: var(--color-muted-foreground);
   }
 
   /* Enhanced button styles */

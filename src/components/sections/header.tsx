@@ -2,10 +2,8 @@
 
 import { FloatingDock } from "@/components/ui/floating-dock";
 import { Icons } from "@/components/icons";
-import { Navbar, NavBody, NavItems, MobileNav, MobileNavHeader, MobileNavMenu, MobileNavToggle, NavbarLogo } from "@/components/ui/resizable-navbar";
+import { Navbar, NavBody, NavItems, MobileNav, MobileNavHeader, MobileNavMenu, MobileNavToggle, NavbarLogo, NavbarThemeToggle, NavbarButton } from "@/components/ui/resizable-navbar";
 import { StickyBanner } from "@/components/ui/sticky-banner";
-import { ThemeToggle } from "@/components/theme-toggle";
-import { buttonVariants } from "@/components/ui/button";
 import { siteConfig } from "@/lib/config";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
@@ -63,25 +61,13 @@ export default function Header() {
           <NavbarLogo />
           <NavItems items={navItems} />
           <div className="flex items-center gap-4">
-            <ThemeToggle />
-            <Link
-              href="/employees"
-              className={cn(
-                buttonVariants({ variant: "ghost" }),
-                "text-foreground hover:bg-primary/10"
-              )}
-            >
+            <NavbarThemeToggle />
+            <NavbarButton as={Link} href="/employees" variant="secondary">
               For Employees
-            </Link>
-            <Link
-              href="/contact#demo"
-              className={cn(
-                buttonVariants({ variant: "default" }),
-                "bg-primary hover:bg-primary/90 text-primary-foreground"
-              )}
-            >
+            </NavbarButton>
+            <NavbarButton as={Link} href="/contact#demo" variant="primary">
               Book Demo
-            </Link>
+            </NavbarButton>
           </div>
         </NavBody>
 
@@ -105,26 +91,12 @@ export default function Header() {
               </Link>
             ))}
             <div className="flex flex-col gap-2 mt-4 pt-4 border-t border-border">
-              <Link
-                href="/employees"
-                className={cn(
-                  buttonVariants({ variant: "ghost" }),
-                  "justify-start"
-                )}
-                onClick={() => setMobileMenuOpen(false)}
-              >
+              <NavbarButton as={Link} href="/employees" variant="secondary" className="justify-start" onClick={() => setMobileMenuOpen(false)}>
                 For Employees
-              </Link>
-              <Link
-                href="/contact#demo"
-                className={cn(
-                  buttonVariants({ variant: "default" }),
-                  "justify-start"
-                )}
-                onClick={() => setMobileMenuOpen(false)}
-              >
+              </NavbarButton>
+              <NavbarButton as={Link} href="/contact#demo" variant="primary" className="justify-start" onClick={() => setMobileMenuOpen(false)}>
                 Book Demo
-              </Link>
+              </NavbarButton>
             </div>
           </MobileNavMenu>
         </MobileNav>
