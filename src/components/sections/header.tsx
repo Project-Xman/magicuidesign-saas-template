@@ -96,11 +96,11 @@ export default function Header() {
           <NavItems items={navItems} />
           <div className="flex items-center gap-4">
             <NavbarThemeToggle />
-            {!navbarVisible && (
+            {/* {!navbarVisible && (
               <NavbarButton as={Link} href="/employees" variant="secondary" aria-label="Access employee portal and benefits">
                 For Employees
               </NavbarButton>
-            )}
+            )} */}
             <NavbarButton as={Link} href="/contact#demo" variant="primary" aria-label="Schedule a product demonstration">
               Book Demo
             </NavbarButton>
