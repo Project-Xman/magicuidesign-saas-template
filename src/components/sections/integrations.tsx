@@ -217,7 +217,7 @@ export default function Integrations() {
                 <path d="M208,36H48A20,20,0,0,0,28,56v56c0,54.29,26.32,87.22,48.4,105.29,23.71,19.39,47.44,26,48.44,26.29a12.1,12.1,0,0,0,6.32,0c1-.28,24.73-6.9,48.44-26.29,22.08-18.07,48.4-51,48.4-105.29V56A20,20,0,0,0,208,36Zm-4,76c0,35.71-13.09,64.69-38.91,86.15A126.28,126.28,0,0,1,128,219.38a126.14,126.14,0,0,1-37.09-21.23C65.09,176.69,52,147.71,52,112V60H204ZM79.51,144.49a12,12,0,1,1,17-17L112,143l47.51-47.52a12,12,0,0,1,17,17l-56,56a12,12,0,0,1-17,0Z"></path>
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-primary mb-2">Bank-Grade Security</h3>
+              <h3 className="text-xl fo</svg>nt-semibold text-primary mb-2">Bank-Grade Security</h3>
               <p className="text-muted-foreground">All data is encrypted in transit and at rest with industry-leading security protocols.</p>
               </div>
 
@@ -257,14 +257,14 @@ export default function Integrations() {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 1.0, ease }}
         >
-          <div className="bg-gradient-to-r from-sky-100 via-blue-100 to-pink-100 rounded-2xl p-8 text-center max-w-2xl mx-auto border border-border">
-            <h3 className="text-2xl font-bold text-primary mb-4">
+          <div className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 rounded-2xl p-8 text-center max-w-2xl mx-auto border border-white/20">
+            <h3 className="text-2xl font-bold text-white mb-4">
               Don't see your system? No problem.
             </h3>
-            <p className="text-secondary mb-6">
+            <p className="text-white/90 mb-6">
               Our team can integrate with virtually any payroll or HR system. Get in touch and we'll make it happen.
             </p>
-            <button className="bg-primary text-white font-semibold px-8 py-3 rounded-xl hover:bg-primary/90 transition-colors duration-200">
+            <button className="bg-white text-blue-600 font-semibold px-8 py-3 rounded-xl hover:bg-white/90 hover:text-blue-700 transition-all duration-200 shadow-lg">
               Contact Integration Team
             </button>
           </div>

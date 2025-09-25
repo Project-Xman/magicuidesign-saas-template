@@ -97,7 +97,7 @@ export default function EmployerJourney() {
                 }`}
               >
                 <div className={`flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center ${
-                  activeStep === index ? 'bg-primary-foreground text-primary' : 'bg-primary/20 text-primary'
+                  activeStep === index ? 'bg-white text-blue-600' : 'bg-blue-200 text-blue-600'
                 }`}>
                   {step.icon}
                 </div>

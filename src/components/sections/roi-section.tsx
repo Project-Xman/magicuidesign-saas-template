@@ -171,7 +171,7 @@ export default function ROISection() {
                       </div>
                       <div className="flex justify-between items-center py-2 font-bold text-lg">
                         <span className="text-primary">ROI</span>
-                        <span className="text-accent">
+                        <span className="text-primary">
                           {results.roi}%
                         </span>
                       </div>

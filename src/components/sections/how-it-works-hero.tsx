@@ -62,8 +62,8 @@ export default function HowItWorksHero() {
               <div className="w-20 h-20 bg-green-500 rounded-2xl flex items-center justify-center shadow-lg">
               <Icons.logo className="h-10 w-10 text-white" />
               </div>
-              <h3 className="font-semibold text-black">FinWage</h3>
-              <p className="text-sm text-black text-center">Secure Platform</p>
+              <h3 className="font-semibold text-primary">FinWage</h3>
+              <p className="text-sm text-muted-foreground text-center">Secure Platform</p>
             </div>
 
             {/* Arrow */}
@@ -84,7 +84,7 @@ export default function HowItWorksHero() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
                 </svg>
               </div>
-              <h3 className="font-semibold text-secondary">Employee</h3>
+              <h3 className="font-semibold text-primary">Employee</h3>
               <p className="text-sm text-muted-foreground text-center">Mobile App</p>
             </div>
           </motion.div>

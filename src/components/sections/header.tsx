@@ -7,7 +7,8 @@ import { StickyBanner } from "@/components/ui/sticky-banner";
 import { siteConfig } from "@/lib/config";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { Info, X } from "lucide-react";
 
 const navItems = [
@@ -46,10 +47,14 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [navbarVisible, setNavbarVisible] = useState(false);
   const [bannerVisible, setBannerVisible] = useState(true);
+  const pathname = usePathname();
+  
+  // Hide banner on contact page
+  const shouldShowBanner = bannerVisible && pathname !== '/contact';
 
   return (
     <>
-      {bannerVisible && (
+      {shouldShowBanner && (
         <StickyBanner className="border-b border-destructive/30 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow-sm">
           <div className="mx-auto flex w-full max-w-5xl items-center justify-between gap-3 px-3 py-1.5 text-xs md:px-4 md:text-sm">
         <div className="flex items-center gap-2 text-muted-foreground">

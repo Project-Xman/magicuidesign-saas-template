@@ -89,12 +89,12 @@ export default function EmployeeJourney() {
                 onClick={() => setActiveStep(index)}
                 className={`flex items-center space-x-3 p-4 rounded-xl transition-all duration-300 ${
                   activeStep === index 
-                    ? 'bg-primary text-primary-foreground shadow-lg scale-105' 
+                    ? 'bg-blue-600 text-white shadow-lg scale-105' 
                     : 'bg-card hover:bg-primary/10 text-muted-foreground hover:text-primary'
                 }`}
               >
                 <div className={`flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center ${
-                  activeStep === index ? 'bg-primary-foreground text-primary' : 'bg-primary/20 text-primary'
+                  activeStep === index ? 'bg-white text-blue-600' : 'bg-blue-200 text-blue-600'
                 }`}>
                   {step.icon}
                 </div>
@@ -133,7 +133,7 @@ export default function EmployeeJourney() {
                 <ul className="space-y-3">
                   {steps[activeStep].details.map((detail, index) => (
                     <li key={index} className="flex items-start space-x-3">
-                      <div className="w-5 h-5 bg-black rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <div className="w-5 h-5 bg-emerald-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                         <svg className="h-3 w-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                         </svg>
@@ -184,9 +184,9 @@ export default function EmployeeJourney() {
                     )}
                     {activeStep === 2 && (
                       <>
-                        <div className="w-16 h-16 bg-secondary rounded-full flex items-center justify-center">
-                          <svg className="h-8 w-8 text-secondary-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        <div className="w-16 h-16 bg-lime-500/50 rounded-full flex items-center justify-center">
+                          <svg className="h-8 w-8 text-lime-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                           </svg>
                         </div>
                         <div className="text-center">

@@ -13,16 +13,24 @@ export const StickyBanner = ({
   hideOnScroll?: boolean;
 }) => {
   const [open, setOpen] = useState(true);
+  const [mounted, setMounted] = useState(false);
   const { scrollY } = useScroll();
 
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
   useMotionValueEvent(scrollY, "change", (latest) => {
-    console.log(latest);
     if (hideOnScroll && latest > 40) {
       setOpen(false);
     } else {
       setOpen(true);
     }
   });
+
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <motion.div
@@ -55,7 +63,7 @@ export const StickyBanner = ({
         className="absolute top-1/2 right-2 -translate-y-1/2 cursor-pointer"
         onClick={() => setOpen(!open)}
       >
-        <CloseIcon className="h-5 w-5 text-white" />
+        {/* <CloseIcon className="h-5 w-5 text-white" /> */}
       </motion.button>
     </motion.div>
   );
