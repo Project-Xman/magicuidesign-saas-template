@@ -69,12 +69,12 @@ export default function EmployersHero() {
               <div className="text-sm text-muted-foreground mt-1">Average across all clients</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl md:text-5xl font-bold text-accent mb-2">$0</div>
+              <div className="text-4xl md:text-5xl font-bold text-primary mb-2">$0</div>
               <div className="text-secondary font-medium">Cash Flow Impact</div>
               <div className="text-sm text-muted-foreground mt-1">We fund all employee advances</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl md:text-5xl font-bold text-secondary mb-2">78%</div>
+              <div className="text-4xl md:text-5xl font-bold text-primary mb-2">78%</div>
               <div className="text-secondary font-medium">Would Switch for EWA</div>
               <div className="text-sm text-muted-foreground mt-1">Source: Employee Benefits Survey 2024</div>
             </div>

@@ -133,7 +133,7 @@ export default function EmployeeJourney() {
                 <ul className="space-y-3">
                   {steps[activeStep].details.map((detail, index) => (
                     <li key={index} className="flex items-start space-x-3">
-                      <div className="w-5 h-5 bg-accent rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <div className="w-5 h-5 bg-black rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                         <svg className="h-3 w-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                         </svg>
@@ -147,20 +147,20 @@ export default function EmployeeJourney() {
               {/* Visual Representation */}
               <div className="relative">
                 <div className="bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl p-8 border border-primary/20">
-                  <div className="aspect-square max-w-sm mx-auto bg-white rounded-2xl shadow-xl p-6 flex flex-col items-center justify-center space-y-4">
+                  <div className="aspect-square max-w-sm mx-auto bg-card rounded-2xl shadow-xl p-6 flex flex-col items-center justify-center space-y-4">
                     {/* Phone mockup content based on active step */}
                     {activeStep === 0 && (
                       <>
                         <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center">
-                          <svg className="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <svg className="h-8 w-8 text-primary-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                           </svg>
                         </div>
                         <div className="text-center">
-                          <h4 className="font-semibold text-gray-900">Welcome to FinWage</h4>
-                          <p className="text-sm text-gray-600">Let's get you set up</p>
+                          <h4 className="font-semibold text-foreground">Welcome to FinWage</h4>
+                          <p className="text-sm text-muted-foreground">Let's get you set up</p>
                         </div>
-                        <button className="w-full bg-primary text-white py-2 rounded-lg font-medium">
+                        <button className="w-full bg-primary/80 text-primary-foreground py-2 rounded-lg font-medium">
                           Connect to Payroll
                         </button>
                       </>
@@ -169,15 +169,15 @@ export default function EmployeeJourney() {
                       <>
                         <div className="w-full space-y-3">
                           <div className="flex justify-between items-center">
-                            <span className="text-sm text-gray-600">Available Balance</span>
+                            <span className="text-sm text-muted-foreground">Available Balance</span>
                             <span className="text-2xl font-bold text-primary">$247.50</span>
                           </div>
-                          <div className="w-full bg-gray-200 rounded-full h-2">
+                          <div className="w-full bg-muted rounded-full h-2">
                             <div className="bg-primary h-2 rounded-full" style={{width: '60%'}}></div>
                           </div>
-                          <p className="text-xs text-gray-500 text-center">60% of earned wages available</p>
+                          <p className="text-xs text-muted-foreground text-center">60% of earned wages available</p>
                         </div>
-                        <button className="w-full bg-accent text-white py-3 rounded-lg font-medium">
+                        <button className="w-full bg-primary/80 text-primary-foreground py-3 rounded-lg font-medium">
                           Request Advance
                         </button>
                       </>
@@ -185,16 +185,16 @@ export default function EmployeeJourney() {
                     {activeStep === 2 && (
                       <>
                         <div className="w-16 h-16 bg-secondary rounded-full flex items-center justify-center">
-                          <svg className="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <svg className="h-8 w-8 text-secondary-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                           </svg>
                         </div>
                         <div className="text-center">
-                          <h4 className="font-semibold text-gray-900">Auto-Repayment Active</h4>
-                          <p className="text-sm text-gray-600">Next payday: March 15</p>
-                          <p className="text-xs text-gray-500 mt-2">$150.00 will be deducted</p>
+                          <h4 className="font-semibold text-foreground">Auto-Repayment Active</h4>
+                          <p className="text-sm text-muted-foreground">Next payday: March 15</p>
+                          <p className="text-xs text-muted-foreground mt-2">$150.00 will be deducted</p>
                         </div>
-                        <div className="w-full bg-green-100 text-green-800 py-2 rounded-lg text-center text-sm font-medium">
+                        <div className="w-full bg-accent/10 text-accent py-2 rounded-lg text-center text-sm font-medium">
                           No Action Required
                         </div>
                       </>

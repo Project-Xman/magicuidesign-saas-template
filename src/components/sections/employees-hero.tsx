@@ -60,40 +60,40 @@ export default function EmployeesHero() {
           </motion.div>
 
           {/* Key Benefits Preview */}
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6, ease }}
-          >
-            <div className="text-center">
-              <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <svg className="h-8 w-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <motion.div
+              className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6, ease }}
+              >
+              <div className="text-center text-black">
+                <div className="w-16 h-16 bg-red-500/50 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <svg className="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
+                </div>
+                <h3 className="font-semibold mb-2">Instant Access</h3>
+                <p className="text-sm">Funds hit your account in seconds, 24/7</p>
               </div>
-              <h3 className="font-semibold text-primary mb-2">Instant Access</h3>
-              <p className="text-muted-foreground text-sm">Funds hit your account in seconds, 24/7</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <svg className="h-8 w-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="text-center text-black">
+                <div className="w-16 h-16 bg-green-500/50 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <svg className="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
+                </div>
+                <h3 className="font-semibold mb-2">Free or Low-Cost</h3>
+                <p className="text-sm">Far cheaper than overdrafts or payday loans</p>
               </div>
-              <h3 className="font-semibold text-accent mb-2">Free or Low-Cost</h3>
-              <p className="text-muted-foreground text-sm">Far cheaper than overdrafts or payday loans</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-secondary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <svg className="h-8 w-8 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="text-center text-black">
+                <div className="w-16 h-16 bg-yellow-500/50 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <svg className="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.25-4.5c-.268 0-.518.035-.75.1C14.044 4.157 11.15 2 7.72 2c-4.142 0-7.5 3.358-7.5 7.5 0 .379.03.748.085 1.107C.035 11.15 0 11.4 0 11.72c0 4.142 3.358 7.5 7.5 7.5" />
                 </svg>
+                </div>
+                <h3 className="font-semibold mb-2">No Credit Check</h3>
+                <p className="text-sm">Your employment is your credit</p>
               </div>
-              <h3 className="font-semibold text-secondary mb-2">No Credit Check</h3>
-              <p className="text-muted-foreground text-sm">Your employment is your credit</p>
-            </div>
-          </motion.div>
+              </motion.div>
 
           {/* Phone Mockup */}
           <motion.div
@@ -103,22 +103,22 @@ export default function EmployeesHero() {
             transition={{ duration: 1, delay: 0.8, ease }}
           >
             <div className="bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl p-4 border border-primary/30">
-              <div className="bg-white rounded-2xl p-6 shadow-xl">
+              <div className="bg-card rounded-2xl p-6 shadow-xl">
                 <div className="text-center space-y-4">
                   <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto">
-                    <svg className="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="h-6 w-6 text-primary-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                     </svg>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">Available Balance</h4>
+                    <h4 className="font-semibold text-foreground mb-1">Available Balance</h4>
                     <div className="text-3xl font-bold text-primary">$347.50</div>
-                    <p className="text-sm text-gray-600">60% of earned wages</p>
+                    <p className="text-sm text-muted-foreground">60% of earned wages</p>
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-2">
                     <div className="bg-primary h-2 rounded-full" style={{width: '60%'}}></div>
                   </div>
-                  <button className="w-full bg-primary text-white py-3 rounded-lg font-medium">
+                  <button className="w-full bg-primary text-primary-foreground py-3 rounded-lg font-medium">
                     Request Advance
                   </button>
                 </div>
@@ -127,16 +127,38 @@ export default function EmployeesHero() {
           </motion.div>
 
           {/* Trust Message */}
-          <motion.div
+            <motion.div
             className="mt-12 text-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1, ease }}
-          >
-            <p className="text-muted-foreground">
-              ✅ Totally confidential  ✅ Available 24/7  ✅ No hidden fees  ✅ Your employer never knows
-            </p>
-          </motion.div>
+            >
+            <div className="flex flex-wrap justify-center gap-4 text-muted-foreground">
+              {[
+              "Totally confidential",
+              "Available 24/7",
+              "No hidden fees",
+              "Your employer never knows",
+              ].map((item) => (
+              <span key={item} className="flex items-center gap-2 text-sm md:text-base">
+                <svg
+                className="h-5 w-5 text-primary"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M5 13l4 4L19 7"
+                />
+                </svg>
+                {item}
+              </span>
+              ))}
+            </div>
+            </motion.div>
         </div>
       </div>
     </section>

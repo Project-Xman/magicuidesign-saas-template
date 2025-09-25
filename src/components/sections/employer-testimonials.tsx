@@ -145,13 +145,13 @@ export default function EmployerTestimonials() {
                 <div className="space-y-3">
                   <div className="flex justify-between">
                     <span className="text-sm text-muted-foreground">Turnover Reduction</span>
-                    <span className="font-semibold text-secondary">
+                    <span className="font-semibold text-primary">
                       {testimonials[activeTestimonial].results.turnoverReduction}
                     </span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-sm text-muted-foreground">Time to ROI</span>
-                    <span className="font-semibold text-accent">
+                    <span className="font-semibold text-primary">
                       {testimonials[activeTestimonial].results.timeToROI}
                     </span>
                   </div>
@@ -201,7 +201,7 @@ export default function EmployerTestimonials() {
               <h4 className="font-semibold text-primary mb-4">Results</h4>
               <div className="grid grid-cols-2 gap-4">
                 {caseStudy.results.map((result, index) => (
-                  <div key={index} className="text-center bg-white/50 rounded-lg p-4">
+                  <div key={index} className="text-center bg-card/50 rounded-lg p-4">
                     <div className="text-2xl font-bold text-primary mb-1">
                       {result.value}
                     </div>

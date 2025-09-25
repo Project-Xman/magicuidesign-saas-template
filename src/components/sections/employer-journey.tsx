@@ -136,7 +136,7 @@ export default function EmployerJourney() {
                 <ul className="space-y-3">
                   {steps[activeStep].details.map((detail, index) => (
                     <li key={index} className="flex items-start space-x-3">
-                      <div className="w-5 h-5 bg-accent rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <div className="w-5 h-5 bg-black rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                         <svg className="h-3 w-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                         </svg>
@@ -153,36 +153,36 @@ export default function EmployerJourney() {
                   <div className="aspect-video bg-white rounded-2xl shadow-xl p-6 flex flex-col justify-center space-y-4">
                     {/* Dashboard mockup content based on active step */}
                     {activeStep === 0 && (
-                      <>
+                        <>
                         <div className="flex items-center justify-between mb-4">
                           <h4 className="font-semibold text-gray-900">Integration Setup</h4>
                           <div className="w-3 h-3 bg-green-500 rounded-full"></div>
                         </div>
                         <div className="space-y-3">
                           <div className="flex items-center space-x-3">
-                            <div className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center">
-                              <svg className="h-4 w-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                              </svg>
-                            </div>
-                            <span className="text-sm text-gray-700">ADP Integration Complete</span>
+                          <div className="w-8 h-8 bg-green-500/10 rounded-lg flex items-center justify-center">
+                            <svg className="h-4 w-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M16.707 5.293a1 1 0 00-1.414 0L9 11.586 6.707 9.293a1 1 0 00-1.414 1.414L9 14.414l7.707-7.707a1 1 0 000-1.414z" />
+                            </svg>
+                          </div>
+                          <span className="text-sm text-gray-700">ADP Integration Complete</span>
                           </div>
                           <div className="flex items-center space-x-3">
-                            <div className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center">
-                              <svg className="h-4 w-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                              </svg>
-                            </div>
-                            <span className="text-sm text-gray-700">Security Protocols Enabled</span>
+                          <div className="w-8 h-8 bg-green-500/10 rounded-lg flex items-center justify-center">
+                            <svg className="h-4 w-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M16.707 5.293a1 1 0 00-1.414 0L9 11.586 6.707 9.293a1 1 0 00-1.414 1.414L9 14.414l7.707-7.707a1 1 0 000-1.414z" />
+                            </svg>
+                          </div>
+                          <span className="text-sm text-gray-700">Security Protocols Enabled</span>
                           </div>
                           <div className="flex items-center space-x-3">
-                            <div className="w-8 h-8 bg-yellow-100 rounded-lg flex items-center justify-center">
-                              <div className="w-3 h-3 bg-yellow-500 rounded-full animate-pulse"></div>
-                            </div>
-                            <span className="text-sm text-gray-700">Testing Connection...</span>
+                          <div className="w-8 h-8 bg-yellow-100 rounded-lg flex items-center justify-center">
+                            <div className="w-3 h-3 bg-yellow-500 rounded-full animate-pulse"></div>
+                          </div>
+                          <span className="text-sm text-gray-700">Testing Connection...</span>
                           </div>
                         </div>
-                      </>
+                        </>
                     )}
                     {activeStep === 1 && (
                       <>
@@ -197,10 +197,10 @@ export default function EmployerJourney() {
                           </div>
                           <div className="flex justify-between items-center">
                             <span className="text-sm text-gray-600">Signed Up</span>
-                            <span className="font-medium text-accent">654</span>
+                            <span className="font-medium text-primary">654</span>
                           </div>
                           <div className="w-full bg-gray-200 rounded-full h-2">
-                            <div className="bg-accent h-2 rounded-full" style={{width: '77%'}}></div>
+                            <div className="bg-primary h-2 rounded-full" style={{width: '77%'}}></div>
                           </div>
                           <p className="text-xs text-gray-500 text-center">77% adoption rate</p>
                         </div>
@@ -214,11 +214,11 @@ export default function EmployerJourney() {
                         </div>
                         <div className="grid grid-cols-2 gap-4">
                           <div className="text-center">
-                            <div className="text-2xl font-bold text-secondary">-23%</div>
+                            <div className="text-2xl font-bold text-primary">-23%</div>
                             <div className="text-xs text-gray-600">Turnover Rate</div>
                           </div>
                           <div className="text-center">
-                            <div className="text-2xl font-bold text-accent">+15%</div>
+                            <div className="text-2xl font-bold text-primary">+15%</div>
                             <div className="text-xs text-gray-600">Employee NPS</div>
                           </div>
                           <div className="text-center">

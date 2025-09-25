@@ -39,11 +39,11 @@ export default function AboutHero() {
               <div className="text-secondary font-medium">Of workers live paycheck to paycheck</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl md:text-5xl font-bold text-accent mb-2">$35B</div>
+              <div className="text-4xl md:text-5xl font-bold text-primary mb-2">$35B</div>
               <div className="text-secondary font-medium">Spent annually on overdraft fees</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl md:text-5xl font-bold text-secondary mb-2">50%</div>
+              <div className="text-4xl md:text-5xl font-bold text-primary mb-2">50%</div>
               <div className="text-secondary font-medium">Of financial stress impacts work performance</div>
             </div>
           </motion.div>

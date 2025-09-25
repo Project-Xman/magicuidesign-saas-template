@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { ShineBorder } from "@/components/ui/shine-border";
 
 const ease = [0.16, 1, 0.3, 1];
 
@@ -48,12 +49,13 @@ const faqs = [
 export default function EmployeeSupport() {
   return (
     <motion.div
-      className="bg-card rounded-2xl p-8 border border-border shadow-lg"
+      className="relative bg-card rounded-2xl p-8 border border-border shadow-lg overflow-hidden"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8, delay: 0.2, ease }}
     >
+      <ShineBorder shineColor={["#A07CFE", "#FE8FB5", "#FFBE7B"]} />
       <h2 className="text-2xl font-bold text-primary mb-2">Employee Support</h2>
       <p className="text-muted-foreground mb-6">Need help with your FinWage account? We're here 24/7.</p>
       

@@ -59,21 +59,21 @@ export default function HowItWorksHero() {
 
             {/* FinWage */}
             <div className="flex flex-col items-center space-y-4">
-              <div className="w-20 h-20 bg-accent rounded-2xl flex items-center justify-center shadow-lg">
-                <Icons.logo className="h-10 w-10 text-white" />
+              <div className="w-20 h-20 bg-green-500 rounded-2xl flex items-center justify-center shadow-lg">
+              <Icons.logo className="h-10 w-10 text-white" />
               </div>
-              <h3 className="font-semibold text-accent">FinWage</h3>
-              <p className="text-sm text-muted-foreground text-center">Secure Platform</p>
+              <h3 className="font-semibold text-black">FinWage</h3>
+              <p className="text-sm text-black text-center">Secure Platform</p>
             </div>
 
             {/* Arrow */}
-            <motion.div 
+            <motion.div
               className="flex items-center"
               animate={{ x: [0, 5, 0] }}
               transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
             >
-              <svg className="h-8 w-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              <svg className="h-8 w-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
             </motion.div>
 

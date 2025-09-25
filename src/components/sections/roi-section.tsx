@@ -178,7 +178,7 @@ export default function ROISection() {
                     </div>
 
                     <div className="bg-accent/10 rounded-lg p-4 border border-accent/20">
-                      <p className="text-sm text-accent font-medium">
+                      <p className="text-sm text-secondary font-medium">
                         💡 This calculation assumes a 30% reduction in turnover, which is the average across our client base.
                       </p>
                     </div>
@@ -221,11 +221,11 @@ export default function ROISection() {
               <div className="text-sm text-muted-foreground">Average time to ROI</div>
             </div>
             <div className="bg-card rounded-xl p-6 border border-border">
-              <div className="text-2xl font-bold text-accent mb-2">$15,000</div>
+              <div className="text-2xl font-bold text-primary mb-2">$15,000</div>
               <div className="text-sm text-muted-foreground">Average cost per hire</div>
             </div>
             <div className="bg-card rounded-xl p-6 border border-border">
-              <div className="text-2xl font-bold text-secondary mb-2">30%</div>
+              <div className="text-2xl font-bold text-primary mb-2">30%</div>
               <div className="text-sm text-muted-foreground">Average turnover reduction</div>
             </div>
           </motion.div>

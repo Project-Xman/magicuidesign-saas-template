@@ -41,33 +41,39 @@ export default function Mission() {
             >
               <h3 className="text-xl font-bold text-primary mb-6">Our Impact</h3>
               <div className="space-y-6">
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-primary-foreground font-bold">
-                    1M+
-                  </div>
-                  <div>
-                    <div className="font-semibold text-secondary">Employees Served</div>
-                    <div className="text-sm text-muted-foreground">Across hundreds of companies</div>
-                  </div>
+              <div className="flex items-center space-x-4">
+                <div className="w-12 h-12 shrink-0 bg-primary rounded-full flex items-center justify-center text-primary-foreground font-bold">
+                1M+
                 </div>
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center text-accent-foreground font-bold">
-                    $50M+
-                  </div>
-                  <div>
-                    <div className="font-semibold text-secondary">In Wage Advances</div>
-                    <div className="text-sm text-muted-foreground">Provided to workers in need</div>
-                  </div>
+                <div>
+                <div className="font-semibold text-secondary">Employees Served</div>
+                <div className="text-sm text-muted-foreground">
+                  Across hundreds of companies
                 </div>
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-secondary rounded-full flex items-center justify-center text-secondary-foreground font-bold">
-                    30%
-                  </div>
-                  <div>
-                    <div className="font-semibold text-secondary">Average Turnover Reduction</div>
-                    <div className="text-sm text-muted-foreground">For partner companies</div>
-                  </div>
                 </div>
+              </div>
+              <div className="flex items-center space-x-4">
+                <div className="w-12 h-12 shrink-0 bg-yellow-400 rounded-full flex items-center justify-center text-primary-foreground font-bold">
+                $5M+
+                </div>
+                <div>
+                <div className="font-semibold text-secondary">In Wage Advances</div>
+                <div className="text-sm text-muted-foreground">
+                  Provided to workers in need
+                </div>
+                </div>
+              </div>
+              <div className="flex items-center space-x-4">
+                <div className="w-12 h-12 shrink-0 bg-secondary rounded-full flex items-center justify-center text-secondary-foreground font-bold">
+                30%
+                </div>
+                <div>
+                <div className="font-semibold text-secondary">
+                  Average Turnover Reduction
+                </div>
+                <div className="text-sm text-muted-foreground">For partner companies</div>
+                </div>
+              </div>
               </div>
             </motion.div>
           </div>

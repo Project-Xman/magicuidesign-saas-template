@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { ShineBorder } from "@/components/ui/shine-border";
 
 const ease = [0.16, 1, 0.3, 1];
 
@@ -27,12 +28,13 @@ export default function DemoForm() {
   return (
     <motion.div
       id="demo"
-      className="bg-card rounded-2xl p-8 border border-border shadow-lg"
+      className="relative bg-card rounded-2xl p-8 border border-border shadow-lg overflow-hidden"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8, ease }}
     >
+      <ShineBorder shineColor={["#A07CFE", "#FE8FB5", "#FFBE7B"]} />
       <h2 className="text-2xl font-bold text-primary mb-2">Book a Personalized Demo</h2>
       <p className="text-muted-foreground mb-6">For Employers - See how FinWage can transform your workplace</p>
       

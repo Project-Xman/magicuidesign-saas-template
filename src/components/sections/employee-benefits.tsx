@@ -143,7 +143,7 @@ export default function EmployeeBenefits() {
               <ul className="space-y-3">
                 {benefit.features.map((feature, featureIndex) => (
                   <li key={featureIndex} className="flex items-center space-x-3">
-                    <div className="w-5 h-5 bg-accent rounded-full flex items-center justify-center flex-shrink-0">
+                    <div className="w-5 h-5 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
                       <svg className="h-3 w-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
@@ -176,48 +176,46 @@ export default function EmployeeBenefits() {
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="border-b border-border">
-                  <th className="text-left py-4 px-2 font-semibold text-primary">Method</th>
-                  <th className="text-center py-4 px-2 font-semibold text-primary">Typical Cost</th>
-                  <th className="text-center py-4 px-2 font-semibold text-primary">Speed</th>
-                  <th className="text-center py-4 px-2 font-semibold text-primary">Credit Check</th>
-                  <th className="text-center py-4 px-2 font-semibold text-primary">Interest/APR</th>
-                </tr>
+          <tr className="border-b border-border">
+            <th className="text-left py-4 px-2 font-semibold text-primary">Method</th>
+            <th className="text-center py-4 px-2 font-semibold text-primary">Typical Cost</th>
+            <th className="text-center py-4 px-2 font-semibold text-primary">Speed</th>
+            <th className="text-center py-4 px-2 font-semibold text-primary">Credit Check</th>
+            <th className="text-center py-4 px-2 font-semibold text-primary">Interest/APR</th>
+          </tr>
               </thead>
               <tbody>
-                {comparisonData.map((row, index) => (
-                  <motion.tr
-                    key={index}
-                    className={`border-b border-border/50 ${index === 0 ? 'bg-primary/5' : ''}`}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: index * 0.1, ease }}
-                  >
-                    <td className="py-4 px-2">
-                      <div className="flex items-center space-x-2">
-                        {index === 0 && (
-                          <div className="w-2 h-2 bg-primary rounded-full"></div>
-                        )}
-                        <span className={`font-medium ${index === 0 ? 'text-primary' : 'text-secondary'}`}>
-                          {row.method}
-                        </span>
-                      </div>
-                    </td>
-                    <td className={`text-center py-4 px-2 ${index === 0 ? 'text-accent font-semibold' : 'text-muted-foreground'}`}>
-                      {row.cost}
-                    </td>
-                    <td className={`text-center py-4 px-2 ${index === 0 ? 'text-accent font-semibold' : 'text-muted-foreground'}`}>
-                      {row.speed}
-                    </td>
-                    <td className={`text-center py-4 px-2 ${index === 0 ? 'text-accent font-semibold' : 'text-muted-foreground'}`}>
-                      {row.creditCheck}
-                    </td>
-                    <td className={`text-center py-4 px-2 ${index === 0 ? 'text-accent font-semibold' : 'text-muted-foreground'}`}>
-                      {row.interest}
-                    </td>
-                  </motion.tr>
-                ))}
+          {comparisonData.map((row, index) => (
+            <motion.tr
+              key={index}
+              className={`border-b border-border/50 ${index === 0 ? "bg-primary/5" : ""}`}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.1, ease }}
+            >
+              <td className="py-4 px-2">
+                <div className="flex items-center space-x-2">
+            {index === 0 && <div className="w-2 h-2 bg-primary rounded-full" />}
+            <span className={`font-medium ${index === 0 ? "text-primary" : "text-secondary"}`}>
+              {row.method}
+            </span>
+                </div>
+              </td>
+              <td className={`text-center py-4 px-2 ${index === 0 ? "text-primary font-semibold" : "text-muted-foreground"}`}>
+                {row.cost}
+              </td>
+              <td className={`text-center py-4 px-2 ${index === 0 ? "text-primary font-semibold" : "text-muted-foreground"}`}>
+                {row.speed}
+              </td>
+              <td className={`text-center py-4 px-2 ${index === 0 ? "text-primary font-semibold" : "text-muted-foreground"}`}>
+                {row.creditCheck}
+              </td>
+              <td className={`text-center py-4 px-2 ${index === 0 ? "text-primary font-semibold" : "text-muted-foreground"}`}>
+                {row.interest}
+              </td>
+            </motion.tr>
+          ))}
               </tbody>
             </table>
           </div>
