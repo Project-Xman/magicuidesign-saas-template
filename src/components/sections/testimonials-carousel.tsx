@@ -1,119 +1,71 @@
-import BlurFade from "@/components/magicui/blur-fade";
 import Section from "@/components/section";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
+import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
 import Image from "next/image";
-import { MdOutlineFormatQuote } from "react-icons/md";
-import { Avatar, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
 
-const companies = [
-  "Google",
-  "Microsoft",
-  "Amazon",
-  "Netflix",
-  "YouTube",
-  "Instagram",
-  "Uber",
-  "Spotify",
+const employerTestimonials = [
+  {
+    quote: "As a rapidly growing tech company, scaling our hiring process while maintaining quality was a major challenge. This platform has revolutionized our talent acquisition strategy. We've seen a 40% improvement in hiring efficiency and reduced our time-to-hire from 45 to 18 days, all while maintaining our high hiring standards.",
+    name: "Sarah Chen",
+    designation: "Chief People Officer",
+    company: "TechVision Global",
+    src: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2",
+    logo: "https://cdn.magicui.design/companies/Microsoft.svg",
+    metrics: {
+      efficiency: "+40%",
+      timeToHire: "-60%",
+      qualityScore: "4.8/5"
+    }
+  },
+  {
+    quote: "Operating across 12 states, compliance was our biggest concern. The platform's automated compliance features have been transformative - reducing our legal review time by 60% while ensuring 100% regulatory adherence. The seamless integration with our existing HR stack made adoption completely painless.",
+    name: "Michael Rodriguez",
+    designation: "SVP of Human Resources",
+    company: "Enterprise Solutions Inc.",
+    src: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2",
+    logo: "https://cdn.magicui.design/companies/Airbnb.svg",
+    metrics: {
+      compliance: "100%",
+      reviewTime: "-60%",
+      coverage: "12 states"
+    }
+  },
+  {
+    quote: "The analytics dashboard has transformed our workforce planning. With real-time insights into hiring trends and predictive analytics, we've optimized our recruitment strategy across all departments. Our cost-per-hire decreased by 35% while our quality of hire metrics showed significant improvement.",
+    name: "Emily Thompson",
+    designation: "Chief Operating Officer",
+    company: "Innovation Labs",
+    src: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2",
+    logo: "https://cdn.magicui.design/companies/Google.svg",
+    metrics: {
+      costReduction: "-35%",
+      qualityIncrease: "+45%",
+      dataAccuracy: "99.9%"
+    }
+  },
+  {
+    quote: "With over 10,000 applications processed monthly, the AI-powered screening has been revolutionary. The automated system handles 75% of initial screenings, allowing our recruiters to focus on meaningful candidate interactions. The ROI has exceeded our expectations across all metrics.",
+    name: "David Park",
+    designation: "CEO",
+    company: "Global Staffing Solutions",
+    src: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2",
+    logo: "https://cdn.magicui.design/companies/Amazon.svg",
+    metrics: {
+      applications: "10k+/mo",
+      automation: "75%",
+      satisfaction: "96%"
+    }
+  }
 ];
-
-const sampleTestimonials = Array.from({ length: 7 }).map((_, i) => ({
-  quote:
-    "There is a lot of exciting stuff going on in the stars above us that make astronomy so much fun. The truth is the universe is a constantly changing, moving, some would say \"living\" thing because you just never know what you are going to see on any given night of stargazing.",
-  name: [
-    "Leslie Alexander",
-    "Alex Morgan",
-    "Jordan Lee",
-    "Riley Patel",
-    "Taylor Nguyen",
-    "Samira Khan",
-    "Chris O'Neil",
-  ][i % 7],
-  designation: [
-    "UI Designer",
-    "Head of Product",
-    "CTO",
-    "Design Lead",
-    "VP Engineering",
-    "Customer Success",
-    "Founder",
-  ][i % 7],
-  avatar: `https://randomuser.me/api/portraits/${
-    i % 2 === 0 ? "women" : "men"
-  }/${20 + i}.jpg`,
-  company: companies[i % companies.length],
-}));
 
 export default function Component() {
   return (
     <Section
-      title="Testimonial Highlight"
-      subtitle="What our customers are saying"
+      title="Enterprise Success Stories"
+      subtitle="Learn how industry leaders are revolutionizing their hiring processes and achieving remarkable results"
     >
-      <Carousel>
-        <div className="max-w-2xl mx-auto relative">
-          <CarouselContent>
-            {sampleTestimonials.map((item, index) => (
-              <CarouselItem key={index}>
-                <div className="p-4">
-                  <div className="card-featured card-premium p-6 md:p-8 flex flex-col items-center text-center">
-                    <MdOutlineFormatQuote className="text-5xl text-primary mb-4" />
-                    <BlurFade delay={0.25} inView>
-                      <blockquote className="text-lg text-body max-w-2xl px-4 md:px-12">
-                        {item.quote}
-                      </blockquote>
-                    </BlurFade>
-
-                    <div className="flex items-center gap-4 mt-6">
-                      <Avatar className="ring-2 ring-primary">
-                        <AvatarImage
-                          src={`https://randomuser.me/api/portraits/${
-                            index % 2 === 0 ? "women" : "men"
-                          }/${30 + index}.jpg`}
-                        />
-                      </Avatar>
-                      <div className="text-left">
-                        <h4 className="text-base font-semibold text-body">
-                          {item.name}
-                        </h4>
-                        <p className="text-sm text-muted">{item.designation}</p>
-                      </div>
-                    </div>
-
-                    <div className="mt-6">
-                      <Image
-                        width={140}
-                        height={32}
-                        src={`https://cdn.magicui.design/companies/${item.company}.svg`}
-                        alt={`${item.company} logo`}
-                        className="mx-auto w-auto h-[32px] grayscale opacity-50"
-                      />
-                    </div>
-
-                    <div className="mt-6">
-                      <Button variant="outline" size="sm">
-                        Read case study
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <div className="pointer-events-none absolute inset-y-0 left-0 h-full w-2/12 bg-gradient-to-r from-background to-transparent"></div>
-          <div className="pointer-events-none absolute inset-y-0 right-0 h-full  w-2/12 bg-gradient-to-l from-background to-transparent"></div>
-        </div>
-        <div className="md:block hidden">
-          <CarouselPrevious />
-          <CarouselNext />
-        </div>
-      </Carousel>
+      <div className="relative overflow-hidden rounded-xl bg-gradient-to-b from-muted/20">
+        <AnimatedTestimonials testimonials={employerTestimonials} autoplay={true} />
+      </div>
     </Section>
   );
 }
