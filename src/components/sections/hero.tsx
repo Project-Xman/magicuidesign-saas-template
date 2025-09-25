@@ -271,8 +271,11 @@ export default function Hero() {
         <HeroCTA />
         <HeroAnimation />
 
-        {/* white gradient sits above the bottom and the flow is rendered after it */}
-        <div className="pointer-events-none absolute inset-x-0 -bottom-12 h-1/3 bg-gradient-to-t from-white via-white/80 to-transparent lg:h-1/4 z-0" aria-hidden="true"></div>
+        {/* white/dark gradient sits above the bottom and the flow is rendered after it */}
+        <div
+          className="pointer-events-none absolute inset-x-0 -bottom-12 h-1/3 bg-gradient-to-t from-white via-white/80 to-transparent dark:from-[#181825] dark:via-[#181825cc] dark:to-transparent lg:h-1/4 z-0"
+          aria-hidden="true"
+        ></div>
 
         {/* Place the flow after the white gradient so it displays above it */}
         {/* <HeroFlow /> */}

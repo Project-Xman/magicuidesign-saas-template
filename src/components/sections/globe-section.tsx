@@ -20,10 +20,10 @@ export default function GlobeSection() {
             transition={{ duration: 0.8, ease }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold text-white sm:text-4xl md:text-5xl mb-4">
+            <h2 className="text-3xl font-bold text-foreground sm:text-4xl md:text-5xl mb-4">
               Global Reach
             </h2>
-            <p className="text-xl text-white max-w-2xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Connecting employees and employers worldwide with our innovative payroll solutions
             </p>
           </motion.div>
@@ -60,7 +60,7 @@ export default function GlobeSection() {
                   </div>
                   <div>
                     <AuroraText className="text-xl font-bold">Work</AuroraText>
-                    <p className="text-sm text-gray-700 mt-1">Start your day</p>
+                    <p className="text-sm text-muted-foreground mt-1">Start your day</p>
                   </div>
                 </div>
               </PinContainer>
@@ -83,7 +83,7 @@ export default function GlobeSection() {
                   </div>
                   <div>
                     <AuroraText className="text-xl font-bold">Earn</AuroraText>
-                    <p className="text-sm text-gray-700 mt-1">Generate income</p>
+                    <p className="text-sm text-muted-foreground mt-1">Generate income</p>
                   </div>
                 </div>
               </PinContainer>
@@ -106,7 +106,7 @@ export default function GlobeSection() {
                   </div>
                   <div>
                     <AuroraText className="text-xl font-bold">Access Pay</AuroraText>
-                    <p className="text-sm text-gray-700 mt-1">Get your wages</p>
+                    <p className="text-sm text-muted-foreground mt-1">Get your wages</p>
                   </div>
                 </div>
               </PinContainer>
@@ -129,7 +129,7 @@ export default function GlobeSection() {
                   </div>
                   <div>
                     <AuroraText className="text-xl font-bold">Peace of Mind</AuroraText>
-                    <p className="text-sm text-gray-700 mt-1">Financial security</p>
+                    <p className="text-sm text-muted-foreground mt-1">Financial security</p>
                   </div>
                 </div>
               </PinContainer>
@@ -152,8 +152,8 @@ export default function GlobeSection() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-primary mb-2">Worldwide Coverage</h3>
-              <p className="text-secondary">
+              <h3 className="text-xl font-semibold text-foreground mb-2">Worldwide Coverage</h3>
+              <p className="text-muted-foreground">
                 Supporting businesses and employees across multiple countries and time zones
               </p>
             </div>
@@ -164,8 +164,8 @@ export default function GlobeSection() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
               </div>
-              <h3 className="text-xl font-semibold text-primary mb-2">Multi-Currency</h3>
-              <p className="text-secondary">
+              <h3 className="text-xl font-semibold text-foreground mb-2">Multi-Currency</h3>
+              <p className="text-muted-foreground">
               Handle payments in local currencies with automatic conversion and compliance
               </p>
             </div>
@@ -176,8 +176,8 @@ export default function GlobeSection() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-primary mb-2">Secure & Compliant</h3>
-              <p className="text-secondary">
+              <h3 className="text-xl font-semibold text-foreground mb-2">Secure & Compliant</h3>
+              <p className="text-muted-foreground">
                 Meeting international standards for data protection and financial regulations
               </p>
             </div>

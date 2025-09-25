@@ -3,6 +3,7 @@
 import createGlobe, { COBEOptions } from "cobe";
 import { useMotionValue, useSpring } from "motion/react";
 import { useEffect, useRef } from "react";
+import { useTheme } from "next-themes";
 
 import { cn } from "@/lib/utils";
 
@@ -43,6 +44,7 @@ export function Globe({
   className?: string;
   config?: COBEOptions;
 }) {
+  const { theme } = useTheme();
   const phi = useRef(0);
   const width = useRef(0);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -81,24 +83,32 @@ export function Globe({
     window.addEventListener("resize", onResize);
     onResize();
 
-    const globe = createGlobe(canvasRef.current!, {
+    // Create theme-based configuration
+    const isDark = theme === "dark";
+    const themeConfig: COBEOptions = {
       ...config,
       width: width.current * 2,
       height: width.current * 2,
+      dark: isDark ? 1 : 0,
+      baseColor: isDark ? [0.3, 0.3, 0.3] : [1, 1, 1],
+      glowColor: isDark ? [0.2, 0.2, 0.2] : [0.9, 0.9, 0.9],
+      markerColor: isDark ? [251 / 255, 100 / 255, 21 / 255] : [251 / 255, 100 / 255, 21 / 255],
       onRender: (state) => {
         if (!pointerInteracting.current) phi.current += 0.005;
         state.phi = phi.current + rs.get();
         state.width = width.current * 2;
         state.height = width.current * 2;
       },
-    });
+    };
+
+    const globe = createGlobe(canvasRef.current!, themeConfig);
 
     setTimeout(() => (canvasRef.current!.style.opacity = "1"), 0);
     return () => {
       globe.destroy();
       window.removeEventListener("resize", onResize);
     };
-  }, [rs, config]);
+  }, [rs, config, theme]);
 
   return (
     <div
