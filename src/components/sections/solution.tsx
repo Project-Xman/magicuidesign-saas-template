@@ -12,7 +12,8 @@ const features = [
     title: "5-Minute Payroll Processing",
     description:
       "Process unlimited employees in minutes, not hours. Our AI handles all calculations, tax deductions, and compliance checks automatically.",
-    className: "hover:bg-primary/10 transition-all duration-500 ease-out",
+    className:
+      "hover:bg-pink-100 dark:hover:bg-pink-900/20 transition-all duration-500 ease-out",
     content: (
       <>
         <Safari
@@ -28,11 +29,11 @@ const features = [
     description:
       "Employees access earned wages instantly through our app—no waiting, no stress, no payday loan debt. Happy employees, better retention.",
     className:
-      "order-3 xl:order-0 hover:bg-secondary/10 transition-all duration-500 ease-out",
+      "order-3 xl:order-0 hover:bg-green-100 dark:hover:bg-green-900/20 transition-all duration-500 ease-out",
     content: (
-        <Safari
-          src={`/dashboard.png`}
-          url="https://fincorp.com"
+      <Safari
+        src={`/dashboard.png`}
+        url="https://fincorp.com"
         className="-mb-32 mt-4 max-h-64 w-full px-4 select-none drop-shadow-[0_0_28px_rgba(0,0,0,.1)] group-hover:translate-y-[-10px] transition-all duration-300"
       />
     ),
@@ -42,7 +43,7 @@ const features = [
     description:
       "Our AI stays updated with all tax regulations automatically. Every payroll is 99.9% accurate with built-in audit trails and compliance reporting.",
     className:
-      "md:row-span-2 hover:bg-accent/10 transition-all duration-500 ease-out",
+      "md:row-span-2 hover:bg-yellow-100 dark:hover:bg-yellow-900/20 transition-all duration-500 ease-out",
     content: (
       <>
         <FlickeringGrid
@@ -68,7 +69,7 @@ const features = [
     description:
       "Free your HR team from payroll drudgery. Focus on strategic initiatives while FinWage handles the complex, time-consuming calculations.",
     className:
-      "flex-row order-4 md:col-span-2 md:flex-row xl:order-0 hover:bg-warning/10 transition-all duration-500 ease-out",
+      "flex-row order-4 md:col-span-2 md:flex-row xl:order-0 hover:bg-blue-100 dark:hover:bg-blue-900/20 transition-all duration-500 ease-out",
     content: (
       <>
         <Ripple className="absolute -bottom-full" />
