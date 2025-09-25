@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
+import { NumberTicker } from "@/components/ui/number-ticker";
 
 const ease = [0.16, 1, 0.3, 1];
 
@@ -141,20 +142,18 @@ export default function ROISection() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, ease }}
                   >
-                    <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-xl p-4 border border-primary/20">
+                      <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-xl p-4 border border-primary/20">
                       <div className="text-center">
                         <div className="text-3xl font-bold text-primary mb-2">
-                          ${results.netSavings.toLocaleString()}
+                          $<NumberTicker value={results.netSavings} />
                         </div>
                         <div className="text-sm text-secondary">Annual Net Savings</div>
                       </div>
-                    </div>
-
-                    <div className="space-y-4">
+                    </div>                    <div className="space-y-4">
                       <div className="flex justify-between items-center py-2 border-b border-border">
                         <span className="text-muted-foreground">Current Turnover Cost</span>
                         <span className="font-semibold text-destructive">
-                          ${results.currentTurnoverCost.toLocaleString()}
+                          $<NumberTicker value={results.currentTurnoverCost} delay={0.3} />
                         </span>
                       </div>
                       <div className="flex justify-between items-center py-2 border-b border-border">

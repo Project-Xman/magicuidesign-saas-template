@@ -1,5 +1,6 @@
 import Features from "@/components/features-vertical";
 import Section from "@/components/section";
+import { FlipText } from "@/components/ui/flip-text";
 import { Sparkles, Upload, Zap } from "lucide-react";
 
 const data = [
@@ -31,7 +32,14 @@ const data = [
 
 export default function Component() {
   return (
-    <Section title="How FinWage Works" subtitle="From setup to payout in 3 simple steps—no headaches, no hassle">
+    <Section 
+      titleComponent={
+        <FlipText duration={0.6} delay={0.2}>
+          How FinWage Works
+        </FlipText>
+      }
+      subtitle="From setup to payout in 3 simple steps—no headaches, no hassle"
+    >
       <Features data={data} />
     </Section>
   );

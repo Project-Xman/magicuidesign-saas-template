@@ -6,6 +6,7 @@ import Section from "@/components/section";
 import { buttonVariants } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
+import { AnimatedGradientText } from "@/components/ui/animated-gradient-text";
 import { siteConfig } from "@/lib/config";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
@@ -21,7 +22,17 @@ export default function PricingSection() {
   };
 
   return (
-    <Section title="Pricing" subtitle="Choose the perfect plan for your payroll needs">
+    <Section 
+      titleComponent={
+        <AnimatedGradientText 
+          colors={["#ff0080", "#ff8c00", "#40e0d0", "#ff0080"]}
+          animationSpeed={3}
+        >
+          Pricing
+        </AnimatedGradientText>
+      }
+      subtitle="Choose the perfect plan for your payroll needs"
+    >
       <div className="flex justify-center items-center mb-10 gap-4" role="group" aria-labelledby="billing-toggle">
         <span id="billing-toggle" className="sr-only">Choose billing frequency</span>
         <span className={`font-semibold ${isMonthly ? 'text-foreground' : 'text-muted-foreground'}`} aria-hidden="true">Monthly</span>

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Section from "@/components/section";
 import { Marquee } from "@/components/ui/marquee";
+import { HyperText } from "@/components/ui/hyper-text";
 
 interface Testimonial {
   quote: string;
@@ -120,7 +121,15 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial, index })
 export default function Testimonials() {
   return (
     <Section
-      title="What Our Customers Say"
+      titleComponent={
+        <HyperText 
+          duration={1000}
+          delay={200}
+          className="font-bold"
+        >
+          What Our Customers Say
+        </HyperText>
+      }
       subtitle="Trusted by businesses worldwide for reliable payroll management"
     >
       <div className="mt-12 w-full relative space-y-8">
