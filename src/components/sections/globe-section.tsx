@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Globe } from "@/components/ui/globe";
-import { WobbleCard } from "@/components/ui/wobble-card";
+import { PinContainer } from "@/components/ui/3d-pin";
 import { AuroraText } from "@/components/magicui/aurora-text";
 
 const ease = [0.16, 1, 0.3, 1];
@@ -20,10 +20,10 @@ export default function GlobeSection() {
             transition={{ duration: 0.8, ease }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold text-primary sm:text-4xl md:text-5xl mb-4">
+            <h2 className="text-3xl font-bold text-white sm:text-4xl md:text-5xl mb-4">
               Global Reach
             </h2>
-            <p className="text-xl text-secondary max-w-2xl mx-auto">
+            <p className="text-xl text-white max-w-2xl mx-auto">
               Connecting employees and employers worldwide with our innovative payroll solutions
             </p>
           </motion.div>
@@ -51,7 +51,7 @@ export default function GlobeSection() {
               transition={{ duration: 0.8, ease, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <WobbleCard containerClassName="w-64 h-48">
+              <PinContainer containerClassName="w-64 h-56" title="Work">
                 <div className="flex flex-col items-center text-center space-y-4">
                   <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center">
                     <svg className="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -60,10 +60,10 @@ export default function GlobeSection() {
                   </div>
                   <div>
                     <AuroraText className="text-xl font-bold">Work</AuroraText>
-                    <p className="text-sm text-gray-600 mt-1">Start your day</p>
+                    <p className="text-sm text-white mt-1">Start your day</p>
                   </div>
                 </div>
-              </WobbleCard>
+              </PinContainer>
             </motion.div>
 
             {/* Step 2: Earn - Bottom 20% */}
@@ -74,19 +74,19 @@ export default function GlobeSection() {
               transition={{ duration: 0.8, ease, delay: 0.4 }}
               viewport={{ once: true }}
             >
-              <WobbleCard containerClassName="w-64 h-48">
+              <PinContainer containerClassName="w-64 h-56" title="Earn">
                 <div className="flex flex-col items-center text-center space-y-4">
-                  <div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center">
+                  <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center">
                     <svg className="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
                   <div>
                     <AuroraText className="text-xl font-bold">Earn</AuroraText>
-                    <p className="text-sm text-gray-600 mt-1">Generate income</p>
+                    <p className="text-sm text-white mt-1">Generate income</p>
                   </div>
                 </div>
-              </WobbleCard>
+              </PinContainer>
             </motion.div>
 
             {/* Step 3: Access Pay - Top at 55% */}
@@ -97,7 +97,7 @@ export default function GlobeSection() {
               transition={{ duration: 0.8, ease, delay: 0.6 }}
               viewport={{ once: true }}
             >
-              <WobbleCard containerClassName="w-64 h-48">
+              <PinContainer containerClassName="w-64 h-56" title="Access Pay">
                 <div className="flex flex-col items-center text-center space-y-4">
                   <div className="w-16 h-16 bg-secondary rounded-full flex items-center justify-center">
                     <svg className="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -106,10 +106,10 @@ export default function GlobeSection() {
                   </div>
                   <div>
                     <AuroraText className="text-xl font-bold">Access Pay</AuroraText>
-                    <p className="text-sm text-gray-600 mt-1">Get your wages</p>
+                    <p className="text-sm text-white mt-1">Get your wages</p>
                   </div>
                 </div>
-              </WobbleCard>
+              </PinContainer>
             </motion.div>
 
             {/* Step 4: Peace of Mind - Bottom 60% */}
@@ -120,7 +120,7 @@ export default function GlobeSection() {
               transition={{ duration: 0.8, ease, delay: 0.8 }}
               viewport={{ once: true }}
             >
-              <WobbleCard containerClassName="w-64 h-48">
+              <PinContainer containerClassName="w-64 h-56" title="Peace of Mind">
                 <div className="flex flex-col items-center text-center space-y-4">
                   <div className="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center">
                     <svg className="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -129,10 +129,10 @@ export default function GlobeSection() {
                   </div>
                   <div>
                     <AuroraText className="text-xl font-bold">Peace of Mind</AuroraText>
-                    <p className="text-sm text-gray-600 mt-1">Financial security</p>
+                    <p className="text-sm text-white mt-1">Financial security</p>
                   </div>
                 </div>
-              </WobbleCard>
+              </PinContainer>
             </motion.div>
 
 
