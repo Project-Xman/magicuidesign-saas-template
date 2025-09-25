@@ -46,7 +46,7 @@ export function WobbleCard({
         mass: 0.1,
       }}
       className={cn(
-        "relative overflow-hidden rounded-2xl bg-gradient-to-br from-indigo-200 via-red-200 to-yellow-100 p-8",
+        "relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#2652feb8] to-[#f83fbf75] p-8",
         containerClassName
       )}
     >
