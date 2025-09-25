@@ -6,11 +6,18 @@ import Image from "next/image";
 
 import { useEffect, useState, useCallback } from "react";
 
+type Metrics = {
+  [key: string]: string;
+};
+
 type Testimonial = {
   quote: string;
   name: string;
   designation: string;
+  company: string;
   src: string;
+  logo: string;
+  metrics: Metrics;
 };
 export const AnimatedTestimonials = ({
   testimonials,
@@ -44,10 +51,10 @@ export const AnimatedTestimonials = ({
     return Math.floor(Math.random() * 21) - 10;
   };
   return (
-    <div className="mx-auto max-w-sm px-4 py-20 font-sans antialiased md:max-w-4xl md:px-8 lg:px-12">
+    <div className="mx-auto max-w-sm px-4 py-20 font-sans antialiased md:max-w-5xl md:px-8 lg:px-12">
       <div className="relative grid grid-cols-1 gap-20 md:grid-cols-2">
         <div>
-          <div className="relative h-80 w-full">
+          <div className="relative h-[500px] w-full">
             <AnimatePresence>
               {testimonials.map((testimonial, index) => (
                 <motion.div
@@ -80,14 +87,25 @@ export const AnimatedTestimonials = ({
                   }}
                   className="absolute inset-0 origin-bottom"
                 >
-                  <Image
-                    src={testimonial.src}
-                    alt={testimonial.name}
-                    width={500}
-                    height={500}
-                    draggable={false}
-                    className="h-full w-full rounded-3xl object-cover object-center"
-                  />
+                  <div className="relative h-full w-full overflow-hidden rounded-3xl">
+                    <Image
+                      src={testimonial.src}
+                      alt={`${testimonial.company} office environment`}
+                      width={800}
+                      height={600}
+                      draggable={false}
+                      className="h-full w-full object-cover object-center"
+                    />
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6">
+                      <Image
+                        src={testimonial.logo}
+                        alt={`${testimonial.company} logo`}
+                        width={120}
+                        height={40}
+                        className="h-10 w-auto"
+                      />
+                    </div>
+                  </div>
                 </motion.div>
               ))}
             </AnimatePresence>
@@ -113,13 +131,19 @@ export const AnimatedTestimonials = ({
               ease: "easeInOut",
             }}
           >
-            <h3 className="text-2xl font-bold text-readable">
-              {testimonials[active].name}
-            </h3>
-            <p className="text-sm text-subtle">
-              {testimonials[active].designation}
-            </p>
-            <motion.p className="mt-8 text-lg text-subtle">
+            <div className="mb-6">
+              <h3 className="text-2xl font-bold text-readable">
+                {testimonials[active].name}
+              </h3>
+              <p className="text-md font-medium text-primary">
+                {testimonials[active].company}
+              </p>
+              <p className="text-sm text-subtle">
+                {testimonials[active].designation}
+              </p>
+            </div>
+            
+            <motion.p className="mb-8 text-lg text-subtle">
               {testimonials[active].quote.split(" ").map((word, index) => (
                 <motion.span
                   key={index}
@@ -144,6 +168,15 @@ export const AnimatedTestimonials = ({
                 </motion.span>
               ))}
             </motion.p>
+
+            <div className="grid grid-cols-3 gap-4">
+              {Object.entries(testimonials[active].metrics).map(([key, value]) => (
+                <div key={key} className="rounded-lg bg-muted/30 p-3">
+                  <p className="text-2xl font-bold text-primary">{value}</p>
+                  <p className="text-xs text-subtle capitalize">{key.replace(/([A-Z])/g, ' $1').trim()}</p>
+                </div>
+              ))}
+            </div>
           </motion.div>
           <div className="flex gap-4 pt-12 md:pt-0">
             <button
