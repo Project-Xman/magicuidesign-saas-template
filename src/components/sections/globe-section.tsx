@@ -60,7 +60,7 @@ export default function GlobeSection() {
                   </div>
                   <div>
                     <AuroraText className="text-xl font-bold">Work</AuroraText>
-                    <p className="text-sm text-white mt-1">Start your day</p>
+                    <p className="text-sm text-gray-700 mt-1">Start your day</p>
                   </div>
                 </div>
               </PinContainer>
@@ -83,7 +83,7 @@ export default function GlobeSection() {
                   </div>
                   <div>
                     <AuroraText className="text-xl font-bold">Earn</AuroraText>
-                    <p className="text-sm text-white mt-1">Generate income</p>
+                    <p className="text-sm text-gray-700 mt-1">Generate income</p>
                   </div>
                 </div>
               </PinContainer>
@@ -106,7 +106,7 @@ export default function GlobeSection() {
                   </div>
                   <div>
                     <AuroraText className="text-xl font-bold">Access Pay</AuroraText>
-                    <p className="text-sm text-white mt-1">Get your wages</p>
+                    <p className="text-sm text-gray-700 mt-1">Get your wages</p>
                   </div>
                 </div>
               </PinContainer>
@@ -129,7 +129,7 @@ export default function GlobeSection() {
                   </div>
                   <div>
                     <AuroraText className="text-xl font-bold">Peace of Mind</AuroraText>
-                    <p className="text-sm text-white mt-1">Financial security</p>
+                    <p className="text-sm text-gray-700 mt-1">Financial security</p>
                   </div>
                 </div>
               </PinContainer>
