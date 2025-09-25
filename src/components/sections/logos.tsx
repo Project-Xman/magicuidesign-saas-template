@@ -1,5 +1,7 @@
 import Image from "next/image";
 import styles from "./logos.module.css";
+import { BorderBeam } from "../magicui/border-beam";
+import BlurFade from "../magicui/blur-fade";
 
 const companies = [
   "Google",
@@ -13,6 +15,23 @@ const companies = [
   "Shopify",
   "Stripe",
 ];
+
+const trustStats = [
+  {
+    label: "Active employees",
+    value: "2.5M+",
+  },
+  {
+    label: "Global payroll regions",
+    value: "42",
+  },
+  {
+    label: "Same-day payouts",
+    value: "740K/mo",
+  },
+];
+
+
 
 export default function Logos() {
   return (
@@ -47,6 +66,19 @@ export default function Logos() {
           </div>
           <div className="pointer-events-none absolute inset-y-0 left-0 h-full w-1/4 bg-gradient-to-r from-muted/30 to-transparent"></div>
           <div className="pointer-events-none absolute inset-y-0 right-0 h-full w-1/4 bg-gradient-to-l from-muted/30 to-transparent"></div>
+        </div>
+        <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
+          {trustStats.map((stat, index) => (
+            <BlurFade key={stat.label} delay={index * 0.1} inView>
+              <div className="relative h-full rounded-2xl border border-primary/10 bg-white/70 p-6 text-center shadow-md shadow-primary/5 backdrop-blur dark:bg-neutral-900/70">
+                <BorderBeam size={200} duration={16} borderWidth={1} delay={index * 2} className="opacity-30" />
+                <p className="text-4xl font-bold text-primary">{stat.value}</p>
+                <p className="mt-2 text-sm font-medium uppercase tracking-[0.28em] text-muted-foreground">
+                  {stat.label}
+                </p>
+              </div>
+            </BlurFade>
+          ))}
         </div>
         <div className="text-center mt-8">
           <p className="text-lg text-muted-foreground">
