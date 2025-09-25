@@ -686,3 +686,15 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+/* Smooth Cursor Global Styles */
+.cursor-none * {
+  cursor: none !important;
+}
+
+/* Keep text cursor for inputs */
+.cursor-none input,
+.cursor-none textarea,
+.cursor-none select {
+  cursor: text !important;
+}
