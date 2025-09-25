@@ -174,16 +174,16 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
- 
+
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
   --font-serif: var(--font-serif);
- 
+
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
- 
+
   --shadow-2xs: var(--shadow-2xs);
   --shadow-xs: var(--shadow-xs);
   --shadow-sm: var(--shadow-sm);
@@ -192,15 +192,33 @@
   --shadow-lg: var(--shadow-lg);
   --shadow-xl: var(--shadow-xl);
   --shadow-2xl: var(--shadow-2xl);
- 
+
   --tracking-tighter: calc(var(--tracking-normal) - 0.05em);
   --tracking-tight: calc(var(--tracking-normal) - 0.025em);
   --tracking-normal: var(--tracking-normal);
   --tracking-wide: calc(var(--tracking-normal) + 0.025em);
   --tracking-wider: calc(var(--tracking-normal) + 0.05em);
   --tracking-widest: calc(var(--tracking-normal) + 0.1em);
+  --animate-marquee: marquee var(--duration) infinite linear;
+  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+  @keyframes marquee {
+  from {
+    transform: translateX(0);
+    }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+  @keyframes marquee-vertical {
+  from {
+    transform: translateY(0);
+    }
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
+    }
+  }
 }
- 
+
 body {
   letter-spacing: var(--tracking-normal);
   background-color: var(--color-background);
@@ -267,7 +285,7 @@ body {
     --tracking-normal: 0px;
     --spacing: 0.25rem;
   }
- 
+
   .dark {
     --background: oklch(1.0000 0 0); /* force white even in dark theme */
     --foreground: oklch(0.9842 0.0034 247.8575);
@@ -344,7 +362,7 @@ body {
     color: var(--color-foreground);
     letter-spacing: -0.025em;
   }
-  
+
   h2 {
     font-size: var(--font-size-4xl);
     font-weight: var(--font-weight-semibold);
@@ -352,28 +370,28 @@ body {
     color: var(--color-foreground);
     letter-spacing: -0.025em;
   }
-  
+
   h3 {
     font-size: var(--font-size-2xl);
     font-weight: var(--font-weight-semibold);
     line-height: var(--line-height-snug);
     color: var(--color-foreground);
   }
-  
+
   h4 {
     font-size: var(--font-size-xl);
     font-weight: var(--font-weight-medium);
     line-height: var(--line-height-snug);
     color: var(--color-foreground);
   }
-  
+
   h5 {
     font-size: var(--font-size-lg);
     font-weight: var(--font-weight-medium);
     line-height: var(--line-height-normal);
     color: var(--color-foreground);
   }
-  
+
   h6 {
     font-size: var(--font-size-base);
     font-weight: var(--font-weight-medium);
@@ -382,21 +400,21 @@ body {
     text-transform: uppercase;
     letter-spacing: 0.05em;
   }
-  
+
   p {
     font-size: var(--font-size-lg);
     line-height: var(--line-height-relaxed);
     color: var(--color-foreground);
     margin-bottom: 1rem;
   }
-  
+
   .lead {
     font-size: var(--font-size-xl);
     line-height: var(--line-height-relaxed);
     color: var(--color-foreground);
     font-weight: var(--font-weight-normal);
   }
-  
+
   .small {
     font-size: var(--font-size-sm);
     line-height: var(--line-height-normal);
@@ -408,15 +426,15 @@ body {
     h1 {
       font-size: var(--font-size-4xl);
     }
-    
+
     h2 {
       font-size: var(--font-size-3xl);
     }
-    
+
     h3 {
       font-size: var(--font-size-xl);
     }
-    
+
     p, .lead {
       font-size: var(--font-size-base);
     }
@@ -453,15 +471,15 @@ body {
   .text-primary {
     color: var(--color-foreground);
   }
-  
+
   .text-secondary {
     color: var(--color-muted-foreground);
   }
-  
+
   .text-body {
     color: var(--color-foreground);
   }
-  
+
   .text-muted {
     color: var(--color-muted-foreground);
   }
@@ -479,7 +497,7 @@ body {
   .interactive-lift {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
-  
+
   .interactive-lift:hover {
     transform: translateY(-4px);
     box-shadow: 0 20px 40px color-mix(in srgb, var(--color-foreground) 10%, transparent);
@@ -488,7 +506,7 @@ body {
   .interactive-scale {
     transition: transform 0.2s ease-out;
   }
-  
+
   .interactive-scale:hover {
     transform: scale(1.02);
   }
@@ -564,35 +582,35 @@ body {
     border: 1px solid var(--color-primary);
     transition: all 0.2s ease;
   }
-  
+
   .btn-primary:hover {
     background-color: var(--color-primary-hover);
     border-color: var(--color-primary-hover);
     transform: translateY(-1px);
     box-shadow: 0 4px 12px color-mix(in srgb, var(--color-primary) 30%, transparent);
   }
-  
+
   .btn-secondary {
     background-color: var(--color-secondary);
     color: var(--color-secondary-foreground);
     border: 1px solid var(--color-secondary);
     transition: all 0.2s ease;
   }
-  
+
   .btn-secondary:hover {
     background-color: var(--secondary-hover);
     border-color: var(--secondary-hover);
     transform: translateY(-1px);
     box-shadow: 0 4px 12px color-mix(in srgb, var(--color-secondary) 30%, transparent);
   }
-  
+
   .btn-accent {
     background-color: var(--color-accent);
     color: var(--color-accent-foreground);
     border: 1px solid var(--color-accent);
     transition: all 0.2s ease;
   }
-  
+
   .btn-accent:hover {
     background-color: var(--color-accent-hover);
     border-color: var(--color-accent-hover);
@@ -608,19 +626,19 @@ body {
     box-shadow: 0 2px 8px color-mix(in srgb, var(--color-foreground) 5%, transparent);
     transition: all 0.3s ease;
   }
-  
+
   .card-premium:hover {
     box-shadow: 0 8px 32px color-mix(in srgb, var(--color-primary) 12%, transparent);
     transform: translateY(-2px);
     border-color: var(--color-primary);
   }
-  
+
   .card-featured {
     border: 2px solid var(--color-primary);
     position: relative;
     overflow: hidden;
   }
-  
+
   .card-featured::before {
     content: '';
     position: absolute;
@@ -635,15 +653,24 @@ body {
   .gradient-primary {
     background: linear-gradient(135deg, var(--color-primary), var(--color-primary-hover));
   }
-  
+
   .gradient-accent {
     background: linear-gradient(135deg, var(--color-accent), var(--color-secondary));
   }
-  
+
   .gradient-text {
     background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }

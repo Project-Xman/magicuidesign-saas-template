@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Section from "@/components/section";
+import { Marquee } from "@/components/ui/marquee";
 
 interface Testimonial {
   quote: string;
@@ -81,20 +82,20 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial, index })
       initial={{ opacity: 0, y: 20 }}
       animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{ duration: 0.6, delay: index * 0.2 }}
-      className="relative rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 p-8 shadow-xl hover:shadow-2xl transition-all duration-300"
+      className="relative rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 p-6 shadow-xl hover:shadow-2xl transition-all duration-300 h-[280px] w-[300px]"
     >
       <div className="flex flex-col h-full">
-        <div className="mb-6">
-          <svg className="h-8 w-8 text-primary" fill="currentColor" viewBox="0 0 24 24">
+        <div className="mb-4">
+          <svg className="h-6 w-6 text-primary" fill="currentColor" viewBox="0 0 24 24">
             <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
           </svg>
         </div>
-        <p className="text-lg mb-6 flex-grow text-gray-700 dark:text-gray-300 leading-relaxed">
+        <p className="text-sm mb-4 flex-grow text-gray-700 dark:text-gray-300 leading-relaxed line-clamp-5">
           {testimonial.quote}
         </p>
-        <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-4">
-            <div className="h-12 w-12 rounded-full overflow-hidden ring-2 ring-primary">
+        <div className="flex items-center justify-between mt-auto">
+          <div className="flex items-center space-x-3">
+            <div className="h-10 w-10 rounded-full overflow-hidden ring-2 ring-primary">
               <img
                 src={testimonial.src}
                 alt={testimonial.name}
@@ -122,10 +123,32 @@ export default function Testimonials() {
       title="What Our Customers Say"
       subtitle="Trusted by businesses worldwide for reliable payroll management"
     >
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-        {testimonials.map((testimonial, index) => (
-          <TestimonialCard key={index} testimonial={testimonial} index={index} />
-        ))}
+      <div className="mt-12 w-full relative space-y-8">
+        {/* First row - Left to Right */}
+        <div className="relative">
+          <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-background to-transparent z-10" />
+          <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-background to-transparent z-10" />
+          <Marquee className="py-2" pauseOnHover>
+            {testimonials.slice(0, 3).map((testimonial, index) => (
+              <div key={index} className="mx-3">
+                <TestimonialCard testimonial={testimonial} index={index} />
+              </div>
+            ))}
+          </Marquee>
+        </div>
+
+        {/* Second row - Right to Left */}
+        <div className="relative">
+          <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-background to-transparent z-10" />
+          <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-background to-transparent z-10" />
+          <Marquee className="py-2" reverse pauseOnHover>
+            {testimonials.slice(3, 6).map((testimonial, index) => (
+              <div key={index} className="mx-3">
+                <TestimonialCard testimonial={testimonial} index={index + 3} />
+              </div>
+            ))}
+          </Marquee>
+        </div>
       </div>
     </Section>
   );
