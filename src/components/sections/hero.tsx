@@ -269,7 +269,7 @@ export default function Hero() {
         <div className="pointer-events-none absolute inset-x-0 -bottom-12 h-1/3 bg-gradient-to-t from-white via-white/80 to-transparent lg:h-1/4 z-0" aria-hidden="true"></div>
 
         {/* Place the flow after the white gradient so it displays above it */}
-        <HeroFlow />
+        {/* <HeroFlow /> */}
       </div>
     </section>
   );

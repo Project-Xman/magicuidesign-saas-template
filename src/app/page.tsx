@@ -21,8 +21,8 @@ export default function Home() {
       <Hero />
       <GlobeSection />
       <Logos />
-      <Features />
-      <Problem />
+      {/* <Features />
+      <Problem /> */}
       <Solution />
       <HowItWorks />
       <TestimonialsCarousel />
