@@ -49,7 +49,7 @@ export const PinContainer = ({
           style={{
             transform: transform,
           }}
-          className="absolute left-1/2 p-8 top-1/2 flex justify-start items-start rounded-2xl shadow-[0_8px_16px_rgb(0_0_0/0.4)] bg-gradient-to-br from-primary via-primary to-secondary border border-white/[0.1] group-hover/pin:border-white/[0.2] transition duration-700 overflow-hidden w-96"
+          className="absolute left-1/2 p-8 top-1/2 flex justify-start items-start rounded-2xl shadow-[0_8px_16px_rgb(0_0_0/0.4)] bg-gradient-to-br from-[#4a6fd9] via-white to-[#6b8ef0] border border-white/[0.3] group-hover/pin:border-blue-200/[0.7] transition duration-700 overflow-hidden w-96"
         >
           <div className={cn("relative z-50", className)}>{children}</div>
         </div>
@@ -73,7 +73,7 @@ export const PinPerspective = ({
           <a
             href={href}
             target={"_blank"}
-            className="relative flex space-x-2 items-center z-10 rounded-full bg-zinc-950 py-2 px-6 ring-1 ring-white/10"
+            className="relative flex space-x-2 items-center z-10 rounded-full bg-gradient-to-br from-primary via-primary to-secondary py-2 px-6 ring-1 ring-white/10"
           >
             <span className="relative z-20 text-white text-lg font-bold inline-block py-2 px-2">
               <AuroraText className="text-white text-lg font-bold">{title}</AuroraText>

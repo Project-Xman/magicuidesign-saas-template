@@ -13,7 +13,7 @@ interface AuroraTextProps {
 export function AuroraText({
   children,
   className,
-  colors = ["#ffffff", "#38bdf8", "#0070F3"], // White to blue gradient
+  colors = ["#c6537f", "#1e44c1", "#c6537f"], // Pink to blue gradient
   speed = 1,
 }: AuroraTextProps) {
   const gradientColors = colors.join(", ");
