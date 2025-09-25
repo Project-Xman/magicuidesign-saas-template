@@ -4,12 +4,19 @@ import FlickeringGrid from "@/components/magicui/flickering-grid";
 import Ripple from "@/components/magicui/ripple";
 import Safari from "@/components/safari";
 import Section from "@/components/section";
+import { SparklesText } from "@/components/ui/sparkles-text";
+import { NumberTicker } from "@/components/ui/number-ticker";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 
 const features = [
   {
     title: "5-Minute Payroll Processing",
+    titleComponent: (
+      <span>
+        <NumberTicker value={5} delay={0.5} />-Minute Payroll Processing
+      </span>
+    ),
     description:
       "Process unlimited employees in minutes, not hours. Our AI handles all calculations, tax deductions, and compliance checks automatically.",
     className:
@@ -40,6 +47,11 @@ const features = [
   },
   {
     title: "Zero-Error Compliance",
+    titleComponent: (
+      <span>
+        <NumberTicker value={99.9} decimalPlaces={1} delay={1.0} />% Accurate Compliance
+      </span>
+    ),
     description:
       "Our AI stays updated with all tax regulations automatically. Every payroll is 99.9% accurate with built-in audit trails and compliance reporting.",
     className:
@@ -86,7 +98,14 @@ const features = [
 export default function Component() {
   return (
     <Section
-      title="The FinWage Solution"
+      titleComponent={
+        <SparklesText 
+          colors={{ first: "#c6537f", second: "#1e44c1" }}
+          sparklesCount={12}
+        >
+          The FinWage Solution
+        </SparklesText>
+      }
       subtitle="Everything your payroll needs, automated and error-free"
       description="Stop spending hours on payroll. FinWage's AI-powered platform handles everything—from calculations to compliance—so you can focus on growing your business."
       className="bg-primary-light/20 dark:bg-neutral-900"

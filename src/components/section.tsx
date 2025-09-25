@@ -1,6 +1,7 @@
 interface SectionProps {
   id?: string;
   title?: string;
+  titleComponent?: React.ReactNode;
   subtitle?: string;
   description?: string;
   children?: React.ReactNode;
@@ -10,6 +11,7 @@ interface SectionProps {
 export default function Section({
   id,
   title,
+  titleComponent,
   subtitle,
   description,
   children,
@@ -21,11 +23,15 @@ export default function Section({
       <div className={className}>
         <div className="relative container mx-auto px-4 max-w-7xl">
           <div className="text-center space-y-6 pb-12 mx-auto">
-            {title && (
+            {titleComponent ? (
+              <h2 className="text-4xl font-bold text-primary sm:text-5xl md:text-6xl">
+                {titleComponent}
+              </h2>
+            ) : title ? (
               <h2 className="text-4xl font-bold text-primary sm:text-5xl md:text-6xl">
                 {title}
               </h2>
-            )}
+            ) : null}
             {subtitle && (
               <p className="mx-auto mt-6 max-w-3xl text-xl font-medium text-secondary sm:text-2xl leading-relaxed">
                 {subtitle}

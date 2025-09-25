@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 
 import { Icons } from "@/components/icons";
 import { buttonVariants } from "@/components/ui/button";
+import { AuroraText } from "@/components/magicui/aurora-text";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import HeroVideoDialog from "../magicui/hero-video";
@@ -84,7 +85,12 @@ function HeroTitles() {
               ease,
             }}
           >
-            {text}
+            <AuroraText 
+              colors={["#c6537f", "#1e44c1", "#c6537f", "#ff6b6b"]}
+              speed={1.5}
+            >
+              {text}
+            </AuroraText>
           </motion.span>
         ))}
       </motion.h1>
