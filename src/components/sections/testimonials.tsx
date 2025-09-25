@@ -110,13 +110,6 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial, index })
               </p>
             </div>
           </div>
-          <div className="h-8 w-8">
-            <img
-              src={testimonial.companyLogo}
-              alt={testimonial.company}
-              className="h-full w-full object-contain opacity-80"
-            />
-          </div>
         </div>
       </div>
     </motion.div>
