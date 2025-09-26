@@ -17,8 +17,8 @@ import { SmoothCursor } from "@/components/magicui/smooth-cursor";
 
 export default function Home() {
   return (
-    <main className="cursor-none">
-      <SmoothCursor />
+    <main >
+      {/* <SmoothCursor /> */}
       <Header />
       <Hero />
       <GlobeSection />
