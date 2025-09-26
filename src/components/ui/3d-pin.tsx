@@ -49,6 +49,38 @@ export const usePinContext = () => {
 
 let pinIdCounter = 0;
 
+// Different animations for each card
+const getCardAnimation = (title: string) => {
+  const animations = {
+    "Work": {
+      initial: { opacity: 0, scale: 0.8, rotateY: -15 },
+      animate: { opacity: 1, scale: 1, rotateY: 0 },
+      exit: { opacity: 0, scale: 0.9, rotateY: 15 }
+    },
+    "Earn": {
+      initial: { opacity: 0, x: -100, rotateX: -10 },
+      animate: { opacity: 1, x: 0, rotateX: 0 },
+      exit: { opacity: 0, x: 100, rotateX: 10 }
+    },
+    "Access Pay": {
+      initial: { opacity: 0, y: -100, scale: 0.9 },
+      animate: { opacity: 1, y: 0, scale: 1 },
+      exit: { opacity: 0, y: 100, scale: 0.9 }
+    },
+    "Peace of Mind": {
+      initial: { opacity: 0, scale: 1.1, rotateZ: -5 },
+      animate: { opacity: 1, scale: 1, rotateZ: 0 },
+      exit: { opacity: 0, scale: 0.8, rotateZ: 5 }
+    }
+  };
+  
+  return animations[title as keyof typeof animations] || {
+    initial: { opacity: 0, scale: 0.8 },
+    animate: { opacity: 1, scale: 1 },
+    exit: { opacity: 0, scale: 0.8 }
+  };
+};
+
 export const PinContainer = ({
   children,
   title,
@@ -98,7 +130,7 @@ export const PinContainer = ({
     setExpandedPin(isExpanded ? null : pinId);
   };
 
-  // Handle scroll navigation
+  // Handle scroll navigation with automatic closing
   useEffect(() => {
     if (!isExpanded) return;
 
@@ -203,31 +235,60 @@ export const PinContainer = ({
         <PinPerspective title={title} href={href} />
       </a>
 
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {isExpanded && (
           <div className="fixed inset-0 z-[75] flex items-center justify-center">
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
               className="absolute inset-0 bg-black/50 backdrop-blur-sm" 
               onClick={() => setExpandedPin(null)} 
             />
             <motion.div
               ref={cardRef}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
+              initial={getCardAnimation(title || "").initial}
+              animate={getCardAnimation(title || "").animate}
+              exit={getCardAnimation(title || "").exit}
+              transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
               className="relative w-full h-full bg-gradient-to-br from-[#4a6fd9] via-white to-[#6b8ef0] rounded-2xl shadow-[0_8px_16px_rgb(0_0_0/0.4)] border border-white/[0.3] p-8 overflow-hidden"
             >
               <div className="flex flex-col items-center justify-center text-center space-y-6 h-full">
-                <button 
-                  className="absolute top-4 right-4 text-gray-800 hover:text-gray-900 text-3xl z-10 font-bold transition-colors duration-200"
-                  onClick={() => setExpandedPin(null)}
-                >
-                  ✕
-                </button>
+                {/* Close button - only show on last card */}
+                {pinIds.indexOf(expandedPin || '') === pinIds.length - 1 && (
+                  <button 
+                    className="absolute top-4 right-4 text-gray-800 hover:text-gray-900 text-3xl z-10 font-bold transition-all duration-300 hover:scale-110"
+                    onClick={() => setExpandedPin(null)}
+                  >
+                    ✕
+                  </button>
+                )}
+                
+                {/* Mouse scroll icon - only show if not last card */}
+                {pinIds.indexOf(expandedPin || '') < pinIds.length - 1 && (
+                  <motion.div
+                    className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.8, duration: 0.5 }}
+                  >
+                    <div className="flex flex-col items-center space-y-2">
+                      <p className="text-gray-700 text-sm font-medium">Scroll to continue</p>
+                      <motion.div
+                        className="w-6 h-10 border-2 border-gray-700 rounded-full flex justify-center"
+                        animate={{ opacity: [1, 0.3, 1] }}
+                        transition={{ duration: 1.5, repeat: Infinity }}
+                      >
+                        <motion.div
+                          className="w-1 h-3 bg-gray-700 rounded-full mt-2"
+                          animate={{ y: [0, 12, 0] }}
+                          transition={{ duration: 1.5, repeat: Infinity }}
+                        />
+                      </motion.div>
+                    </div>
+                  </motion.div>
+                )}
                 {title === "Work" ? (
                   <div className="w-full max-w-4xl mx-auto mb-8">
                     <style>{`
