@@ -47,10 +47,10 @@ export default function GlobeSection() {
               viewport={{ once: true }}
             >
               <h2 className="text-3xl font-bold text-foreground sm:text-4xl md:text-5xl mb-4">
-                Global Reach
+                Product Journey
               </h2>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Connecting employees and employers worldwide with our innovative payroll solutions
+                The journey of product - from work to financial peace of mind
               </p>
             </motion.div>
 
