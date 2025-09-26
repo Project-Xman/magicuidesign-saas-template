@@ -87,7 +87,7 @@ export default function GlobeSection() {
                       </div>
                     </div>
                   }
-                  subheading="Start your day"
+                  subheading="Begin your professional journey with meaningful work opportunities that align with your skills and career aspirations. Connect with employers who value your expertise and dedication."
                 >
                   <div className="flex flex-col items-center text-center space-y-4">
                     <div>
