@@ -259,10 +259,10 @@ export default function Integrations() {
         >
           <div className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 rounded-2xl p-8 text-center max-w-2xl mx-auto border border-white/20">
             <h3 className="text-2xl font-bold text-white mb-4">
-              Don't see your system? No problem.
+              Don&apos;t see your system? No problem.
             </h3>
             <p className="text-white/90 mb-6">
-              Our team can integrate with virtually any payroll or HR system. Get in touch and we'll make it happen.
+              Our team can integrate with virtually any payroll or HR system.             Get in touch and we&apos;ll make it happen.
             </p>
             <button className="bg-white text-blue-600 font-semibold px-8 py-3 rounded-xl hover:bg-white/90 hover:text-blue-700 transition-all duration-200 shadow-lg">
               Contact Integration Team

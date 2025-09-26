@@ -48,7 +48,7 @@ export default function Certifications() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2, ease }}
           >
-            We maintain the industry's highest standards for security and regulatory compliance.
+            We maintain the industry&apos;s highest standards for security and regulatory compliance.
           </motion.p>
         </div>
 

@@ -118,9 +118,9 @@ export default function EmployerTestimonials() {
           >
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
               <div className="lg:col-span-2">
-                <blockquote className="text-lg md:text-xl text-secondary font-medium mb-6 leading-relaxed">
-                  "{testimonials[activeTestimonial].quote}"
-                </blockquote>
+                          <blockquote className="text-xl md:text-2xl font-medium text-primary mb-6 italic leading-relaxed">
+            &ldquo;{testimonials[activeTestimonial].quote}&rdquo;
+          </blockquote>
                 
                 <div className="flex items-center space-x-4">
                   <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-primary-foreground font-semibold">

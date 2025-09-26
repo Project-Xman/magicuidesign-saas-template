@@ -12,7 +12,7 @@ const benefits = [
       </svg>
     ),
     title: "Your Hard-Earned Money, On Your Schedule",
-    description: "Access up to 60% of wages you've already earned, whenever you need them.",
+    description: "            Access to the money you&apos;ve earned, when you need it most.",
     features: [
       "No waiting for payday",
       "Available 24/7, even weekends",
@@ -121,7 +121,7 @@ export default function EmployeeBenefits() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2, ease }}
           >
-            Take control of your finances with instant access to the money you've already earned.
+            Take control of your finances with instant access to the money you&apos;ve already earned.
           </motion.p>
         </div>
 

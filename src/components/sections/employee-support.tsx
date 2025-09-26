@@ -57,7 +57,7 @@ export default function EmployeeSupport() {
     >
       <ShineBorder shineColor={["#A07CFE", "#FE8FB5", "#FFBE7B"]} />
       <h2 className="text-2xl font-bold text-primary mb-2">Employee Support</h2>
-      <p className="text-muted-foreground mb-6">Need help with your FinWage account? We're here 24/7.</p>
+      <p className="text-muted-foreground mb-6">          Need help with your FinWage account? We&apos;re here 24/7.</p>
       
       <div className="space-y-6 mb-8">
         {supportOptions.map((option, index) => (

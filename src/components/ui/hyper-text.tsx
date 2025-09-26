@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { cn } from "@/lib/utils";
 
 interface HyperTextProps {
@@ -24,7 +24,7 @@ export function HyperText({
   const [displayedText, setDisplayedText] = useState(children);
   const [isAnimating, setIsAnimating] = useState(false);
 
-  const scramble = () => {
+  const scramble = useCallback(() => {
     if (isAnimating) return;
     setIsAnimating(true);
     
@@ -52,7 +52,7 @@ export function HyperText({
       
       iteration += 1 / 3;
     }, animationSpeed / 10);
-  };
+  }, [children, duration, isAnimating]);
 
   useEffect(() => {
     if (animateOnLoad) {
@@ -61,7 +61,7 @@ export function HyperText({
       }, delay);
       return () => clearTimeout(timer);
     }
-  }, [animateOnLoad, delay]);
+  }, [animateOnLoad, delay, scramble]);
 
   return (
     <motion.span

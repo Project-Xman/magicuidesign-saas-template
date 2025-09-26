@@ -40,7 +40,7 @@ const benefits = [
 const features = [
   {
     title: "No Cash Flow Impact",
-    description: "We fund all employee advances. Your company's cash flow is never affected.",
+    description: "We fund all employee advances. Your company&apos;s cash flow is never affected.",
     icon: (
       <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -89,7 +89,7 @@ export default function BusinessBenefits() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2, ease }}
           >
-            FinWage delivers measurable business results while supporting your employees' financial wellness.
+            FinWage delivers measurable business results while supporting your employees&apos; financial wellness.
           </motion.p>
         </div>
 

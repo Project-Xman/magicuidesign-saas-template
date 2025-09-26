@@ -99,7 +99,7 @@ export default function Team() {
         >
           <h3 className="text-2xl font-bold text-primary mb-4">Join Our Team</h3>
           <p className="text-secondary mb-6 max-w-2xl mx-auto">
-            We're always looking for talented individuals who share our passion for improving financial wellness. Join us in building the future of work.
+            We&apos;re always looking for talented individuals who share our passion for improving financial wellness. Join us in building the future of work.
           </p>
           <a
             href="#careers"

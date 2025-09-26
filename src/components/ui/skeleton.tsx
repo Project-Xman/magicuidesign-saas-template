@@ -51,13 +51,25 @@ function Skeleton({
 
 // Enhanced skeleton components for common use cases
 function SkeletonCard({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
+  // Exclude HTML event handlers that conflict with Framer Motion
+  const { 
+    onDrag, 
+    onDragStart, 
+    onDragEnd,
+    onAnimationStart,
+    onAnimationEnd,
+    onAnimationIteration,
+    onTransitionEnd,
+    ...restProps 
+  } = props;
+  
   return (
     <motion.div
       className={cn("card-premium p-6 space-y-4", className)}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.3 }}
-      {...props}
+      {...restProps}
     >
       <Skeleton variant="shimmer" className="h-4 w-3/4" />
       <Skeleton variant="shimmer" className="h-3 w-full" />

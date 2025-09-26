@@ -58,7 +58,7 @@ export default function Timeline() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2, ease }}
           >
-            From startup to industry leader, see how we've grown to serve millions of workers.
+                      Take a look at our journey and see how we&apos;ve grown from a simple idea to a comprehensive financial wellness platform.
           </motion.p>
         </div>
 
