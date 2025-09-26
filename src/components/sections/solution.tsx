@@ -4,45 +4,58 @@ import FlickeringGrid from "@/components/magicui/flickering-grid";
 import Ripple from "@/components/magicui/ripple";
 import Safari from "@/components/safari";
 import Section from "@/components/section";
+import { SparklesText } from "@/components/ui/sparkles-text";
+import { NumberTicker } from "@/components/ui/number-ticker";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 
 const features = [
   {
-    title: "Advanced AI Algorithms",
+    title: "5-Minute Payroll Processing",
+    titleComponent: (
+      <span>
+        <NumberTicker value={5} delay={0.5} />-Minute Payroll Processing
+      </span>
+    ),
     description:
-      "Our platform utilizes cutting-edge AI algorithms to provide accurate and efficient solutions for your business needs.",
-    className: "hover:bg-red-500/10 transition-all duration-500 ease-out",
+      "Process unlimited employees in minutes, not hours. Our AI handles all calculations, tax deductions, and compliance checks automatically.",
+    className:
+      "hover:bg-pink-100 dark:hover:bg-pink-900/20 transition-all duration-500 ease-out",
     content: (
       <>
         <Safari
           src={`/dashboard.png`}
-          url="https://acme.ai"
+          url="https://fincorp.com"
           className="-mb-32 mt-4 max-h-64 w-full px-4 select-none drop-shadow-[0_0_28px_rgba(0,0,0,.1)] group-hover:translate-y-[-10px] transition-all duration-300"
         />
       </>
     ),
   },
   {
-    title: "Secure Data Handling",
+    title: "Instant Wage Access",
     description:
-      "We prioritize your data security with state-of-the-art encryption and strict privacy protocols, ensuring your information remains confidential.",
+      "Employees access earned wages instantly through our app—no waiting, no stress, no payday loan debt. Happy employees, better retention.",
     className:
-      "order-3 xl:order-none hover:bg-blue-500/10 transition-all duration-500 ease-out",
+      "order-3 xl:order-0 hover:bg-green-100 dark:hover:bg-green-900/20 transition-all duration-500 ease-out",
     content: (
       <Safari
         src={`/dashboard.png`}
-        url="https://acme.ai"
+        url="https://fincorp.com"
         className="-mb-32 mt-4 max-h-64 w-full px-4 select-none drop-shadow-[0_0_28px_rgba(0,0,0,.1)] group-hover:translate-y-[-10px] transition-all duration-300"
       />
     ),
   },
   {
-    title: "Seamless Integration",
+    title: "Zero-Error Compliance",
+    titleComponent: (
+      <span>
+        <NumberTicker value={99.9} decimalPlaces={1} delay={1.0} />% Accurate Compliance
+      </span>
+    ),
     description:
-      "Easily integrate our AI solutions into your existing workflows and systems for a smooth and efficient operation.",
+      "Our AI stays updated with all tax regulations automatically. Every payroll is 99.9% accurate with built-in audit trails and compliance reporting.",
     className:
-      "md:row-span-2 hover:bg-orange-500/10 transition-all duration-500 ease-out",
+      "md:row-span-2 hover:bg-yellow-100 dark:hover:bg-yellow-900/20 transition-all duration-500 ease-out",
     content: (
       <>
         <FlickeringGrid
@@ -57,24 +70,24 @@ const features = [
         />
         <Safari
           src={`/dashboard.png`}
-          url="https://acme.ai"
+          url="https://fincorp.com"
           className="-mb-48 ml-12 mt-16 h-full px-4 select-none drop-shadow-[0_0_28px_rgba(0,0,0,.1)] group-hover:translate-x-[-10px] transition-all duration-300"
         />
       </>
     ),
   },
   {
-    title: "Customizable Solutions",
+    title: "Complete HR Freedom",
     description:
-      "Tailor our AI services to your specific needs with flexible customization options, allowing you to get the most out of our platform.",
+      "Free your HR team from payroll drudgery. Focus on strategic initiatives while FinWage handles the complex, time-consuming calculations.",
     className:
-      "flex-row order-4 md:col-span-2 md:flex-row xl:order-none hover:bg-green-500/10 transition-all duration-500 ease-out",
+      "flex-row order-4 md:col-span-2 md:flex-row xl:order-0 hover:bg-blue-100 dark:hover:bg-blue-900/20 transition-all duration-500 ease-out",
     content: (
       <>
         <Ripple className="absolute -bottom-full" />
         <Safari
           src={`/dashboard.png`}
-          url="https://acme.ai"
+          url="https://fincorp.com"
           className="-mb-32 mt-4 max-h-64 w-full px-4 select-none drop-shadow-[0_0_28px_rgba(0,0,0,.1)] group-hover:translate-y-[-10px] transition-all duration-300"
         />
       </>
@@ -85,10 +98,17 @@ const features = [
 export default function Component() {
   return (
     <Section
-      title="Solution"
-      subtitle="Empower Your Business with AI Workflows"
-      description="Generic AI tools won't suffice. Our platform is purpose-built to provide exceptional AI-driven solutions for your unique business needs."
-      className="bg-neutral-100 dark:bg-neutral-900"
+      titleComponent={
+        <SparklesText 
+          colors={{ first: "#c6537f", second: "#1e44c1" }}
+          sparklesCount={12}
+        >
+          The FinWage Solution
+        </SparklesText>
+      }
+      subtitle="Everything your payroll needs, automated and error-free"
+      description="Stop spending hours on payroll. FinWage's AI-powered platform handles everything—from calculations to compliance—so you can focus on growing your business."
+      className="bg-primary-light/20 dark:bg-neutral-900"
     >
       <div className="mx-auto mt-16 grid max-w-sm grid-cols-1 gap-6 text-gray-500 md:max-w-3xl md:grid-cols-2 xl:grid-rows-2 md:grid-rows-3 xl:max-w-6xl xl:auto-rows-fr xl:grid-cols-3">
         {features.map((feature, index) => (
@@ -116,7 +136,7 @@ export default function Component() {
               <p className="text-foreground">{feature.description}</p>
             </div>
             {feature.content}
-            <div className="absolute bottom-0 left-0 h-32 w-full bg-gradient-to-t from-neutral-50 dark:from-neutral-900 pointer-events-none"></div>
+            <div className="absolute bottom-0 left-0 h-32 w-full bg-linear-to-t from-neutral-50 dark:from-neutral-900 pointer-events-none"></div>
           </motion.div>
         ))}
       </div>

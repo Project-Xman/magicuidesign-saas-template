@@ -1,312 +1,163 @@
 "use client";
 
-import Marquee from "@/components/magicui/marquee";
-import Section from "@/components/section";
-import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { Star } from "lucide-react";
-import Image from "next/image";
+import { useInView } from "react-intersection-observer";
+import Section from "@/components/section";
+import { Marquee } from "@/components/ui/marquee";
+import { HyperText } from "@/components/ui/hyper-text";
 
-export const Highlight = ({
-  children,
-  className,
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) => {
-  return (
-    <span
-      className={cn(
-        "bg-primary/20 p-1 py-0.5 font-bold text-primary dark:bg-primary/20 dark:text-primary",
-        className
-      )}
-    >
-      {children}
-    </span>
-  );
-};
-
-export interface TestimonialCardProps {
+interface Testimonial {
+  quote: string;
   name: string;
-  role: string;
-  img?: string;
-  description: React.ReactNode;
-  className?: string;
-  [key: string]: any;
+  designation: string;
+  src: string;
+  company: string;
+  companyLogo: string;
 }
 
-export const TestimonialCard = ({
-  description,
-  name,
-  img,
-  role,
-  className,
-  ...props // Capture the rest of the props
-}: TestimonialCardProps) => (
-  <div
-    className={cn(
-      "mb-4 flex w-full cursor-pointer break-inside-avoid flex-col items-center justify-between gap-6 rounded-xl p-4",
-      // light styles
-      " border border-neutral-200 bg-white",
-      // dark styles
-      "dark:bg-black dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]",
-      className
-    )}
-    {...props} // Spread the rest of the props here
-  >
-    <div className="select-none text-sm font-normal text-neutral-700 dark:text-neutral-400">
-      {description}
-      <div className="flex flex-row py-1">
-        <Star className="size-4 text-yellow-500 fill-yellow-500" />
-        <Star className="size-4 text-yellow-500 fill-yellow-500" />
-        <Star className="size-4 text-yellow-500 fill-yellow-500" />
-        <Star className="size-4 text-yellow-500 fill-yellow-500" />
-        <Star className="size-4 text-yellow-500 fill-yellow-500" />
-      </div>
-    </div>
-
-    <div className="flex w-full select-none items-center justify-start gap-5">
-      <Image
-        width={40}
-        height={40}
-        src={img || ""}
-        alt={name}
-        className="h-10 w-10 rounded-full ring-1 ring-border ring-offset-4"
-      />
-
-      <div>
-        <p className="font-medium text-neutral-500">{name}</p>
-        <p className="text-xs font-normal text-neutral-400">{role}</p>
-      </div>
-    </div>
-  </div>
-);
+interface TestimonialCardProps {
+  testimonial: Testimonial;
+  index: number;
+}
 
 const testimonials = [
   {
-    name: "Alex Rivera",
-    role: "CTO at InnovateTech",
-    img: "https://randomuser.me/api/portraits/men/91.jpg",
-    description: (
-      <p>
-        The AI-driven analytics from #QuantumInsights have revolutionized our
-        product development cycle.
-        <Highlight>
-          Insights are now more accurate and faster than ever.
-        </Highlight>{" "}
-        A game-changer for tech companies.
-      </p>
-    ),
+    quote: "FinWage has transformed our payroll process completely. The AI-powered compliance features ensure we're always up-to-date with regulations, saving us countless hours and reducing errors significantly.",
+    name: "Sarah Johnson",
+    designation: "HR Director at TechCorp Solutions",
+    src: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    company: "TechCorp Solutions",
+    companyLogo: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
   },
   {
-    name: "Samantha Lee",
-    role: "Marketing Director at NextGen Solutions",
-    img: "https://randomuser.me/api/portraits/women/12.jpg",
-    description: (
-      <p>
-        Implementing #AIStream&apos;s customer prediction model has drastically
-        improved our targeting strategy.
-        <Highlight>Seeing a 50% increase in conversion rates!</Highlight> Highly
-        recommend their solutions.
-      </p>
-    ),
+    quote: "The employee self-service portal is incredible. Our team loves the 24/7 access to payslips and benefits information. It's made our HR department much more efficient.",
+    name: "Michael Chen",
+    designation: "CEO at StartupFlow",
+    src: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    company: "StartupFlow",
+    companyLogo: "https://images.unsplash.com/photo-1614680376408-81e91ffe3db7?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
   },
   {
-    name: "Raj Patel",
-    role: "Founder & CEO at StartUp Grid",
-    img: "https://randomuser.me/api/portraits/men/45.jpg",
-    description: (
-      <p>
-        As a startup, we need to move fast and stay ahead. #CodeAI&apos;s
-        automated coding assistant helps us do just that.
-        <Highlight>Our development speed has doubled.</Highlight> Essential tool
-        for any startup.
-      </p>
-    ),
+    quote: "FinWage's automated reporting has cut our compliance workload by 70%. The real-time analytics help us make better business decisions while staying fully compliant.",
+    name: "Emily Rodriguez",
+    designation: "CFO at Global Enterprises",
+    src: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    company: "Global Enterprises",
+    companyLogo: "https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
   },
   {
-    name: "Emily Chen",
-    role: "Product Manager at Digital Wave",
-    img: "https://randomuser.me/api/portraits/women/83.jpg",
-    description: (
-      <p>
-        #VoiceGen&apos;s AI-driven voice synthesis has made creating global
-        products a breeze.
-        <Highlight>Localization is now seamless and efficient.</Highlight> A
-        must-have for global product teams.
-      </p>
-    ),
+    quote: "As a growing company, we needed a payroll solution that could scale with us. FinWage has been perfect - from 50 to 500 employees, it's handled everything seamlessly.",
+    name: "David Park",
+    designation: "Operations Manager at InnovateLabs",
+    src: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    company: "InnovateLabs",
+    companyLogo: "https://images.unsplash.com/photo-1614680376593-902f74cf0d41?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
   },
   {
-    name: "Michael Brown",
-    role: "Data Scientist at FinTech Innovations",
-    img: "https://randomuser.me/api/portraits/men/1.jpg",
-    description: (
-      <p>
-        Leveraging #DataCrunch&apos;s AI for our financial models has given us
-        an edge in predictive accuracy.
-        <Highlight>
-          Our investment strategies are now powered by real-time data analytics.
-        </Highlight>{" "}
-        Transformative for the finance industry.
-      </p>
-    ),
+    quote: "The security features are top-notch. Bank-grade encryption and compliance monitoring give us complete peace of mind when handling sensitive payroll data.",
+    name: "Lisa Thompson",
+    designation: "IT Security Lead at SecurePay Corp",
+    src: "https://images.unsplash.com/photo-1598550874175-4d0ef436c909?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    company: "SecurePay Corp",
+    companyLogo: "https://images.unsplash.com/photo-1614680376568-36cf52ac43d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
   },
   {
-    name: "Linda Wu",
-    role: "VP of Operations at LogiChain Solutions",
-    img: "https://randomuser.me/api/portraits/women/5.jpg",
-    description: (
-      <p>
-        #LogiTech&apos;s supply chain optimization tools have drastically
-        reduced our operational costs.
-        <Highlight>
-          Efficiency and accuracy in logistics have never been better.
-        </Highlight>{" "}
-      </p>
-    ),
-  },
-  {
-    name: "Carlos Gomez",
-    role: "Head of R&D at EcoInnovate",
-    img: "https://randomuser.me/api/portraits/men/14.jpg",
-    description: (
-      <p>
-        By integrating #GreenTech&apos;s sustainable energy solutions,
-        we&apos;ve seen a significant reduction in carbon footprint.
-        <Highlight>
-          Leading the way in eco-friendly business practices.
-        </Highlight>{" "}
-        Pioneering change in the industry.
-      </p>
-    ),
-  },
-  {
-    name: "Aisha Khan",
-    role: "Chief Marketing Officer at Fashion Forward",
-    img: "https://randomuser.me/api/portraits/women/56.jpg",
-    description: (
-      <p>
-        #TrendSetter&apos;s market analysis AI has transformed how we approach
-        fashion trends.
-        <Highlight>
-          Our campaigns are now data-driven with higher customer engagement.
-        </Highlight>{" "}
-        Revolutionizing fashion marketing.
-      </p>
-    ),
-  },
-  {
-    name: "Tom Chen",
-    role: "Director of IT at HealthTech Solutions",
-    img: "https://randomuser.me/api/portraits/men/18.jpg",
-    description: (
-      <p>
-        Implementing #MediCareAI in our patient care systems has improved
-        patient outcomes significantly.
-        <Highlight>
-          Technology and healthcare working hand in hand for better health.
-        </Highlight>{" "}
-        A milestone in medical technology.
-      </p>
-    ),
-  },
-  {
-    name: "Sofia Patel",
-    role: "CEO at EduTech Innovations",
-    img: "https://randomuser.me/api/portraits/women/73.jpg",
-    description: (
-      <p>
-        #LearnSmart&apos;s AI-driven personalized learning plans have doubled
-        student performance metrics.
-        <Highlight>
-          Education tailored to every learner&apos;s needs.
-        </Highlight>{" "}
-        Transforming the educational landscape.
-      </p>
-    ),
-  },
-  {
-    name: "Jake Morrison",
-    role: "CTO at SecureNet Tech",
-    img: "https://randomuser.me/api/portraits/men/25.jpg",
-    description: (
-      <p>
-        With #CyberShield&apos;s AI-powered security systems, our data
-        protection levels are unmatched.
-        <Highlight>Ensuring safety and trust in digital spaces.</Highlight>{" "}
-        Redefining cybersecurity standards.
-      </p>
-    ),
-  },
-  {
-    name: "Nadia Ali",
-    role: "Product Manager at Creative Solutions",
-    img: "https://randomuser.me/api/portraits/women/78.jpg",
-    description: (
-      <p>
-        #DesignPro&apos;s AI has streamlined our creative process, enhancing
-        productivity and innovation.
-        <Highlight>Bringing creativity and technology together.</Highlight> A
-        game-changer for creative industries.
-      </p>
-    ),
-  },
-  {
-    name: "Omar Farooq",
-    role: "Founder at Startup Hub",
-    img: "https://randomuser.me/api/portraits/men/54.jpg",
-    description: (
-      <p>
-        #VentureAI&apos;s insights into startup ecosystems have been invaluable
-        for our growth and funding strategies.
-        <Highlight>Empowering startups with data-driven decisions.</Highlight> A
-        catalyst for startup success.
-      </p>
-    ),
+    quote: "FinWage's customer support is exceptional. Whenever we've had questions, their team has been incredibly responsive and knowledgeable.",
+    name: "James Wilson",
+    designation: "Founder at Wilson Enterprises",
+    src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    company: "Wilson Enterprises",
+    companyLogo: "https://images.unsplash.com/photo-1614680376726-3579afd91dd9?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
   },
 ];
+
+const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial, index }) => {
+  const [ref, inView] = useInView({
+    threshold: 0.2,
+    triggerOnce: true,
+  });
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 20 }}
+      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+      transition={{ duration: 0.6, delay: index * 0.2 }}
+      className="relative rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 p-6 shadow-xl hover:shadow-2xl transition-all duration-300 h-[280px] w-[300px]"
+    >
+      <div className="flex flex-col h-full">
+        <div className="mb-4">
+          <svg className="h-6 w-6 text-primary" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+          </svg>
+        </div>
+        <p className="text-sm mb-4 flex-grow text-gray-700 dark:text-gray-300 leading-relaxed line-clamp-5">
+          {testimonial.quote}
+        </p>
+        <div className="flex items-center justify-between mt-auto">
+          <div className="flex items-center space-x-3">
+            <div className="h-10 w-10 rounded-full overflow-hidden ring-2 ring-primary">
+              <img
+                src={testimonial.src}
+                alt={testimonial.name}
+                className="h-full w-full object-cover"
+              />
+            </div>
+            <div>
+              <h4 className="font-semibold text-gray-900 dark:text-white">
+                {testimonial.name}
+              </h4>
+              <p className="text-sm text-gray-600 dark:text-gray-400">
+                {testimonial.designation}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
 
 export default function Testimonials() {
   return (
     <Section
-      title="Testimonials"
-      subtitle="What our customers are saying"
-      className="max-w-8xl"
+      titleComponent={
+        <HyperText 
+          duration={1000}
+          delay={200}
+          className="font-bold"
+        >
+          What Our Customers Say
+        </HyperText>
+      }
+      subtitle="Trusted by businesses worldwide for reliable payroll management"
     >
-      <div className="relative mt-6 max-h-screen overflow-hidden">
-        <div className="gap-4 md:columns-2 xl:columns-3 2xl:columns-4">
-          {Array(Math.ceil(testimonials.length / 3))
-            .fill(0)
-            .map((_, i) => (
-              <Marquee
-                vertical
-                key={i}
-                className={cn({
-                  "[--duration:60s]": i === 1,
-                  "[--duration:30s]": i === 2,
-                  "[--duration:70s]": i === 3,
-                })}
-              >
-                {testimonials.slice(i * 3, (i + 1) * 3).map((card, idx) => (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{
-                      delay: Math.random() * 0.8,
-                      duration: 1.2,
-                    }}
-                  >
-                    <TestimonialCard {...card} />
-                  </motion.div>
-                ))}
-              </Marquee>
+      <div className="mt-12 w-full relative space-y-8">
+        {/* First row - Left to Right */}
+        <div className="relative">
+          <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-background to-transparent z-10" />
+          <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-background to-transparent z-10" />
+          <Marquee className="py-2" pauseOnHover>
+            {testimonials.slice(0, 3).map((testimonial, index) => (
+              <div key={index} className="mx-3">
+                <TestimonialCard testimonial={testimonial} index={index} />
+              </div>
             ))}
+          </Marquee>
         </div>
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 w-full bg-gradient-to-t from-background from-20%"></div>
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-1/4 w-full bg-gradient-to-b from-background from-20%"></div>
+
+        {/* Second row - Right to Left */}
+        <div className="relative">
+          <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-background to-transparent z-10" />
+          <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-background to-transparent z-10" />
+          <Marquee className="py-2" reverse pauseOnHover>
+            {testimonials.slice(3, 6).map((testimonial, index) => (
+              <div key={index} className="mx-3">
+                <TestimonialCard testimonial={testimonial} index={index + 3} />
+              </div>
+            ))}
+          </Marquee>
+        </div>
       </div>
     </Section>
   );

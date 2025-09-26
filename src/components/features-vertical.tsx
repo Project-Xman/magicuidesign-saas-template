@@ -43,7 +43,7 @@ const AccordionTrigger = forwardRef<HTMLButtonElement, AccordionTriggerProps>(
     <Accordion.Header className="flex">
       <Accordion.Trigger
         className={cn(
-          "group flex flex-1 cursor-pointer items-center justify-between px-5 text-[15px] leading-none outline-none",
+          "group flex flex-1 cursor-pointer items-center justify-between px-5 text-[15px] leading-none outline-hidden",
           className
         )}
         {...props}
@@ -183,7 +183,7 @@ export default function Features({
         <div className="max-w-6xl mx-auto">
           <div className="mx-auto my-12 h-full grid lg:grid-cols-2 gap-10 items-center">
             <div
-              className={` hidden lg:flex order-1 lg:order-[0] ${
+              className={` hidden lg:flex order-1 lg:order-0 ${
                 ltr ? "lg:order-2 lg:justify-end" : "justify-start"
               }`}
             >
@@ -275,7 +275,7 @@ export default function Features({
                   key={currentIndex}
                   src={data[currentIndex].image}
                   alt="feature"
-                  className="aspect-auto h-full w-full rounded-xl border border-neutral-300/50 object-cover object-left-top p-1 shadow-lg"
+                  className="aspect-auto h-full w-full rounded-xl border border-neutral-300/50 object-cover object-top-left p-1 shadow-lg"
                   initial={{ opacity: 0, scale: 0.98 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.98 }}
@@ -297,7 +297,7 @@ export default function Features({
 
             <ul
               ref={carouselRef}
-              className=" flex h-full snap-x flex-nowrap overflow-x-auto py-10 [-ms-overflow-style:none] [-webkit-mask-image:linear-gradient(90deg,transparent,black_20%,white_80%,transparent)] [mask-image:linear-gradient(90deg,transparent,black_20%,white_80%,transparent)] [scrollbar-width:none] lg:hidden [&::-webkit-scrollbar]:hidden snap-mandatory"
+              className=" flex h-full snap-x flex-nowrap overflow-x-auto py-10 [-ms-overflow-style:none] [-webkit-mask-image:linear-gradient(90deg,transparent,black_20%,white_80%,transparent)] mask-[linear-gradient(90deg,transparent,black_20%,white_80%,transparent)] [scrollbar-width:none] lg:hidden [&::-webkit-scrollbar]:hidden snap-mandatory"
               style={{
                 padding: "50px calc(50%)",
               }}

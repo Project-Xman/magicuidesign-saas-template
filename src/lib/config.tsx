@@ -6,192 +6,211 @@ import { RiInstagramFill } from "react-icons/ri";
 export const BLUR_FADE_DELAY = 0.15;
 
 export const siteConfig = {
-  name: "acme.ai",
-  description: "Automate your workflow with AI",
+  name: "FinWage",
+  description: "Finwage is your wage. Access your earned wages instantly with our financial wellness benefit.",
   url: process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000",
-  keywords: ["SaaS", "Template", "Next.js", "React", "Tailwind CSS"],
+  keywords: ["Fintech", "Earned Wage Access", "Financial Wellness", "Payroll", "Employee Benefits"],
   links: {
-    email: "support@acme.ai",
-    twitter: "https://twitter.com/magicuidesign",
-    discord: "https://discord.gg/87p2vpsat5",
-    github: "https://github.com/magicuidesign/magicui",
-    instagram: "https://instagram.com/magicuidesign/",
+    email: "support@finwage.com",
+    twitter: "https://twitter.com/finwage",
+    discord: "https://discord.gg/finwage",
+    github: "https://github.com/finwage",
+    instagram: "https://instagram.com/finwage/",
   },
   header: [
     {
-      trigger: "Features",
+      trigger: "How It Works",
       content: {
         main: {
           icon: <Icons.logo className="h-6 w-6" />,
-          title: "AI-Powered Automation",
-          description: "Streamline your workflow with intelligent automation.",
-          href: "#",
+          title: "Simple 3-Step Process",
+          description: "Get paid before payday with ease.",
+          href: "/how-it-works",
         },
         items: [
           {
-            href: "#",
-            title: "Task Automation",
-            description: "Automate repetitive tasks and save time.",
+            href: "/how-it-works#employee-journey",
+            title: "For Employees",
+            description: "See how easy it is to access your earned wages.",
           },
           {
-            href: "#",
-            title: "Workflow Optimization",
-            description: "Optimize your processes with AI-driven insights.",
+            href: "/how-it-works#employer-journey",
+            title: "For Employers",
+            description: "Zero-disruption setup and seamless integration.",
           },
           {
-            href: "#",
-            title: "Intelligent Scheduling",
-            description: "AI-powered scheduling for maximum efficiency.",
+            href: "/how-it-works#integrations",
+            title: "Integrations",
+            description: "Works with 100+ HR and payroll platforms.",
           },
         ],
       },
     },
     {
-      trigger: "Solutions",
+      trigger: "Employers",
       content: {
         items: [
           {
-            title: "For Small Businesses",
-            href: "#",
-            description: "Tailored automation solutions for growing companies.",
+            title: "Reduce Turnover",
+            href: "/employers#benefits",
+            description: "Cut recruitment costs by up to 30%.",
           },
           {
-            title: "Enterprise",
-            href: "#",
-            description: "Scalable AI automation for large organizations.",
+            title: "ROI Calculator",
+            href: "/employers#roi",
+            description: "Calculate your potential savings.",
           },
           {
-            title: "Developers",
-            href: "#",
-            description: "API access and integration tools for developers.",
+            title: "Case Studies",
+            href: "/employers#testimonials",
+            description: "See real results from companies like yours.",
           },
           {
-            title: "Healthcare",
-            href: "#",
-            description: "Specialized automation for healthcare workflows.",
-          },
-          {
-            title: "Finance",
-            href: "#",
-            description: "AI-driven process automation for financial services.",
-          },
-          {
-            title: "Education",
-            href: "#",
-            description:
-              "Streamline administrative tasks in educational institutions.",
+            title: "Book a Demo",
+            href: "/contact#demo",
+            description: "Schedule a personalized demo today.",
           },
         ],
       },
     },
     {
-      href: "/blog",
-      label: "Blog",
+      trigger: "Employees",
+      content: {
+        items: [
+          {
+            title: "Access Your Pay",
+            href: "/employees#benefits",
+            description: "Get up to 60% of earned wages instantly.",
+          },
+          {
+            title: "No Credit Check",
+            href: "/employees#how-it-works",
+            description: "Your employment is your credit.",
+          },
+          {
+            title: "Free or Low-Cost",
+            href: "/employees#pricing",
+            description: "Often employer-sponsored, always transparent.",
+          },
+          {
+            title: "Download App",
+            href: "/employees#download",
+            description: "Available on iOS and Android.",
+          },
+        ],
+      },
+    },
+    {
+      href: "/resources",
+      label: "Resources",
+    },
+    {
+      href: "/about",
+      label: "About Us",
+    },
+    {
+      href: "/contact",
+      label: "Contact",
     },
   ],
   pricing: [
     {
-      name: "BASIC",
+      name: "STARTER",
       href: "#",
-      price: "$19",
-      period: "month",
-      yearlyPrice: "$16",
+      price: "$2.99",
+      period: "per employee/month",
+      yearlyPrice: "$2.49",
       features: [
-        "1 User",
-        "5GB Storage",
-        "Basic Support",
-        "Limited API Access",
-        "Standard Analytics",
+        "Up to 50 Employees",
+        "Basic Dashboard",
+        "Email Support",
+        "Standard Integration",
       ],
-      description: "Perfect for individuals and small projects",
-      buttonText: "Subscribe",
+      description: "Perfect for small businesses getting started",
+      buttonText: "Get Started",
       isPopular: false,
     },
     {
-      name: "PRO",
+      name: "PROFESSIONAL",
       href: "#",
-      price: "$49",
-      period: "month",
-      yearlyPrice: "$40",
+      price: "$4.99",
+      period: "per employee/month",
+      yearlyPrice: "$4.16",
       features: [
-        "5 Users",
-        "50GB Storage",
-        "Priority Support",
-        "Full API Access",
+        "Up to 500 Employees",
         "Advanced Analytics",
+        "Priority Support",
+        "Custom Integration",
       ],
-      description: "Ideal for growing businesses and teams",
-      buttonText: "Subscribe",
+      description: "Ideal for growing companies with HR teams",
+      buttonText: "Get Started",
       isPopular: true,
     },
     {
       name: "ENTERPRISE",
       href: "#",
-      price: "$99",
-      period: "month",
-      yearlyPrice: "$82",
+      price: "Custom",
+      period: "pricing",
+      yearlyPrice: "Custom",
       features: [
-        "Unlimited Users",
-        "500GB Storage",
+        "Unlimited Employees",
+        "White-label Solution",
+        "Dedicated Account Manager",
         "24/7 Premium Support",
-        "Custom Integrations",
-        "AI-Powered Insights",
       ],
-      description: "For large-scale operations and high-volume users",
-      buttonText: "Subscribe",
+      description: "For large organizations with complex needs",
+      buttonText: "Contact Sales",
       isPopular: false,
     },
   ],
   faqs: [
     {
-      question: "What is acme.ai?",
+      question: "What is FinWage?",
       answer: (
         <span>
-          acme.ai is a platform that helps you build and manage your AI-powered
-          applications. It provides tools and services to streamline the
-          development and deployment of AI solutions.
+          FinWage is an earned wage access platform that allows employees to
+          access a portion of their earned wages before payday, helping with
+          financial wellness and reducing stress.
         </span>
       ),
     },
     {
-      question: "How can I get started with acme.ai?",
+      question: "How does FinWage work for employees?",
       answer: (
         <span>
-          You can get started with acme.ai by signing up for an account on our
-          website, creating a new project, and following our quick-start guide.
-          We also offer tutorials and documentation to help you along the way.
+          Employees can request an advance of up to 60% of their earned wages
+          through our app or platform. Funds are deposited instantly, and
+          repayment is automatically deducted from the next paycheck.
         </span>
       ),
     },
     {
-      question: "What types of AI models does acme.ai support?",
+      question: "Is there a cost for employees?",
       answer: (
         <span>
-          acme.ai supports a wide range of AI models, including but not limited
-          to natural language processing, computer vision, and predictive
-          analytics. We continuously update our platform to support the latest
-          AI technologies.
+          Many employers sponsor FinWage as a benefit, making it free for
+          employees. When not sponsored, fees are typically low and transparent,
+          often less than traditional payday loans.
         </span>
       ),
     },
     {
-      question: "Is acme.ai suitable for beginners in AI development?",
+      question: "How do employers integrate FinWage?",
       answer: (
         <span>
-          Yes, acme.ai is designed to be user-friendly for both beginners and
-          experienced developers. We offer intuitive interfaces, pre-built
-          templates, and extensive learning resources to help users of all skill
-          levels create AI-powered applications.
+          Integration is seamless through our API or payroll partners. We work
+          with your existing HR and payroll systems to provide real-time wage
+          data and automated repayment processing.
         </span>
       ),
     },
     {
-      question: "What kind of support does acme.ai provide?",
+      question: "Is FinWage secure and compliant?",
       answer: (
         <span>
-          acme.ai provides comprehensive support including documentation, video
-          tutorials, a community forum, and dedicated customer support. We also
-          offer premium support plans for enterprises with more complex needs.
+          Yes, FinWage uses bank-level security, encryption, and complies with
+          all relevant financial regulations including AML and data protection
+          standards. Your data is always safe and private.
         </span>
       ),
     },
@@ -200,48 +219,48 @@ export const siteConfig = {
     {
       title: "Product",
       links: [
-        { href: "#", text: "Features", icon: null },
-        { href: "#", text: "Pricing", icon: null },
-        { href: "#", text: "Documentation", icon: null },
-        { href: "#", text: "API", icon: null },
+        { href: "/how-it-works", text: "How It Works", icon: null },
+        { href: "/employers", text: "For Employers", icon: null },
+        { href: "/employees", text: "For Employees", icon: null },
+        { href: "/employers#pricing", text: "Pricing", icon: null },
       ],
     },
     {
       title: "Company",
       links: [
-        { href: "#", text: "About Us", icon: null },
-        { href: "#", text: "Careers", icon: null },
-        { href: "#", text: "Blog", icon: null },
-        { href: "#", text: "Press", icon: null },
-        { href: "#", text: "Partners", icon: null },
+        { href: "/about", text: "About Us", icon: null },
+        { href: "/about#careers", text: "Careers", icon: null },
+        { href: "/resources", text: "Resources", icon: null },
+        { href: "/resources/blog", text: "Blog", icon: null },
+        { href: "/contact", text: "Contact", icon: null },
       ],
     },
     {
-      title: "Resources",
+      title: "Support",
       links: [
-        { href: "#", text: "Community", icon: null },
-        { href: "#", text: "Contact", icon: null },
-        { href: "#", text: "Support", icon: null },
-        { href: "#", text: "Status", icon: null },
+        { href: "/employees#faq", text: "Help Center", icon: null },
+        { href: "/compliance", text: "Compliance & Security", icon: null },
+        { href: "/compliance#security", text: "Security", icon: null },
+        { href: "/resources#api", text: "API Docs", icon: null },
       ],
     },
     {
-      title: "Social",
+      title: "Legal",
       links: [
         {
-          href: "#",
-          text: "Twitter",
-          icon: <FaTwitter />,
+          href: "/legal/privacy",
+          text: "Privacy Policy",
+          icon: null,
         },
         {
-          href: "#",
-          text: "Instagram",
-          icon: <RiInstagramFill />,
+          href: "/legal/terms",
+          text: "Terms of Service",
+          icon: null,
         },
         {
-          href: "#",
-          text: "Youtube",
-          icon: <FaYoutube />,
+          href: "/compliance#aml",
+          text: "AML Compliance",
+          icon: null,
         },
       ],
     },

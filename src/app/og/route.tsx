@@ -2,6 +2,7 @@ import { Icons } from "@/components/icons";
 import { siteConfig } from "@/lib/config";
 import { ImageResponse } from "next/og";
 import { NextRequest } from "next/server";
+import Image from "next/image";
 
 export const runtime = "edge";
 
@@ -75,7 +76,8 @@ export async function GET(req: NextRequest) {
           </div>
         </div>
 
-        <img
+        <Image
+          alt="Dashboard"
           src={`${siteConfig.url}/dashboard.png`}
           width={900}
           style={{

@@ -1,6 +1,7 @@
 interface SectionProps {
   id?: string;
   title?: string;
+  titleComponent?: React.ReactNode;
   subtitle?: string;
   description?: string;
   children?: React.ReactNode;
@@ -10,6 +11,7 @@ interface SectionProps {
 export default function Section({
   id,
   title,
+  titleComponent,
   subtitle,
   description,
   children,
@@ -17,22 +19,26 @@ export default function Section({
 }: SectionProps) {
   const sectionId = title ? title.toLowerCase().replace(/\s+/g, "-") : id;
   return (
-    <section id={id || sectionId}>
+    <section id={id || sectionId} className="py-20">
       <div className={className}>
-        <div className="relative container mx-auto px-4 py-16 max-w-7xl">
-          <div className="text-center space-y-4 pb-6 mx-auto">
-            {title && (
-              <h2 className="text-sm text-primary font-mono font-medium tracking-wider uppercase">
+        <div className="relative container mx-auto px-4 max-w-7xl">
+          <div className="text-center space-y-6 pb-12 mx-auto">
+            {titleComponent ? (
+              <h2 className="text-4xl font-bold text-primary sm:text-5xl md:text-6xl">
+                {titleComponent}
+              </h2>
+            ) : title ? (
+              <h2 className="text-4xl font-bold text-primary sm:text-5xl md:text-6xl">
                 {title}
               </h2>
-            )}
+            ) : null}
             {subtitle && (
-              <h3 className="mx-auto mt-4 max-w-xs text-3xl font-semibold sm:max-w-none sm:text-4xl md:text-5xl">
+              <p className="mx-auto mt-6 max-w-3xl text-xl font-medium text-secondary sm:text-2xl leading-relaxed">
                 {subtitle}
-              </h3>
+              </p>
             )}
             {description && (
-              <p className="mt-6 text-lg leading-8 text-slate-600 max-w-2xl mx-auto">
+              <p className="mt-8 text-lg leading-8 text-muted-foreground max-w-3xl mx-auto">
                 {description}
               </p>
             )}
