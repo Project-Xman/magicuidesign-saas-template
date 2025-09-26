@@ -232,7 +232,7 @@ export const PinContainer = ({
                 <h2 className="text-3xl font-bold text-white">{title}</h2>
                 {subheading && <p className="text-xl text-white/90">{subheading}</p>}
                 <div className="mt-4 w-full max-w-2xl">
-                  {children}
+                  {/* {children} */}
                 </div>
               </div>
             </motion.div>
