@@ -46,7 +46,10 @@ export interface ButtonProps
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, loading = false, loadingText, children, disabled, ...props }, ref) => {
-    const Comp = asChild ? Slot : "button"
+    // During SSR, avoid using Slot to prevent hook call errors
+    // Use a simple check to determine if we're in server environment
+    const isServer = typeof window === 'undefined'
+    const Comp = (asChild && !isServer) ? Slot : "button"
     
     const isDisabled = disabled || loading
     
