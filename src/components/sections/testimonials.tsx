@@ -6,6 +6,9 @@ import Section from "@/components/section";
 import Image from "next/image";
 import { Marquee } from "@/components/ui/marquee";
 import { HyperText } from "@/components/ui/hyper-text";
+import { LineShadowText } from "../ui/line-shadow-text";
+
+import { useTheme } from "next-themes"
 
 interface Testimonial {
   quote: string;
@@ -101,7 +104,13 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial, index })
               <Image
                 src={testimonial.src}
                 alt={testimonial.name}
+                width={40}
+                height={40}
                 className="h-full w-full object-cover"
+                style={{
+                  width: 'auto',
+                  height: 'auto'
+                }}
               />
             </div>
             <div>
@@ -120,16 +129,18 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial, index })
 };
 
 export default function Testimonials() {
+  const { resolvedTheme  } = useTheme();
+  const shadowColor = resolvedTheme  === "dark" ? "white" : "black";
   return (
     <Section
       titleComponent={
-        <HyperText 
-          duration={1000}
-          delay={200}
-          className="font-bold"
-        >
-          What Our Customers Say
-        </HyperText>
+        <>
+        <span className="text-5xl block font-bold">What Our</span>
+          <LineShadowText className="italic text-[150px]" shadowColor={shadowColor}>
+            Clients
+          </LineShadowText>
+          <span className="text-5xl block font-bold">Say</span>
+        </>
       }
       subtitle="Trusted by businesses worldwide for reliable payroll management"
     >

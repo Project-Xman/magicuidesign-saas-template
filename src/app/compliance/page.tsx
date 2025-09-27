@@ -4,6 +4,7 @@ import ComplianceHero from "@/components/sections/compliance-hero";
 import SecurityFeatures from "@/components/sections/security-features";
 import Certifications from "@/components/sections/certifications";
 import PrivacyCommitment from "@/components/sections/privacy-commitment";
+import AMLComplianceSection from "@/components/sections/aml-compliance";
 
 export default function CompliancePage() {
   return (
@@ -12,6 +13,7 @@ export default function CompliancePage() {
       <ComplianceHero />
       <SecurityFeatures />
       <Certifications />
+      <AMLComplianceSection />
       <PrivacyCommitment />
       <Footer />
     </main>

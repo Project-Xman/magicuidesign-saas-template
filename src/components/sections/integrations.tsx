@@ -140,7 +140,7 @@ export default function Integrations() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, ease }}
+            transition={{ duration: 0.8, ease: ease as any}}
           >
             Works With Your Existing Systems
           </motion.h2>
@@ -149,7 +149,7 @@ export default function Integrations() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2, ease }}
+            transition={{ duration: 0.8, delay: 0.2, ease: ease as any}}
           >
             FinWage integrates seamlessly with over 100 HR and payroll platforms. Setup takes minutes, not months.
           </motion.p>
@@ -161,7 +161,7 @@ export default function Integrations() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.4, ease }}
+          transition={{ duration: 0.8, delay: 0.4, ease: ease as any}}
         >
           {integrations.map((integration, index) => (
             <motion.div
@@ -170,7 +170,7 @@ export default function Integrations() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1, ease }}
+              transition={{ duration: 0.5, delay: index * 0.1, ease: ease as any}}
               whileHover={{ scale: 1.05 }}
             >
               {/* For now, using text placeholders - in a real implementation, you'd use actual logos */}
@@ -194,7 +194,7 @@ export default function Integrations() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.6, ease }}
+          transition={{ duration: 0.8, delay: 0.6, ease: ease as any}}
         >
           <div className="text-center">
             <div className="w-16 h-16 bg-pink-500/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
@@ -238,7 +238,7 @@ export default function Integrations() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.8, ease }}
+          transition={{ duration: 0.8, delay: 0.8, ease: ease as any}}
         >
           <h3 className="text-2xl font-bold text-primary mb-4">
             See How FinWage Connects Everything
@@ -255,7 +255,7 @@ export default function Integrations() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 1.0, ease }}
+          transition={{ duration: 0.8, delay: 1.0, ease: ease as any}}
         >
           <div className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 rounded-2xl p-8 text-center max-w-2xl mx-auto border border-white/20">
             <h3 className="text-2xl font-bold text-white mb-4">

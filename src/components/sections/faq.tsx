@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Accordion,
   AccordionContent,
@@ -6,6 +8,7 @@ import {
 } from "@/components/ui/accordion";
 import { BoxReveal } from "@/components/ui/box-reveal";
 import { siteConfig } from "@/lib/config";
+import SplitText from "../SplitText";
 
 export default function FAQ() {
   return (
@@ -36,11 +39,20 @@ export default function FAQ() {
           {/* Centered Header Section */}
           <div className="text-center space-y-6 pb-16 mx-auto max-w-4xl">
             <div className="space-y-4">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent leading-tight drop-shadow-lg mx-auto">
-                <BoxReveal duration={0.8} delay={0.3}>
-                  FAQ
-                </BoxReveal>
-              </h2>
+                <SplitText
+                  text="FAQ"
+                  className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight drop-shadow-lg mx-auto"
+                  delay={100}
+                  duration={0.6}
+                  ease="power3.out"
+                  splitType="chars"
+                  from={{ opacity: 0, y: 40 }}
+                  to={{ opacity: 1, y: 0 }}
+                  threshold={0.1}
+                  rootMargin="-100px"
+                  textAlign="center"
+                />
+              {/* </h2> */}
               <p className="mx-auto max-w-2xl text-lg md:text-xl font-medium text-foreground leading-relaxed drop-shadow-sm text-center">
                 Everything you need to know about FinWage
               </p>

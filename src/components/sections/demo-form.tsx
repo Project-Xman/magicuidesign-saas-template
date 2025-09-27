@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { ShineBorder } from "@/components/ui/shine-border";
+import Link from "next/link";
 
 const ease = [0.16, 1, 0.3, 1];
 
@@ -32,7 +33,7 @@ export default function DemoForm() {
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.8, ease }}
+      transition={{ duration: 0.8, ease: ease as any }}
     >
       <ShineBorder shineColor={["#A07CFE", "#FE8FB5", "#FFBE7B"]} />
       <h2 className="text-2xl font-bold text-primary mb-2">Book a Personalized Demo</h2>
@@ -101,18 +102,18 @@ export default function DemoForm() {
       <div className="mt-6 pt-6 border-t border-border">
         <p className="text-sm text-muted-foreground mb-4">Or contact us directly:</p>
         <div className="space-y-2">
-          <a href="tel:1-800-FINWAGE" className="flex items-center gap-2 text-primary hover:text-primary/80">
+          <Link href="tel:1-800-FINWAGE" className="flex items-center gap-2 text-primary hover:text-primary/80">
             <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
             </svg>
             1-800-FINWAGE
-          </a>
-          <a href="mailto:sales@finwage.com" className="flex items-center gap-2 text-primary hover:text-primary/80">
+          </Link>
+          <Link href="mailto:sales@finwage.com" className="flex items-center gap-2 text-primary hover:text-primary/80">
             <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
             sales@finwage.com
-          </a>
+          </Link>
         </div>
       </div>
     </motion.div>

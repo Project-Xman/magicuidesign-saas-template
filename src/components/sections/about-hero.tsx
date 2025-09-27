@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-const ease = [0.16, 1, 0.3, 1];
+const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 export default function AboutHero() {
   return (
@@ -13,7 +13,7 @@ export default function AboutHero() {
             className="text-4xl md:text-6xl font-bold text-primary mb-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease }}
+            transition={{ duration: 0.8, ease: ease as any}}
           >
             Our Mission: To End Financial Stress and Empower the Workforce
           </motion.h1>
@@ -22,7 +22,7 @@ export default function AboutHero() {
             className="text-xl md:text-2xl text-secondary font-medium mb-12 max-w-3xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease }}
+            transition={{ duration: 0.8, delay: 0.2, ease: ease as any}}
           >
             We believe that working people shouldn&apos;t have to wait for payday to access the money they&apos;ve already earned. FinWage is changing the way people think about paydays and financial wellness.
           </motion.p>
@@ -32,7 +32,7 @@ export default function AboutHero() {
             className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4, ease }}
+            transition={{ duration: 0.8, delay: 0.4, ease: ease as any}}
           >
             <div className="text-center">
               <div className="text-4xl md:text-5xl font-bold text-primary mb-2">78%</div>
@@ -53,7 +53,7 @@ export default function AboutHero() {
             className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-8 border border-primary/20"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6, ease }}
+            transition={{ duration: 0.8, delay: 0.6, ease: ease as any}}
           >
             <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4">
               &ldquo;Finwage is your wage.&rdquo;

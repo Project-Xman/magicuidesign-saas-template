@@ -48,7 +48,7 @@ export default function ROISection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, ease }}
+            transition={{ duration: 0.8, ease: ease as any}}
           >
             Calculate Your ROI
           </motion.h2>
@@ -57,7 +57,7 @@ export default function ROISection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2, ease }}
+            transition={{ duration: 0.8, delay: 0.2, ease: ease as any}}
           >
             See how much FinWage could save your company in reduced turnover costs and improved retention.
           </motion.p>
@@ -69,7 +69,7 @@ export default function ROISection() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.4, ease }}
+            transition={{ duration: 0.8, delay: 0.4, ease: ease as any}}
           >
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {/* Calculator Inputs */}
@@ -140,7 +140,7 @@ export default function ROISection() {
                     className="space-y-6"
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, ease }}
+                    transition={{ duration: 0.6, ease: ease as any}}
                   >
                       <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-xl p-4 border border-primary/20">
                       <div className="text-center">
@@ -213,7 +213,7 @@ export default function ROISection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.6, ease }}
+            transition={{ duration: 0.8, delay: 0.6, ease: ease as any}}
           >
             <div className="bg-card rounded-xl p-6 border border-border">
               <div className="text-2xl font-bold text-primary mb-2">90 days</div>

@@ -14,7 +14,7 @@ export default function ContactHero() {
             className="text-4xl md:text-6xl font-bold text-primary mb-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease }}
+            transition={{ duration: 0.8, ease: ease as any }}
           >
             <Highlighter action="highlight" color="#A07CFE" isView={true}>
               Let&apos;s Chat!
@@ -27,7 +27,7 @@ export default function ContactHero() {
             className="text-xl text-foreground max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease }}
+            transition={{ duration: 0.8, delay: 0.2, ease: ease as any }}
           >
             Ready to <Highlighter action="highlight" color="#FE8FB5" isView={true}>revolutionize your workplace</Highlighter> and make your employees do <Highlighter action="underline" color="#FFBE7B" isView={true}>happy dances on payday</Highlighter>? 
             <br />

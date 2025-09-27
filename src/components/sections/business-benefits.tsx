@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-const ease = [0.16, 1, 0.3, 1];
+const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 const benefits = [
   {
@@ -78,7 +78,7 @@ export default function BusinessBenefits() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, ease }}
+            transition={{ duration: 0.8, ease: ease as any}}
           >
             Invest in Your People, See the Return
           </motion.h2>
@@ -87,7 +87,7 @@ export default function BusinessBenefits() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2, ease }}
+            transition={{ duration: 0.8, delay: 0.2, ease: ease as any}}
           >
             FinWage delivers measurable business results while supporting your employees&apos; financial wellness.
           </motion.p>
@@ -101,7 +101,7 @@ export default function BusinessBenefits() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.2, ease }}
+              transition={{ duration: 0.6, delay: index * 0.2, ease: ease as any}}
             >
               <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center text-primary-foreground mb-6">
                 {benefit.icon}
@@ -126,7 +126,7 @@ export default function BusinessBenefits() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.6, ease }}
+          transition={{ duration: 0.8, delay: 0.6, ease: ease as any}}
         >
           <div className="text-center mb-12">
             <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4">
@@ -145,7 +145,7 @@ export default function BusinessBenefits() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1, ease }}
+                transition={{ duration: 0.6, delay: index * 0.1, ease: ease as any}}
               >
                 <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center text-primary-foreground mx-auto mb-4">
                   {feature.icon}

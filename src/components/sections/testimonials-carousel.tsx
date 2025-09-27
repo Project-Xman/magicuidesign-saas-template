@@ -1,6 +1,10 @@
+"use client";
 import Section from "@/components/section";
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
 import Image from "next/image";
+import ShinyText from "../ShinyText";
+import BlurText from "../BlurText";
+import { motion } from "framer-motion";
 
 const employerTestimonials: Array<{
   quote: string;
@@ -64,16 +68,37 @@ const employerTestimonials: Array<{
     }
   }
 ];
-
 export default function Component() {
   return (
     <Section
-      title="Enterprise Success Stories"
-      subtitle="Learn how industry leaders are revolutionizing their hiring processes and achieving remarkable results"
-    >
-      <div className="relative overflow-hidden rounded-xl bg-gradient-to-b from-muted/20">
+      titleComponent={
+        <BlurText
+          text="Enterprise Success Stories!"
+          delay={50}
+          animateBy="letters"
+          direction="top"
+          className="text-7xl font-extrabold text-center flex justify-center items-center" 
+        />
+      }
+      subtitleComponent={
+        <motion.p
+          className="mx-auto mt-6 max-w-3xl text-xl font-medium text-secondary sm:text-2xl leading-relaxed"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.7, ease: "easeOut" }}
+        >
+          Learn how industry leaders are revolutionizing their hiring processes and achieving remarkable results
+        </motion.p>
+      }
+      >
+      <motion.div 
+        className="relative overflow-hidden rounded-xl bg-gradient-to-b from-muted/20"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
         <AnimatedTestimonials testimonials={employerTestimonials} autoplay={true} />
-      </div>
+      </motion.div>
     </Section>
   );
 }

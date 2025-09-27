@@ -110,7 +110,7 @@ export default function EmployeeBenefits() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, ease }}
+            transition={{ duration: 0.8, ease: ease as any}}
           >
             Financial Freedom at Your Fingertips
           </motion.h2>
@@ -119,7 +119,7 @@ export default function EmployeeBenefits() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2, ease }}
+            transition={{ duration: 0.8, delay: 0.2, ease: ease as any}}
           >
             Take control of your finances with instant access to the money you&apos;ve already earned.
           </motion.p>
@@ -133,7 +133,7 @@ export default function EmployeeBenefits() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1, ease }}
+              transition={{ duration: 0.6, delay: index * 0.1, ease: ease as any}}
             >
               <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center text-primary-foreground mb-6">
                 {benefit.icon}
@@ -162,7 +162,7 @@ export default function EmployeeBenefits() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.6, ease }}
+          transition={{ duration: 0.8, delay: 0.6, ease: ease as any}}
         >
           <div className="text-center mb-8">
             <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4">
@@ -192,7 +192,7 @@ export default function EmployeeBenefits() {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1, ease }}
+              transition={{ duration: 0.6, delay: index * 0.1, ease: ease as any}}
             >
               <td className="py-4 px-2">
                 <div className="flex items-center space-x-2">

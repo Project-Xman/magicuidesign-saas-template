@@ -1,10 +1,11 @@
 "use client";
-import React, { useState, useEffect, useContext, createContext } from "react";
+import React, { useState, useEffect, useContext, createContext, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { AuroraText } from "@/components/magicui/aurora-text";
 import { useOutsideClick } from "@/hooks/use-outside-click";
 import Lottie from "lottie-react";
+import Link from "next/link";
 
 // Create context for managing expanded pins
 const PinContext = createContext<{
@@ -19,13 +20,13 @@ export const PinProvider = ({ children }: { children: React.ReactNode }) => {
   const [expandedPin, setExpandedPin] = useState<string | null>(null);
   const [pinIds, setPinIds] = useState<string[]>([]);
 
-  const registerPin = (id: string) => {
+  const registerPin = useCallback((id: string) => {
     setPinIds(prev => [...prev, id]);
-  };
+  }, []);
 
-  const unregisterPin = (id: string) => {
+  const unregisterPin = useCallback((id: string) => {
     setPinIds(prev => prev.filter(pinId => pinId !== id));
-  };
+  }, []);
 
   return (
     <PinContext.Provider value={{
@@ -132,7 +133,6 @@ const LottieAnimation = ({
         style={{ width: '100%', height: '100%' }}
         rendererSettings={{
           preserveAspectRatio: 'xMidYMid slice',
-          clearCanvas: false,
           progressiveLoad: true,
           hideOnTransparent: true
         }}
@@ -291,7 +291,8 @@ export const PinContainer = ({
 
   return (
     <>
-      <a
+      <Link
+        href={href || '#'}
         className={cn(
           "relative group/pin z-50 cursor-pointer",
           containerClassName
@@ -325,7 +326,7 @@ export const PinContainer = ({
           </div>
         </div>
         <PinPerspective title={title} href={href} />
-      </a>
+      </Link>
 
       <AnimatePresence mode="wait">
         {isExpanded && (
@@ -383,22 +384,79 @@ export const PinContainer = ({
                 )}
                 {title === "Work" ? (
                   <div className="w-full max-w-4xl mx-auto mb-8 rounded-3xl">
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
-                      className="relative"
-                    >
-                      <LottieAnimation 
-                        animationPath="/work-from-home.json"
-                        className="w-full h-80 max-w-lg mx-auto drop-shadow-lg rounded-3xl"
-                        loop={true}
-                        autoplay={true}
-                        speed={1}
-                      />
-                      {/* Optional overlay for better visual integration */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-white/5 pointer-events-none rounded-lg"></div>
-                    </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
+                    className="relative"
+                  >
+                    <LottieAnimation 
+                    animationPath="/work-from-home.json"
+                    className="w-full max-w-lg mx-auto drop-shadow-lg"
+                    loop={true}
+                    autoplay={true}
+                    speed={1}
+                    />
+                    {/* Optional overlay for better visual integration */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-white/5 pointer-events-none rounded-lg"></div>
+                  </motion.div>
+                  </div>
+                ) : title === "Earn" ? (
+                  <div className="w-full max-w-4xl mx-auto mb-8 rounded-3xl">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
+                    className="relative"
+                  >
+                    <LottieAnimation 
+                    animationPath="/earn.json"
+                    className="w-full max-w-lg mx-auto drop-shadow-lg"
+                    loop={true}
+                    autoplay={true}
+                    speed={1}
+                    />
+                    {/* Optional overlay for better visual integration */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-white/5 pointer-events-none rounded-lg"></div>
+                  </motion.div>
+                  </div>
+                ) : title === "Access Pay" ? (
+                  <div className="w-full max-w-4xl mx-auto mb-8 rounded-3xl">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
+                    className="relative"
+                  >
+                    <LottieAnimation 
+                    animationPath="/acess.json"
+                    className="w-full max-w-lg mx-auto drop-shadow-lg"
+                    loop={true}
+                    autoplay={true}
+                    speed={1}
+                    />
+                    {/* Optional overlay for better visual integration */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-white/5 pointer-events-none rounded-lg"></div>
+                  </motion.div>
+                  </div>
+                ) : title === "Peace of Mind" ? (
+                  <div className="w-full max-w-4xl mx-auto mb-8 rounded-3xl">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
+                    className="relative"
+                  >
+                    <LottieAnimation 
+                    animationPath="/freedom.json"
+                    className="w-full max-w-lg mx-auto drop-shadow-lg"
+                    loop={true}
+                    autoplay={true}
+                    speed={1}
+                    />
+                    {/* Optional overlay for better visual integration */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-white/5 pointer-events-none rounded-lg"></div>
+                  </motion.div>
                   </div>
                 ) : (
                   icon && <div className="w-24 h-24 flex items-center justify-center">{icon}</div>
@@ -433,20 +491,17 @@ export const PinPerspective = ({
   href?: string;
 }) => {
   return (
-    <motion.div className="pointer-events-none w-96 h-80 flex items-center justify-center opacity-0 group-hover/pin:opacity-100 z-[60] transition duration-500">
+    <motion.div className="pointer-events-none w-96 h-80 flex items-center justify-center opacity-0 group-hover/pin:opacity-100 z-[60] transition duration-500"
+      suppressHydrationWarning={true}>
       <div className="w-full h-full -mt-7 flex-none inset-0">
         <div className="absolute top-0 inset-x-0 flex justify-center">
-          <a
-            href={href}
-            target={"_blank"}
-            className="relative flex space-x-2 items-center z-10 rounded-full bg-gradient-to-br from-primary via-primary to-secondary py-2 px-6 ring-1 ring-white/10"
-          >
+          <div className="relative flex space-x-2 items-center z-10 rounded-full bg-gradient-to-br from-primary via-primary to-secondary py-2 px-6 ring-1 ring-white/10">
             <span className="relative z-20 text-white text-lg font-bold inline-block py-2 px-2">
               <AuroraText className="text-white text-lg font-bold">{title}</AuroraText>
             </span>
 
             <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-emerald-400/0 via-emerald-400/90 to-emerald-400/0 transition-opacity duration-500 group-hover/btn:opacity-40"></span>
-          </a>
+          </div>
         </div>
 
         <div

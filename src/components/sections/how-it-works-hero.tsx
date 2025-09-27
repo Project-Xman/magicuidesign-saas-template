@@ -14,7 +14,7 @@ export default function HowItWorksHero() {
             className="text-4xl md:text-6xl font-bold text-primary mb-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease }}
+            transition={{ duration: 0.8, ease: ease as any}}
           >
             Simple for Employees. Seamless for Employers.
           </motion.h1>
@@ -23,7 +23,7 @@ export default function HowItWorksHero() {
             className="text-xl md:text-2xl text-secondary font-medium mb-12 max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease }}
+            transition={{ duration: 0.8, delay: 0.2, ease: ease as any}}
           >
             See how FinWage provides on-demand pay without disrupting your payroll workflow.
           </motion.h2>
@@ -33,7 +33,7 @@ export default function HowItWorksHero() {
             className="flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-12 bg-gradient-to-r from-primary/5 to-accent/5 rounded-2xl p-8 border border-primary/20"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.4, ease }}
+            transition={{ duration: 1, delay: 0.4, ease: ease as any}}
           >
             {/* Employer System */}
             <div className="flex flex-col items-center space-y-4">
@@ -94,7 +94,7 @@ export default function HowItWorksHero() {
             className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 text-left max-w-4xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6, ease }}
+            transition={{ duration: 0.8, delay: 0.6, ease: ease as any}}
           >
             <div className="p-6 bg-card rounded-xl border border-border">
               <h4 className="font-semibold text-primary mb-2">Data Flow</h4>

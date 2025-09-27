@@ -28,19 +28,19 @@ export function SpinningText({
           transition: {
             duration,
             repeat: Infinity,
-            ease: "linear"
+            ease: "linear" as const
           }
         };
       case "inView":
         return {
           whileInView: { rotate: rotation },
           viewport: { once: true },
-          transition: { duration, ease: "easeInOut" }
+          transition: { duration, ease: "easeInOut" as const }
         };
       default: // hover
         return {
           whileHover: { rotate: rotation },
-          transition: { duration, ease: "easeInOut" }
+          transition: { duration, ease: "easeInOut" as const }
         };
     }
   };

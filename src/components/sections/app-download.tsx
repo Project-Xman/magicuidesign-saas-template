@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 const ease = [0.16, 1, 0.3, 1];
 
@@ -16,7 +17,7 @@ export default function AppDownload() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, ease }}
+            transition={{ duration: 0.8, ease: ease as any }}
           >
             Get Started Today
           </motion.h2>
@@ -26,7 +27,7 @@ export default function AppDownload() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2, ease }}
+            transition={{ duration: 0.8, delay: 0.2, ease: ease as any }}
           >
             Download the FinWage app and take control of your finances. Access your earned wages whenever you need them.
           </motion.p>
@@ -36,10 +37,10 @@ export default function AppDownload() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.4, ease }}
+            transition={{ duration: 0.8, delay: 0.4, ease: ease as any }}
           >
             {/* App Store Button */}
-            <a
+            <Link
               href="#"
               className="inline-flex items-center gap-3 bg-black text-white px-6 py-4 rounded-xl font-medium hover:bg-gray-800 transition-colors duration-200"
             >
@@ -50,10 +51,10 @@ export default function AppDownload() {
                 <div className="text-xs text-muted-foreground">Download on the</div>
                 <div className="text-lg font-semibold">App Store</div>
               </div>
-            </a>
+            </Link>
 
             {/* Google Play Button */}
-            <a
+            <Link
               href="#"
               className="inline-flex items-center gap-3 bg-black text-white px-6 py-4 rounded-xl font-medium hover:bg-gray-800 transition-colors duration-200"
             >
@@ -64,7 +65,7 @@ export default function AppDownload() {
                 <div className="text-xs text-muted-foreground">Get it on</div>
                 <div className="text-lg font-semibold">Google Play</div>
               </div>
-            </a>
+            </Link>
           </motion.div>
 
           {/* Phone Mockups */}
@@ -73,7 +74,7 @@ export default function AppDownload() {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.6, ease }}
+            transition={{ duration: 1, delay: 0.6, ease: ease as any }}
           >
             <div className="relative">
               {/* Main Phone */}
@@ -137,7 +138,7 @@ export default function AppDownload() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.8, ease }}
+            transition={{ duration: 0.8, delay: 0.8, ease: ease as any }}
           >
             <div className="flex flex-col items-center">
               <div className="w-12 h-12 bg-primary-foreground/20 rounded-xl flex items-center justify-center mb-3">

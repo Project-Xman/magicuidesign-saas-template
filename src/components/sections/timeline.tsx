@@ -47,7 +47,7 @@ export default function Timeline() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, ease }}
+            transition={{ duration: 0.8, ease: ease as any}}
           >
             Our Journey
           </motion.h2>
@@ -56,7 +56,7 @@ export default function Timeline() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2, ease }}
+            transition={{ duration: 0.8, delay: 0.2, ease: ease as any}}
           >
                       Take a look at our journey and see how we&apos;ve grown from a simple idea to a comprehensive financial wellness platform.
           </motion.p>
@@ -76,7 +76,7 @@ export default function Timeline() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1, ease }}
+                transition={{ duration: 0.6, delay: index * 0.1, ease: ease as any}}
               >
                 {/* Content */}
                 <div className={`w-5/12 ${index % 2 === 0 ? 'text-right pr-8' : 'text-left pl-8'}`}>

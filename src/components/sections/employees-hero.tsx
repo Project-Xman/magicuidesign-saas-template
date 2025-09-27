@@ -16,7 +16,7 @@ export default function EmployeesHero() {
             className="text-4xl md:text-6xl font-bold text-primary mb-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease }}
+            transition={{ duration: 0.8, ease: ease as any}}
           >
             Access Your Pay When You Need It. No Waiting, No Stress.
           </motion.h1>
@@ -25,7 +25,7 @@ export default function EmployeesHero() {
             className="text-xl md:text-2xl text-secondary font-medium mb-12 max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease }}
+            transition={{ duration: 0.8, delay: 0.2, ease: ease as any}}
           >
             Say goodbye to payday loans and overdraft fees. With FinWage, you can             Access the money you&apos;ve already earned, whenever you need it.
           </motion.h2>
@@ -34,7 +34,7 @@ export default function EmployeesHero() {
             className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4, ease }}
+            transition={{ duration: 0.8, delay: 0.4, ease: ease as any}}
           >
             <Link
               href="#download"
@@ -64,7 +64,7 @@ export default function EmployeesHero() {
               className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6, ease }}
+              transition={{ duration: 0.8, delay: 0.6, ease: ease as any}}
               >
               <div className="text-center text-black">
                 <div className="w-16 h-16 bg-red-500/50 rounded-2xl flex items-center justify-center mx-auto mb-4">
@@ -100,7 +100,7 @@ export default function EmployeesHero() {
             className="relative max-w-sm mx-auto"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.8, ease }}
+            transition={{ duration: 1, delay: 0.8, ease: ease as any}}
           >
             <div className="bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl p-4 border border-primary/30">
               <div className="bg-card rounded-2xl p-6 shadow-xl">
@@ -131,7 +131,7 @@ export default function EmployeesHero() {
             className="mt-12 text-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1, ease }}
+            transition={{ duration: 0.8, delay: 1, ease: ease as any}}
             >
             <div className="flex flex-wrap justify-center gap-4 text-muted-foreground">
               {[

@@ -57,7 +57,7 @@ export function TextReveal({
       x: 0,
       transition: {
         duration,
-        ease: "easeOut",
+        ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
       },
     },
   };

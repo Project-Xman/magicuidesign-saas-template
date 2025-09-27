@@ -57,7 +57,7 @@ export default function EmployeeHowItWorks() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, ease }}
+            transition={{ duration: 0.8, ease: ease as any}}
           >
             How It Works
           </motion.h2>
@@ -66,7 +66,7 @@ export default function EmployeeHowItWorks() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2, ease }}
+            transition={{ duration: 0.8, delay: 0.2, ease: ease as any}}
           >
             Getting access to your earned wages is simple and straightforward.
           </motion.p>
@@ -81,7 +81,7 @@ export default function EmployeeHowItWorks() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1, ease }}
+                transition={{ duration: 0.6, delay: index * 0.1, ease: ease as any}}
               >
                 <div className="relative mb-6">
                   <div className="w-20 h-20 bg-primary rounded-2xl flex items-center justify-center text-primary-foreground mx-auto mb-4">
@@ -107,7 +107,7 @@ export default function EmployeeHowItWorks() {
                   initial={{ scaleX: 0 }}
                   whileInView={{ scaleX: 1 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: i * 0.2, ease }}
+                  transition={{ duration: 0.6, delay: i * 0.2, ease: ease as any}}
                 />
               ))}
             </div>

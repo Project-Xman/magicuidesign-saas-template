@@ -43,7 +43,7 @@ export default function GlobeSection() {
               className="text-center mb-16"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease }}
+              transition={{ duration: 0.8, ease: ease as any}}
               viewport={{ once: true }}
             >
               <h2 className="text-3xl font-bold text-foreground sm:text-4xl md:text-5xl mb-4">
@@ -61,7 +61,7 @@ export default function GlobeSection() {
                 className="relative flex items-center justify-center mx-auto"
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 1, ease }}
+                transition={{ duration: 1, ease: ease as any}}
                 viewport={{ once: true }}
               >
                 <div className="relative h-[700px] w-[700px] md:h-[850px] md:w-[850px] lg:h-[700px] lg:w-[950px] mx-auto">
@@ -74,7 +74,7 @@ export default function GlobeSection() {
                 className="absolute top-4 left-0 lg:left-8 xl:left-16"
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, ease, delay: 0.2 }}
+                transition={{ duration: 0.8, ease: ease as any, delay: 0.2 }}
                 viewport={{ once: true }}
               >
                 <PinContainer 
@@ -103,7 +103,7 @@ export default function GlobeSection() {
                 className="absolute !top-[41%] left-[23%] z-10"
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, ease, delay: 0.3 }}
+                transition={{ duration: 0.8, ease: ease as any, delay: 0.3 }}
                 viewport={{ once: true }}
               >
                  <svg width="105" height="171" viewBox="0 0 105 171" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-20 h-28 lg:w-24 lg:h-32">
@@ -122,7 +122,7 @@ export default function GlobeSection() {
                 className="absolute bottom-4  left-[25%] lg:bottom-8"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, ease, delay: 0.4 }}
+                transition={{ duration: 0.8, ease: ease as any, delay: 0.4 }}
                 viewport={{ once: true }}
               >
                 <PinContainer 
@@ -151,7 +151,7 @@ export default function GlobeSection() {
                 className="absolute top-[46%] left-[54%] z-10"
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, ease, delay: 0.5 }}
+                transition={{ duration: 0.8, ease: ease as any, delay: 0.5 }}
                 viewport={{ once: true }}
               >
                 <svg width="163" height="271" viewBox="0 0 163 271" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-24 h-36 lg:w-28 lg:h-40">
@@ -170,7 +170,7 @@ export default function GlobeSection() {
                 className="absolute top-4 left-[55%] lg:top-8"
                 initial={{ opacity: 0, y: -50 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, ease, delay: 0.6 }}
+                transition={{ duration: 0.8, ease: ease as any, delay: 0.6 }}
                 viewport={{ once: true }}
               >
                 <PinContainer 
@@ -199,7 +199,7 @@ export default function GlobeSection() {
                 className="absolute top-[41%] left-[83%] z-10"
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, ease, delay: 0.7 }}
+                transition={{ duration: 0.8, ease: ease as any, delay: 0.7 }}
                 viewport={{ once: true }}
               >
                 <svg width="105" height="171" viewBox="0 0 105 171" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-20 h-28 lg:w-24 lg:h-32">
@@ -218,7 +218,7 @@ export default function GlobeSection() {
                 className="absolute bottom-4 left-[70%] lg:bottom-8"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, ease, delay: 0.8 }}
+                transition={{ duration: 0.8, ease: ease as any, delay: 0.8 }}
                 viewport={{ once: true }}
               >
                 <PinContainer 
@@ -250,7 +250,7 @@ export default function GlobeSection() {
               className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease, delay: 1.0 }}
+              transition={{ duration: 0.8, ease: ease as any, delay: 1.0 }}
               viewport={{ once: true }}
             >
               <div className="text-center">

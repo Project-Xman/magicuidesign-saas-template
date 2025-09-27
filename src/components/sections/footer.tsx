@@ -8,7 +8,7 @@ export default function Footer() {
   return (
     <footer className="relative bg-background/80 backdrop-blur-md border-t border-border/50">
       <div className="max-w-6xl mx-auto py-16 sm:px-10 px-5 pb-0">
-        <a
+        <Link
           href="/"
           title={siteConfig.name}
           className="relative mr-6 flex items-center space-x-2"
@@ -16,12 +16,14 @@ export default function Footer() {
           <Image
             src="/logo.png"
             alt="logo"
-            width={40}
-            height={40}
-            className="w-auto h-[40px]"
-            style={{ color: 'transparent' }}
+            width={160}
+            height={190}
+            style={{
+              width: 'auto',
+              height: 'auto'
+            }}
           />
-        </a>
+        </Link>
 
         <div className="grid md:grid-cols-3 lg:grid-cols-4 sm:grid-cols-2 mt-8">
           {siteConfig.footer.map((section, index) => (
@@ -46,20 +48,20 @@ export default function Footer() {
         </div>
         <div className="max-w-6xl mx-auto border-t border-border/50 py-2 grid md:grid-cols-2 h-full justify-between w-full grid-cols-1 gap-1">
           <span className="text-sm tracking-tight text-foreground">
-            Copyright © {new Date().getFullYear()}{" "}
-            <Link href="/" className="cursor-pointer hover:text-primary transition-colors" >
+            © {new Date().getFullYear()}{" "}
+            <Link href="/" className="cursor-pointer hover:text-primary transition-colors font-medium" >
               {siteConfig.name}
             </Link>{" "}
-            - {siteConfig.description}
+            - Finwage is your wage. Access your earned wages instantly with our financial wellness benefit.
           </span>
           <ul className="flex justify-start md:justify-end text-sm tracking-tight text-foreground">
             <li className="mr-3 md:mx-4">
-              <Link href="#" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+              <Link href="/legal/privacy" className="hover:text-primary transition-colors">
                 Privacy Policy
               </Link>
             </li>
             <li className="mr-3 md:mx-4">
-              <Link href="#" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+              <Link href="/legal/terms" className="hover:text-primary transition-colors">
                 Terms of Service
               </Link>
             </li>

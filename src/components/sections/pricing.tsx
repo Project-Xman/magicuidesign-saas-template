@@ -13,9 +13,14 @@ import { motion } from "framer-motion";
 import { Check, Star } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
+import { useTheme } from "next-themes";
+import TextPressure from "../TextPressure";
 
 export default function PricingSection() {
   const [isMonthly, setIsMonthly] = useState(true);
+  const {resolvedTheme} = useTheme();
+
+  const textColor = resolvedTheme === 'dark' ? '#e0e0e0' : '#333333';
 
   const handleToggle = () => {
     setIsMonthly(!isMonthly);
@@ -24,12 +29,20 @@ export default function PricingSection() {
   return (
     <Section 
       titleComponent={
-        <AnimatedGradientText 
-          colors={["#ff0080", "#ff8c00", "#40e0d0", "#ff0080"]}
-          animationSpeed={3}
-        >
-          Pricing
-        </AnimatedGradientText>
+        <div className="flex justify-center items-center w-[1000px] mr-auto ml-auto">
+        <TextPressure
+          text="Pricing!"
+          flex={false}
+          alpha={false}
+          stroke={false}
+          width={true}
+          weight={true}
+          italic={true}
+          textColor={textColor}
+          minFontSize={48}
+          strokeColor="#ff0000"
+        />
+        </div>
       }
       subtitle="Choose the perfect plan for your payroll needs"
     >

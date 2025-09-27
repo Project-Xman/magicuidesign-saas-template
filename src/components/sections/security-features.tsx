@@ -53,7 +53,7 @@ export default function SecurityFeatures() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, ease }}
+            transition={{ duration: 0.8, ease: ease as any}}
           >
             Advanced Security Infrastructure
           </motion.h2>
@@ -62,7 +62,7 @@ export default function SecurityFeatures() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2, ease }}
+            transition={{ duration: 0.8, delay: 0.2, ease: ease as any}}
           >
             Built with enterprise-grade security from the ground up to protect your most sensitive financial data.
           </motion.p>
@@ -76,7 +76,7 @@ export default function SecurityFeatures() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1, ease }}
+              transition={{ duration: 0.6, delay: index * 0.1, ease: ease as any}}
             >
               <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center text-primary-foreground mx-auto mb-6">
                 {feature.icon}

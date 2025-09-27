@@ -16,7 +16,7 @@ export default function EmployersHero() {
             className="text-4xl md:text-6xl font-bold text-primary mb-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease }}
+            transition={{ duration: 0.8, ease: ease as any}}
           >
             The Financial Wellness Benefit That Pays You Back
           </motion.h1>
@@ -25,7 +25,7 @@ export default function EmployersHero() {
             className="text-xl md:text-2xl text-secondary font-medium mb-12 max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease }}
+            transition={{ duration: 0.8, delay: 0.2, ease: ease as any}}
           >
             Reduce turnover, attract top talent, and boost productivity with zero impact on your cash flow.
           </motion.h2>
@@ -34,7 +34,7 @@ export default function EmployersHero() {
             className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4, ease }}
+            transition={{ duration: 0.8, delay: 0.4, ease: ease as any}}
           >
             <Link
               href="/contact#demo"
@@ -61,7 +61,7 @@ export default function EmployersHero() {
             className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6, ease }}
+            transition={{ duration: 0.8, delay: 0.6, ease: ease as any}}
           >
             <div className="text-center">
               <div className="text-4xl md:text-5xl font-bold text-primary mb-2">30%</div>
@@ -85,7 +85,7 @@ export default function EmployersHero() {
             className="bg-muted/30 rounded-2xl p-8 border border-border"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8, ease }}
+            transition={{ duration: 0.8, delay: 0.8, ease: ease as any}}
           >
             <h3 className="text-lg font-semibold text-primary mb-6">Trusted by Leading Companies</h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center opacity-60">

@@ -2,18 +2,20 @@ import Image from "next/image";
 import styles from "./logos.module.css";
 import { BorderBeam } from "../magicui/border-beam";
 import BlurFade from "../magicui/blur-fade";
+import LogoLoop from "../LogoLoop";
+import CountUp from "../CountUp";
 
 const companies = [
-  "Google",
-  "Microsoft",
-  "Amazon",
-  "Netflix",
-  "Uber",
-  "Spotify",
-  "Airbnb",
-  "Tesla",
-  "Shopify",
-  "Stripe",
+  { src: "https://cdn.magicui.design/companies/Google.svg", alt: "Google", href: "https://www.google.com" },
+  { src: "https://cdn.magicui.design/companies/Microsoft.svg", alt: "Microsoft", href: "https://www.microsoft.com" },
+  { src: "https://cdn.magicui.design/companies/Amazon.svg", alt: "Amazon", href: "https://www.amazon.com" },
+  { src: "https://cdn.magicui.design/companies/Netflix.svg", alt: "Netflix", href: "https://www.netflix.com" },
+  { src: "https://cdn.magicui.design/companies/Uber.svg", alt: "Uber", href: "https://www.uber.com" },
+  { src: "https://cdn.magicui.design/companies/Spotify.svg", alt: "Spotify", href: "https://www.spotify.com" },
+  { src: "https://cdn.magicui.design/companies/Airbnb.svg", alt: "Airbnb", href: "https://www.airbnb.com" },
+  { src: "https://cdn.magicui.design/companies/Tesla.svg", alt: "Tesla", href: "https://www.tesla.com" },
+  { src: "https://cdn.magicui.design/companies/Shopify.svg", alt: "Shopify", href: "https://www.shopify.com" },
+  { src: "https://cdn.magicui.design/companies/Stripe.svg", alt: "Stripe", href: "https://www.stripe.com" },
 ];
 
 const trustStats = [
@@ -46,39 +48,53 @@ export default function Logos() {
           </p>
         </div>
         <div className="relative">
-          <div className={styles.logoCarousel}>
-            <div className={styles.logoSlide}>
-              {[...companies, ...companies, ...companies].map((logo, idx) => (
-                <div 
-                  key={idx} 
-                  className={`${styles.logo} transform hover:scale-110 transition-all duration-500`}
-                >
-                  <Image
-                    width={160}
-                    height={64}
-                    src={`https://cdn.magicui.design/companies/${logo}.svg`}
-                    className="h-16 w-auto dark:brightness-0 dark:invert grayscale opacity-80 hover:opacity-100 hover:grayscale-0 transition-all duration-300"
-                    alt={`${logo} - Trusted FinWage customer`}
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
+          <LogoLoop
+            logos={companies}
+            speed={80}
+            direction="left"
+            logoHeight={68}
+            gap={40}
+            pauseOnHover
+            scaleOnHover
+            grayscaleOnHover
+            fadeOut
+            fadeOutColor="#ffffff"
+            ariaLabel="Technology partners"
+                />
           <div className="pointer-events-none absolute inset-y-0 left-0 h-full w-1/4 bg-gradient-to-r from-muted/30 to-transparent"></div>
           <div className="pointer-events-none absolute inset-y-0 right-0 h-full w-1/4 bg-gradient-to-l from-muted/30 to-transparent"></div>
         </div>
         <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
-          {trustStats.map((stat, index) => (
-            <BlurFade key={stat.label} delay={index * 0.1} inView>
+            {trustStats.map((stat, index) => {
+            const parseValue = (value: string): number => {
+              const numStr = value.replace(/[^0-9.]/g, '');
+              if (value.includes('M')) {
+              return parseFloat(numStr) * 1000000;
+              } else if (value.includes('K')) {
+              return parseFloat(numStr) * 1000;
+              } else {
+              return parseFloat(numStr);
+              }
+            };
+            return (
+              <BlurFade key={stat.label} delay={index * 0.1} inView>
               <div className="relative h-full rounded-2xl border border-primary/10 bg-white/70 p-6 text-center shadow-md shadow-primary/5 backdrop-blur dark:bg-neutral-900/70">
                 <BorderBeam size={200} duration={16} borderWidth={1} delay={index * 2} className="opacity-30" />
-                <p className="text-4xl font-bold text-primary">{stat.value}</p>
+                <CountUp
+                from={0}
+                to={parseValue(stat.value)}
+                separator=","
+                direction="up"
+                duration={0.4}
+                className="text-4xl font-bold text-primary"
+                />
                 <p className="mt-2 text-sm font-medium uppercase tracking-[0.28em] text-muted-foreground">
-                  {stat.label}
+                {stat.label}
                 </p>
               </div>
-            </BlurFade>
-          ))}
+              </BlurFade>
+            );
+            })}
         </div>
         <div className="text-center mt-8">
           <p className="text-lg text-muted-foreground">

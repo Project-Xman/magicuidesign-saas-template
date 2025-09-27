@@ -1,7 +1,7 @@
 "use client";
 
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
 import { useEffect, useState, useCallback } from "react";
@@ -47,8 +47,14 @@ export const AnimatedTestimonials = ({
     }
   }, [autoplay, handleNext]);
 
+  const [isClientSide, setIsClientSide] = useState(false);
+  
+  useEffect(() => {
+    setIsClientSide(true);
+  }, []);
+
   const randomRotateY = () => {
-    return Math.floor(Math.random() * 21) - 10;
+    return isClientSide ? Math.floor(Math.random() * 21) - 10 : 0;
   };
   return (
     <div className="mx-auto max-w-sm px-4 py-20 font-sans antialiased md:max-w-5xl md:px-8 lg:px-12">
@@ -58,7 +64,7 @@ export const AnimatedTestimonials = ({
             <AnimatePresence>
               {testimonials.map((testimonial, index) => (
                 <motion.div
-                  key={testimonial.src}
+                  key={index}
                   initial={{
                     opacity: 0,
                     scale: 0.9,
@@ -86,6 +92,7 @@ export const AnimatedTestimonials = ({
                     ease: "easeInOut",
                   }}
                   className="absolute inset-0 origin-bottom"
+                  suppressHydrationWarning={true}
                 >
                   <div className="relative h-full w-full overflow-hidden rounded-3xl">
                     <Image
@@ -95,6 +102,10 @@ export const AnimatedTestimonials = ({
                       height={600}
                       draggable={false}
                       className="h-full w-full object-cover object-center"
+                      style={{
+                        width: 'auto',
+                        height: 'auto'
+                      }}
                     />
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6">
                       <Image
@@ -103,6 +114,10 @@ export const AnimatedTestimonials = ({
                         width={120}
                         height={40}
                         className="h-10 w-auto"
+                        style={{
+                          width: 'auto',
+                          height: 'auto'
+                        }}
                       />
                     </div>
                   </div>

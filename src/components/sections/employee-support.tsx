@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ShineBorder } from "@/components/ui/shine-border";
+import Link from "next/link";
 
 const ease = [0.16, 1, 0.3, 1];
 
@@ -53,7 +54,7 @@ export default function EmployeeSupport() {
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.8, delay: 0.2, ease }}
+      transition={{ duration: 0.8, delay: 0.2, ease: ease as any}}
     >
       <ShineBorder shineColor={["#A07CFE", "#FE8FB5", "#FFBE7B"]} />
       <h2 className="text-2xl font-bold text-primary mb-2">Employee Support</h2>
@@ -78,16 +79,16 @@ export default function EmployeeSupport() {
         <h3 className="font-semibold text-secondary mb-4">Quick Help</h3>
         <div className="space-y-2">
           {faqs.map((faq, index) => (
-            <a 
+            <Link 
               key={index}
               href="/employees#faq"
               className="block text-sm text-muted-foreground hover:text-primary transition-colors"
             >
               • {faq}
-            </a>
+            </Link>
           ))}
         </div>
-        <a 
+        <Link 
           href="/employees#faq"
           className="inline-flex items-center gap-1 text-primary hover:text-primary/80 text-sm font-medium mt-4"
         >
@@ -95,7 +96,7 @@ export default function EmployeeSupport() {
           <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
           </svg>
-        </a>
+        </Link>
       </div>
     </motion.div>
   );

@@ -14,7 +14,7 @@ export default function Mission() {
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, ease }}
+              transition={{ duration: 0.8, ease: ease as any}}
             >
               <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
                 Why We Started FinWage
@@ -37,7 +37,7 @@ export default function Mission() {
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2, ease }}
+              transition={{ duration: 0.8, delay: 0.2, ease: ease as any}}
             >
               <h3 className="text-xl font-bold text-primary mb-6">Our Impact</h3>
               <div className="space-y-6">

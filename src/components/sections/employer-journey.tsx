@@ -68,7 +68,7 @@ export default function EmployerJourney() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, ease }}
+            transition={{ duration: 0.8, ease: ease as any}}
           >
             A Zero-Disruption Setup in 3 Steps
           </motion.h2>
@@ -77,7 +77,7 @@ export default function EmployerJourney() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2, ease }}
+            transition={{ duration: 0.8, delay: 0.2, ease: ease as any}}
           >
             Implement a world-class employee benefit without changing your payroll process
           </motion.p>
@@ -115,7 +115,7 @@ export default function EmployerJourney() {
             className="bg-card rounded-2xl p-8 border border-border shadow-lg"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease }}
+            transition={{ duration: 0.5, ease: ease as any}}
           >
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
               <div>

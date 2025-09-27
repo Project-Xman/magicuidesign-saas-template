@@ -78,10 +78,11 @@ export default function HeroVideoDialog({
   const selectedAnimation = animationVariants[animationStyle];
 
   return (
-    <div className={cn("relative", className)}>
+    <div className={cn("relative", className)} style={{ zIndex: 30, pointerEvents: 'auto' }}>
       <div
         className="relative cursor-pointer group rounded-md p-2 ring-1 ring-slate-200/50 dark:bg-gray-900/70 dark:ring-white/10 backdrop-blur-md"
         onClick={() => setIsVideoOpen(true)}
+        style={{ pointerEvents: 'auto', zIndex: 35 }}
       >
         <Image
           src={thumbnailSrc}
@@ -119,11 +120,12 @@ export default function HeroVideoDialog({
               {...selectedAnimation}
               transition={{ type: "spring", damping: 30, stiffness: 300 }}
               className="relative w-full max-w-4xl aspect-video mx-4 md:mx-0"
+              style={{ pointerEvents: 'auto' }}
             >
               <motion.button className="absolute -top-16 right-0 text-white text-xl bg-neutral-900/50 ring-1 backdrop-blur-md rounded-full p-2 dark:bg-neutral-100/50 dark:text-black">
                 <XIcon className="size-5" />
               </motion.button>
-              <div className="size-full border-2 border-white rounded-2xl overflow-hidden isolate z-1 relative">
+              <div className="size-full border-2 border-white rounded-2xl overflow-hidden isolate z-10 relative">
                 <iframe
                   src={videoSrc}
                   className="size-full rounded-2xl"

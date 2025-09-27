@@ -72,7 +72,7 @@ export default function EmployerTestimonials() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, ease }}
+            transition={{ duration: 0.8, ease: ease as any}}
           >
             Trusted by Leading Employers
           </motion.h2>
@@ -81,7 +81,7 @@ export default function EmployerTestimonials() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2, ease }}
+            transition={{ duration: 0.8, delay: 0.2, ease: ease as any}}
           >
             See how companies like yours are using FinWage to improve retention and boost employee satisfaction.
           </motion.p>
@@ -93,7 +93,7 @@ export default function EmployerTestimonials() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.4, ease }}
+          transition={{ duration: 0.8, delay: 0.4, ease: ease as any}}
         >
           {/* Navigation */}
           <div className="flex justify-center mb-8 space-x-2">
@@ -114,7 +114,7 @@ export default function EmployerTestimonials() {
             className="bg-card rounded-2xl p-8 border border-border shadow-lg"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, ease }}
+            transition={{ duration: 0.5, ease: ease as any}}
           >
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
               <div className="lg:col-span-2">
@@ -173,7 +173,7 @@ export default function EmployerTestimonials() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.6, ease }}
+          transition={{ duration: 0.8, delay: 0.6, ease: ease as any}}
         >
           <div className="text-center mb-8">
             <h3 className="text-2xl md:text-3xl font-bold text-primary mb-4">

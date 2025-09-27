@@ -13,7 +13,7 @@ export default function ComplianceHero() {
             className="text-4xl md:text-6xl font-bold text-primary mb-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease }}
+            transition={{ duration: 0.8, ease: ease as any }}
           >
             Your Trust is Our Foundation
           </motion.h1>
@@ -22,7 +22,7 @@ export default function ComplianceHero() {
             className="text-xl md:text-2xl text-secondary font-medium mb-12 max-w-3xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease }}
+            transition={{ duration: 0.8, delay: 0.2, ease: ease as any }}
           >
                         At FinWage, security and compliance aren&apos;t afterthoughts—they&apos;re foundational to everything we do.
           </motion.p>
@@ -32,7 +32,7 @@ export default function ComplianceHero() {
             className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4, ease }}
+            transition={{ duration: 0.8, delay: 0.4, ease: ease as any }}
           >
             <div className="text-center">
               <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">

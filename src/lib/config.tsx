@@ -229,7 +229,7 @@ export const siteConfig = {
       title: "Company",
       links: [
         { href: "/about", text: "About Us", icon: null },
-        { href: "/about#careers", text: "Careers", icon: null },
+        { href: "/about/careers", text: "Careers", icon: null },
         { href: "/resources", text: "Resources", icon: null },
         { href: "/resources/blog", text: "Blog", icon: null },
         { href: "/contact", text: "Contact", icon: null },
@@ -240,8 +240,8 @@ export const siteConfig = {
       links: [
         { href: "/employees#faq", text: "Help Center", icon: null },
         { href: "/compliance", text: "Compliance & Security", icon: null },
-        { href: "/compliance#security", text: "Security", icon: null },
-        { href: "/resources#api", text: "API Docs", icon: null },
+        { href: "/compliance/security", text: "Security", icon: null },
+        { href: "/resources/api-docs", text: "API Docs", icon: null },
       ],
     },
     {

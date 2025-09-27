@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import Link from "next/link";
 
 const ease = [0.16, 1, 0.3, 1];
 
@@ -51,7 +52,7 @@ export default function EmployeeFAQ() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, ease }}
+            transition={{ duration: 0.8, ease: ease as any}}
           >
             Your Questions, Answered
           </motion.h2>
@@ -60,7 +61,7 @@ export default function EmployeeFAQ() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2, ease }}
+            transition={{ duration: 0.8, delay: 0.2, ease: ease as any}}
           >
             Get answers to the most common questions about FinWage and earned wage access.
           </motion.p>
@@ -71,7 +72,7 @@ export default function EmployeeFAQ() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.4, ease }}
+          transition={{ duration: 0.8, delay: 0.4, ease: ease as any}}
         >
           <Accordion type="single" collapsible className="space-y-4">
             {faqs.map((faq, index) => (
@@ -97,7 +98,7 @@ export default function EmployeeFAQ() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.6, ease }}
+          transition={{ duration: 0.8, delay: 0.6, ease: ease as any}}
         >
           <h3 className="text-xl font-bold text-primary mb-4">
             Still have questions?
@@ -106,7 +107,7 @@ export default function EmployeeFAQ() {
             Our support team is here to help 24/7. Get answers quickly and easily.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
+            <Link
               href="mailto:support@finwage.com"
               className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors"
             >
@@ -114,8 +115,8 @@ export default function EmployeeFAQ() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
               Email Support
-            </a>
-            <a
+            </Link>
+            <Link
               href="tel:1-800-FINWAGE"
               className="inline-flex items-center gap-2 border border-primary text-primary px-6 py-3 rounded-lg font-medium hover:bg-primary hover:text-primary-foreground transition-colors"
             >
@@ -123,7 +124,7 @@ export default function EmployeeFAQ() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
               </svg>
               Call Us
-            </a>
+            </Link>
           </div>
         </motion.div>
       </div>

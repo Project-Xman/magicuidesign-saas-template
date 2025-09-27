@@ -17,7 +17,7 @@ export default function EmployerCTA() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, ease }}
+            transition={{ duration: 0.8, ease: ease as any}}
           >
             Ready to Transform Your Employee Retention?
           </motion.h2>
@@ -27,7 +27,7 @@ export default function EmployerCTA() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2, ease }}
+            transition={{ duration: 0.8, delay: 0.2, ease: ease as any}}
           >
             Join hundreds of companies already using FinWage to reduce turnover, boost productivity, and create happier workplaces.
           </motion.p>
@@ -37,7 +37,7 @@ export default function EmployerCTA() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.4, ease }}
+            transition={{ duration: 0.8, delay: 0.4, ease: ease as any}}
           >
             <Link
               href="/contact#demo"
@@ -63,7 +63,7 @@ export default function EmployerCTA() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.6, ease }}
+            transition={{ duration: 0.8, delay: 0.6, ease: ease as any}}
           >
             <div className="flex flex-col items-center">
               <div className="w-12 h-12 bg-primary-foreground/20 rounded-xl flex items-center justify-center mb-3">
@@ -102,17 +102,17 @@ export default function EmployerCTA() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.8, ease }}
+            transition={{ duration: 0.8, delay: 0.8, ease: ease as any}}
           >
             <p className="text-sm">
               Questions? Call us at{" "}
-              <a href="tel:1-800-FINWAGE" className="underline font-medium hover:text-white">
+              <Link href="tel:1-800-FINWAGE" className="underline font-medium hover:text-white">
                 1-800-FINWAGE
-              </a>
+              </Link>
               {" "}or email{" "}
-              <a href="mailto:sales@finwage.com" className="underline font-medium hover:text-white">
+              <Link href="mailto:sales@finwage.com" className="underline font-medium hover:text-white">
                 sales@finwage.com
-              </a>
+              </Link>
             </p>
           </motion.div>
         </div>

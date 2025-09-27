@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useAnimation, useInView } from "framer-motion";
+import { motion, useAnimation, useInView, type Variants } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 
@@ -29,7 +29,7 @@ export function FlipText({
     }
   }, [controls, inView]);
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: {},
     visible: {
       transition: {
@@ -39,7 +39,7 @@ export function FlipText({
     },
   };
 
-  const childVariants = {
+  const childVariants: Variants = {
     hidden: {
       rotateX: -90,
       opacity: 0,
@@ -49,7 +49,7 @@ export function FlipText({
       opacity: 1,
       transition: {
         duration,
-        ease: [0.25, 0.46, 0.45, 0.94],
+        ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
       },
     },
   };

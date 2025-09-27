@@ -8,8 +8,12 @@ import { AuroraText } from "@/components/magicui/aurora-text";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import HeroVideoDialog from "../magicui/hero-video";
+import RotatingText from "../RotatingText";
+import { LaserFlow } from "../LaserFlow";
+import { useRef } from "react";
+import Image from "next/image";
 
-const ease = [0.16, 1, 0.3, 1];
+const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 function HeroPill() {
   return (
@@ -20,7 +24,7 @@ function HeroPill() {
       animate={{ opacity: 1, y: 0, scale: 1 }}
       whileHover={{ y: -2 }}
       whileFocus={{ y: -2 }}
-      transition={{ duration: 0.7, ease }}
+      transition={{ duration: 0.7, ease: ease as any}}
       aria-label="Read our blog post - Introducing Fincorp"
     >
       <span
@@ -64,7 +68,7 @@ function HeroTitles() {
     <div className="flex w-full max-w-4xl flex-col space-y-6 overflow-hidden pt-8">
       <motion.h1
         id="hero-title"
-        className="text-center text-4xl font-bold leading-tight text-primary sm:text-5xl md:text-6xl lg:text-7xl"
+        className="flex items-center justify-center gap-3 text-center text-4xl font-bold leading-tight text-primary sm:text-5xl md:text-6xl lg:text-7xl"
         initial={{ filter: "blur(10px)", opacity: 0, y: 50 }}
         animate={{ filter: "blur(0px)", opacity: 1, y: 0 }}
         transition={{
@@ -72,27 +76,20 @@ function HeroTitles() {
           ease,
           staggerChildren: 0.2,
         }}
-      >
-        {["Your", "Money,", "Your", "Control."].map((text, index) => (
-          <motion.span
-            key={index}
-            className="inline-block px-1 md:px-2 text-balance"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.8,
-              delay: index * 0.15,
-              ease,
-            }}
-          >
-            <AuroraText 
-              colors={["#c6537f", "#1e44c1", "#c6537f", "#ff6b6b"]}
-              speed={1.5}
-            >
-              {text}
-            </AuroraText>
-          </motion.span>
-        ))}
+      > 
+        Earn Today, <RotatingText
+          texts={["Paid Today", "Paid Instantly"]}
+          mainClassName="px-2 sm:px-2 md:px-3 bg-primary text-white overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg"
+          staggerFrom={"last"}
+          initial={{ y: "100%" }}
+          animate={{ y: 0 }}
+          exit={{ y: "-120%" }}
+          staggerDuration={0.025}
+          splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
+          transition={{ type: "spring", damping: 30, stiffness: 400 }}
+          rotationInterval={2000}
+
+        />
       </motion.h1>
       <motion.h2
         className="mx-auto max-w-3xl text-center text-xl leading-8 text-secondary sm:text-2xl sm:leading-10 text-balance font-medium"
@@ -117,7 +114,8 @@ function HeroCTA() {
         className="mx-auto mt-8 flex w-full max-w-2xl flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-6 sm:space-y-0"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.0, duration: 0.8, ease }}
+        transition={{ delay: 1.0, duration: 0.8, ease: ease as any}}
+        style={{ zIndex: 15 }}
       >
         <Link
           href="/employers"
@@ -147,20 +145,118 @@ function HeroCTA() {
   );
 }
 
+function LaserFlowBox() {
+  const revealImgRef = useRef(null);
+
+  return (
+    <div
+      className="absolute inset-0"
+      style={{
+        height: '100vh',
+        overflow: 'visible',
+      }}
+      onMouseMove={(e) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const el = revealImgRef.current as HTMLImageElement | null;
+        if (el) {
+          el.style.setProperty('--mx', `${x}px`);
+          el.style.setProperty('--my', `${y + rect.height * 0.5}px`);
+        }
+      }}
+      onMouseLeave={() => {
+        const el = revealImgRef.current as HTMLImageElement | null;
+        if (el) {
+          el.style.setProperty('--mx', '-9999px');
+          el.style.setProperty('--my', '-9999px');
+        }
+      }}
+    >
+      <LaserFlow
+        horizontalBeamOffset={0.1}
+        verticalBeamOffset={0.0}
+        color="#f470a6"
+
+      />
+      
+      <div style={{
+        position: 'absolute',
+        top: '113.2 %',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: '95%',
+        maxWidth: '1000px',
+        minHeight: '600px',
+        backgroundColor: 'rgba(255, 255, 255, 0.95)',
+        borderRadius: '25px',
+        border: '2px solid #f470a6',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        color: 'black',
+        fontSize: '2rem',
+        zIndex: 25,
+        backdropFilter: 'blur(10px)',
+        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
+      }}>
+          <HeroAnimation />
+        <div 
+        className="rounded-full"
+          style={{ 
+            pointerEvents: 'none',
+            position: 'absolute',
+            bottom: 0,
+            left: 0,
+            right: 0,
+            height: '30%',
+            background: 'linear-gradient(to top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%)',
+            zIndex: 30
+          }}
+        ></div>
+      </div>
+
+      {/* <Image
+        ref={revealImgRef}
+        src="/dashboard.png"
+        alt="Reveal effect"
+        width={1200}
+        height={800}
+        style={{
+          width: '100%',
+          height: '100%',
+          position: 'absolute',
+          top: '0',
+          left: '0',
+          zIndex: 0,
+          mixBlendMode: 'lighten',
+          opacity: 0.2,
+          pointerEvents: 'none',
+          WebkitMaskImage: 'radial-gradient(circle at var(--mx) var(--my), rgba(255,255,255,1) 0px, rgba(255,255,255,0.95) 60px, rgba(255,255,255,0.6) 120px, rgba(255,255,255,0.25) 180px, rgba(255,255,255,0) 240px)',
+          maskImage: 'radial-gradient(circle at var(--mx) var(--my), rgba(255,255,255,1) 0px, rgba(255,255,255,0.95) 60px, rgba(255,255,255,0.6) 120px, rgba(255,255,255,0.25) 180px, rgba(255,255,255,0) 240px)',
+          WebkitMaskRepeat: 'no-repeat',
+          maskRepeat: 'no-repeat'
+        } as React.CSSProperties & { '--mx': string; '--my': string }}
+      /> */}
+    </div>
+  );
+}
+
+
 function HeroAnimation() {
   return (
     <motion.div
-      className="relative mx-auto flex w-full max-w-4xl items-center justify-center mt-16"
+      className="relative mx-auto flex w-full max-w-4xl items-center justify-center"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 1.2, duration: 1, ease }}
+      transition={{ delay: 1.2, duration: 1, ease: ease as any}}
     >
        <HeroVideoDialog
         animationStyle="from-center"
         videoSrc="https://www.youtube.com/embed/qh3NGpYRG3I?si=4rb-zSdDkVK9qxxb"
         thumbnailSrc="/dashboard.png"
         thumbnailAlt="Hero Video"
-        className="border rounded-lg shadow-lg max-w-(--breakpoint-lg) mt-16"
+        className="border rounded-lg shadow-lg"
       />
     </motion.div>
   );
@@ -171,7 +267,7 @@ function HeroFlow() {
       className="absolute bottom-0 flex w-full max-w-4xl items-end justify-center pb-4 z-20"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 1.4, duration: 0.8, ease }}
+      transition={{ delay: 1.4, duration: 0.8, ease: ease as any}}
     >
       <div className="flex items-center justify-center space-x-8 p-8 bg-gradient-to-r from-primary/5 to-accent/5 rounded-2xl border border-primary/20">
         <motion.div
@@ -262,23 +358,23 @@ function HeroFlow() {
 
 export default function Hero() {
   return (
-    <section id="hero" aria-labelledby="hero-title" role="banner">
-      <div className="relative flex w-full flex-col items-center justify-start px-4 pt-32 sm:px-6 sm:pt-24 md:pt-32 lg:px-8">
+    <section id="hero" aria-labelledby="hero-title" role="banner" className="relative h-[160vh] overflow-hidden pt-28">
+      {/* LaserFlowBox as background */}
+      <LaserFlowBox />
+      
+      <div className="relative z-10 flex w-full h-[145vh] flex-col items-center justify-start px-4 pt-32 sm:px-6 sm:pt-24 md:pt-32 lg:px-8">
         <HeroPill />
         <header>
           <HeroTitles />
         </header>
         <HeroCTA />
-        <HeroAnimation />
 
-        {/* white/dark gradient sits above the bottom and the flow is rendered after it */}
         <div
-          className="pointer-events-none absolute inset-x-0 -bottom-12 h-1/3 bg-gradient-to-t from-white via-white/80 to-transparent dark:from-[#181825] dark:via-[#181825cc] dark:to-transparent lg:h-1/4 z-0"
+          className="pointer-events-none absolute inset-x-0 -bottom-12 h-1/2 bg-gradient-to-t from-white via-white/80 to-transparent dark:from-[#181825] dark:via-[#181825cc] dark:to-transparent lg:h-1/4 z-20"
           aria-hidden="true"
         ></div>
 
-        {/* Place the flow after the white gradient so it displays above it */}
-        {/* <HeroFlow /> */}
+  
       </div>
     </section>
   );
