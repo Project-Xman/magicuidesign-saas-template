@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { AuroraText } from "@/components/magicui/aurora-text";
 import { useOutsideClick } from "@/hooks/use-outside-click";
+import Lottie from "lottie-react";
 
 // Create context for managing expanded pins
 const PinContext = createContext<{
@@ -48,6 +49,97 @@ export const usePinContext = () => {
 };
 
 let pinIdCounter = 0;
+
+// Lottie Animation Component with Enhanced Features
+const LottieAnimation = ({ 
+  animationPath, 
+  className,
+  loop = true,
+  autoplay = true,
+  speed = 1
+}: { 
+  animationPath: string; 
+  className?: string;
+  loop?: boolean;
+  autoplay?: boolean;
+  speed?: number;
+}) => {
+  const [animationData, setAnimationData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const loadAnimation = async () => {
+      try {
+        setIsLoading(true);
+        setError(null);
+        
+        const response = await fetch(animationPath);
+        if (!response.ok) {
+          throw new Error(`Failed to load animation: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        setAnimationData(data);
+      } catch (err) {
+        console.error('Error loading Lottie animation:', err);
+        setError(err instanceof Error ? err.message : 'Failed to load animation');
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    loadAnimation();
+  }, [animationPath]);
+
+  if (isLoading) {
+    return (
+      <div className={`flex items-center justify-center ${className}`}>
+        <div className="relative">
+          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-blue-500"></div>
+          <div className="absolute inset-0 animate-ping rounded-full h-16 w-16 border border-blue-300 opacity-75"></div>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className={`flex items-center justify-center ${className}`}>
+        <div className="text-center text-gray-600">
+          <div className="text-4xl mb-2">⚠️</div>
+          <p className="text-sm">Animation failed to load</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!animationData) {
+    return null;
+  }
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className={className}
+    >
+      <Lottie
+        animationData={animationData}
+        loop={loop}
+        autoplay={autoplay}
+        style={{ width: '100%', height: '100%' }}
+        rendererSettings={{
+          preserveAspectRatio: 'xMidYMid slice',
+          clearCanvas: false,
+          progressiveLoad: true,
+          hideOnTransparent: true
+        }}
+      />
+    </motion.div>
+  );
+};
 
 // Different animations for each card
 const getCardAnimation = (title: string) => {
@@ -290,191 +382,23 @@ export const PinContainer = ({
                   </motion.div>
                 )}
                 {title === "Work" ? (
-                  <div className="w-full max-w-4xl mx-auto mb-8">
-                    <style>{`
-                      .person-container {
-                        animation: person-animation 10s linear infinite;
-                      }
-                      .person {
-                        animation: walk-cycle 0.8s linear infinite;
-                      }
-                      @keyframes person-animation {
-                        0% {
-                          transform: translateX(-250px);
-                          opacity: 0;
-                        }
-                        10% {
-                          transform: translateX(-180px);
-                          opacity: 1;
-                        }
-                        30% {
-                          transform: translateX(-20px);
-                          opacity: 1;
-                        }
-                        70% {
-                          transform: translateX(-20px);
-                          opacity: 1;
-                        }
-                        90% {
-                          transform: translateX(150px);
-                          opacity: 1;
-                        }
-                        100% {
-                          transform: translateX(250px);
-                          opacity: 0;
-                        }
-                      }
-                      @keyframes walk-cycle {
-                        0% {
-                          transform: translateY(0px) rotate(1deg);
-                        }
-                        25% {
-                          transform: translateY(-2px) rotate(0deg);
-                        }
-                        50% {
-                          transform: translateY(0px) rotate(-1deg);
-                        }
-                        75% {
-                          transform: translateY(-2px) rotate(0deg);
-                        }
-                        100% {
-                          transform: translateY(0px) rotate(1deg);
-                        }
-                      }
-                      .leg {
-                        animation: leg-walk 0.8s linear infinite;
-                        transform-origin: top center;
-                      }
-                      .leg.right {
-                        animation-delay: -0.4s;
-                      }
-                      @keyframes leg-walk {
-                        0% {
-                          transform: rotate(-15deg);
-                        }
-                        50% {
-                          transform: rotate(15deg);
-                        }
-                        100% {
-                          transform: rotate(-15deg);
-                        }
-                      }
-                      .arm {
-                        animation: arm-swing 0.8s linear infinite;
-                        transform-origin: top center;
-                      }
-                      .arm.right {
-                        animation-delay: -0.4s;
-                      }
-                      @keyframes arm-swing {
-                        0% {
-                          transform: rotate(10deg);
-                        }
-                        50% {
-                          transform: rotate(-10deg);
-                        }
-                        100% {
-                          transform: rotate(10deg);
-                        }
-                      }
-                      .window-glare {
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        width: 100%;
-                        height: 100%;
-                        background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 20%, rgba(255, 255, 255, 0) 50%);
-                        opacity: 0.7;
-                        pointer-events: none;
-                        border-radius: 0.125rem;
-                      }
-                    `}</style>
-                    <div className="relative flex items-center justify-center h-80">
-                      <div className="relative w-[520px] h-80">
-                        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[520px] h-[300px] bg-gradient-to-br from-gray-300 to-gray-400 rounded-t-2xl overflow-hidden shadow-2xl border-b-8 border-gray-500/30 transform scale-y-110 -translate-y-4">
-                          <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent"></div>
-                          <div className="absolute w-[180px] h-full left-0 top-0 bg-gradient-to-br from-gray-300/80 to-gray-400/80 rounded-tl-2xl" style={{clipPath: 'polygon(0 0, 100% 10%, 100% 100%, 0% 100%)'}}>
-                            <div className="absolute inset-0 bg-gradient-to-r from-white/5 to-transparent"></div>
-                            <div className="absolute inset-x-2 top-[12%] grid grid-cols-3 gap-2">
-                              <div className="h-64 bg-black/20 rounded relative overflow-hidden border-2 border-gray-400/50">
-                                <div className="window-glare"></div>
-                              </div>
-                              <div className="h-64 bg-black/20 rounded relative overflow-hidden border-2 border-gray-400/50">
-                                <div className="window-glare"></div>
-                              </div>
-                              <div className="h-64 bg-black/20 rounded relative overflow-hidden border-2 border-gray-400/50">
-                                <div className="window-glare"></div>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="absolute w-[180px] h-full right-0 top-0 bg-gradient-to-br from-gray-300/80 to-gray-400/80 rounded-tr-2xl" style={{clipPath: 'polygon(0 10%, 100% 0, 100% 100%, 0 100%)'}}>
-                            <div className="absolute inset-0 bg-gradient-to-l from-white/5 to-transparent"></div>
-                            <div className="absolute inset-x-2 top-[12%] grid grid-cols-3 gap-2">
-                              <div className="h-64 bg-black/20 rounded relative overflow-hidden border-2 border-gray-400/50">
-                                <div className="window-glare"></div>
-                              </div>
-                              <div className="h-64 bg-black/20 rounded relative overflow-hidden border-2 border-gray-400/50">
-                                <div className="window-glare"></div>
-                              </div>
-                              <div className="h-64 bg-black/20 rounded relative overflow-hidden border-2 border-gray-400/50">
-                                <div className="window-glare"></div>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="absolute inset-x-0 top-0 h-10 bg-gray-400/50 flex items-center px-6 justify-between">
-                            <div className="h-3 w-24 bg-gray-500/30 rounded-full"></div>
-                            <div className="h-3 w-24 bg-gray-500/30 rounded-full"></div>
-                          </div>
-                          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[220px] h-[260px] bg-gradient-to-b from-gray-300/60 to-gray-400/60 rounded-t-xl overflow-hidden border-x-4 border-t-4 border-gray-400/40">
-                            <div className="absolute inset-x-4 top-4 grid grid-cols-3 gap-4">
-                              <div className="h-48 bg-black/20 rounded relative overflow-hidden border-2 border-gray-400/50">
-                                <div className="window-glare"></div>
-                              </div>
-                              <div className="h-48 bg-black/20 rounded relative overflow-hidden border-2 border-gray-400/50">
-                                <div className="window-glare"></div>
-                              </div>
-                              <div className="h-48 bg-black/20 rounded relative overflow-hidden border-2 border-gray-400/50">
-                                <div className="window-glare"></div>
-                              </div>
-                            </div>
-                            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-48 h-32 bg-gray-500/20 rounded-t-lg backdrop-blur-sm border-t-4 border-l-4 border-r-4 border-gray-400/30">
-                              <div className="absolute top-2 left-1/2 -translate-x-1/2 w-20 h-2 bg-gray-400/50 rounded-full"></div>
-                              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-24 bg-black/30 rounded-t-md overflow-hidden">
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-                                <div className="absolute inset-0 bg-[repeating-linear-gradient(45deg,rgba(0,0,0,0.1),rgba(0,0,0,0.1)_1px,transparent_1px,transparent_10px)]"></div>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="absolute top-16 left-1/2 -translate-x-1/2 w-56 h-24 bg-gradient-to-b from-gray-400/80 to-gray-500/80 rounded-t-xl shadow-lg border-t-4 border-x-4 border-gray-500/50 p-2">
-                            <div className="w-full h-full rounded-md bg-black/80 flex items-center justify-center relative shadow-inner overflow-hidden">
-                              <div className="font-mono text-2xl text-green-400 tracking-wider" style={{textShadow: '0 0 8px rgba(134, 239, 172, 0.8), 0 0 15px rgba(134, 239, 172, 0.6)'}}>09:00 AM</div>
-                              <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent"></div>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="absolute bottom-16 left-1/2 -translate-x-1/2 w-64 h-24">
-                          <div className="absolute bottom-0 left-[72px] w-24 h-16 bg-transparent p-1 flex flex-col justify-end">
-                            <div className="w-full h-8 bg-gray-700/30 rounded-t-sm absolute bottom-8 left-1/2 -translate-x-1/2 opacity-50" style={{width: '50px'}}></div>
-                          </div>
-                          <div className="person-container absolute bottom-[-4px] left-1/2 -translate-x-1/2">
-                            <div className="person w-10 h-20 relative">
-                              <div className="head absolute top-0 left-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-red-300 border border-gray-900/20">
-                                <div className="hair absolute -top-1 left-1/2 -translate-x-1/2 w-5 h-2.5 bg-amber-900 rounded-t-full"></div>
-                              </div>
-                              <div className="torso absolute top-5 left-1/2 -translate-x-1/2 w-7 h-9 bg-blue-600 rounded-t-md">
-                                <div className="arm left absolute top-0 left-0 w-2 h-7 bg-blue-500 rounded-full" style={{transform: 'translateX(-3px)'}}></div>
-                                <div className="arm right absolute top-0 right-0 w-2 h-7 bg-blue-500 rounded-full" style={{transform: 'translateX(3px)'}}></div>
-                              </div>
-                              <div className="legs absolute bottom-0 left-1/2 -translate-x-1/2 w-7 h-6 flex justify-center">
-                                <div className="leg left absolute bottom-0 left-0 w-2 h-6 bg-gray-700 rounded-full"></div>
-                                <div className="leg right absolute bottom-0 right-0 w-2 h-6 bg-gray-700 rounded-full"></div>
-                              </div>
-                            </div>
-                            <div className="person-shadow w-8 h-1.5 bg-black/20 rounded-full absolute bottom-[-2px] left-1/2 -translate-x-1/2"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                  <div className="w-full max-w-4xl mx-auto mb-8 rounded-3xl">
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
+                      className="relative"
+                    >
+                      <LottieAnimation 
+                        animationPath="/work-from-home.json"
+                        className="w-full h-80 max-w-lg mx-auto drop-shadow-lg rounded-3xl"
+                        loop={true}
+                        autoplay={true}
+                        speed={1}
+                      />
+                      {/* Optional overlay for better visual integration */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-white/5 pointer-events-none rounded-lg"></div>
+                    </motion.div>
                   </div>
                 ) : (
                   icon && <div className="w-24 h-24 flex items-center justify-center">{icon}</div>
