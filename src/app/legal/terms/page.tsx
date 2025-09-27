@@ -24,7 +24,7 @@ export default function TermsOfServicePage() {
             </CardHeader>
             <CardContent className="prose prose-gray max-w-none dark:prose-invert">
               <p>
-                By accessing or using FinWage's services, you agree to be bound by these Terms of Service 
+                By accessing or using FinWage&apos;s services, you agree to be bound by these Terms of Service 
                 and all applicable laws and regulations. If you do not agree with any of these terms, 
                 you are prohibited from using our services.
               </p>
