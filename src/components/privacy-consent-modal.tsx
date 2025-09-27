@@ -54,14 +54,14 @@ export function PrivacyConsentModal() {
             🔒 Privacy & Cookies
           </DialogTitle>
           <DialogDescription className="text-left space-y-3">
-            <p>
+            <div>
               We use cookies and similar technologies to enhance your experience, 
               analyze site usage, and assist in our marketing efforts.
-            </p>
-            <p>
+            </div>
+            <div>
               By using FinWage, you agree to our use of cookies and our data practices 
               as described in our Privacy Policy.
-            </p>
+            </div>
           </DialogDescription>
         </DialogHeader>
         
