@@ -101,6 +101,8 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial, index })
               <Image
                 src={testimonial.src}
                 alt={testimonial.name}
+                width={40}
+                height={40}
                 className="h-full w-full object-cover"
               />
             </div>
