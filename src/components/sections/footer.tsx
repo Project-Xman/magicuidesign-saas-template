@@ -2,6 +2,7 @@ import { Icons } from "@/components/icons";
 import { siteConfig } from "@/lib/config";
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -12,7 +13,7 @@ export default function Footer() {
           title={siteConfig.name}
           className="relative mr-6 flex items-center space-x-2"
         >
-          <img
+          <Image
             src="/logo.png"
             alt="logo"
             width={40}

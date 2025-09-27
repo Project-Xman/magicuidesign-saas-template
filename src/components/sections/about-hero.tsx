@@ -24,7 +24,7 @@ export default function AboutHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease }}
           >
-            We believe that working people shouldn't have to wait for payday to access the money they've already earned. FinWage is changing the way people think about paydays and financial wellness.
+            We believe that working people shouldn&apos;t have to wait for payday to access the money they&apos;ve already earned. FinWage is changing the way people think about paydays and financial wellness.
           </motion.p>
 
           {/* Stats */}
@@ -56,10 +56,10 @@ export default function AboutHero() {
             transition={{ duration: 0.8, delay: 0.6, ease }}
           >
             <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4">
-              "Finwage is your wage."
+              &ldquo;Finwage is your wage.&rdquo;
             </h2>
             <p className="text-lg text-secondary leading-relaxed">
-              This simple statement represents our core belief: the money you earn through your hard work should be accessible to you when you need it, not when it's convenient for traditional payroll schedules. We're building a world where financial emergencies don't become financial disasters.
+              This simple statement represents our core belief: the money you earn through your hard work should be accessible to you when you need it, not when it&apos;s convenient for traditional payroll schedules. We&apos;re building a world where financial emergencies don&apos;t become financial disasters.
             </p>
           </motion.div>
         </div>

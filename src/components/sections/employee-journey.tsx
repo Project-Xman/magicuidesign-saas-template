@@ -9,7 +9,7 @@ const steps = [
   {
     number: "01",
     title: "Sign Up",
-    description: "Download the app and securely connect to your employer's payroll.",
+    description: "Download the app and securely connect to your employer&apos;s payroll.",
     details: [
       "Simple verification process with your employee ID",
       "Bank-grade security for all connections",
@@ -158,7 +158,7 @@ export default function EmployeeJourney() {
                         </div>
                         <div className="text-center">
                           <h4 className="font-semibold text-foreground">Welcome to FinWage</h4>
-                          <p className="text-sm text-muted-foreground">Let's get you set up</p>
+                          <p className="text-sm text-muted-foreground">Let&apos;s get you set up</p>
                         </div>
                         <button className="w-full bg-primary/80 text-primary-foreground py-2 rounded-lg font-medium">
                           Connect to Payroll

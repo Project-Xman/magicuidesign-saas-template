@@ -24,7 +24,7 @@ export default function Mission() {
                   Every two weeks, millions of workers wait for payday while bills pile up and emergencies arise. Traditional financial products like payday loans and credit cards trap people in cycles of debt with predatory rates and hidden fees.
                 </p>
                 <p>
-                  We founded FinWage because we believe there's a better way. By connecting directly with employers and payroll systems, we can provide workers with instant access to their earned wages without the need for loans, credit checks, or exploitative fees.
+                  We founded FinWage because we believe there&apos;s a better way. By connecting directly with employers and payroll systems, we can provide workers with instant access to their earned wages without the need for loans, credit checks, or exploitative fees.
                 </p>
                 <p>
                   Our platform serves both employees and employers, creating a win-win solution that reduces financial stress while improving employee retention and satisfaction.

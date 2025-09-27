@@ -15,7 +15,7 @@ const privacyPrinciples = [
   },
   {
     title: "Transparency",
-    description: "You always know what data we have and how we're using it."
+      description: "You always know what data we have and how we&apos;re using it.",
   },
   {
     title: "User Control",
@@ -52,7 +52,7 @@ export default function PrivacyCommitment() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2, ease }}
           >
-            Your privacy is fundamental to our mission. We've built FinWage with privacy-first principles that go beyond compliance to ensure your personal and financial data is always protected.
+            Your privacy is fundamental to our mission. We&apos;ve built FinWage with privacy-first principles that go beyond compliance to ensure your personal and financial data is always protected.
           </motion.p>
         </div>
 

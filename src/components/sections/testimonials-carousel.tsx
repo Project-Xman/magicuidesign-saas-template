@@ -2,7 +2,15 @@ import Section from "@/components/section";
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
 import Image from "next/image";
 
-const employerTestimonials = [
+const employerTestimonials: Array<{
+  quote: string;
+  name: string;
+  designation: string;
+  company: string;
+  src: string;
+  logo: string;
+  metrics: { [key: string]: string };
+}> = [
   {
     quote: "As a rapidly growing tech company, scaling our hiring process while maintaining quality was a major challenge. This platform has revolutionized our talent acquisition strategy. We've seen a 40% improvement in hiring efficiency and reduced our time-to-hire from 45 to 18 days, all while maintaining our high hiring standards.",
     name: "Sarah Chen",

@@ -27,7 +27,7 @@ export default function EmployeesHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease }}
           >
-            Say goodbye to payday loans and overdraft fees. With FinWage, you can access the money you've already earned, instantly.
+            Say goodbye to payday loans and overdraft fees. With FinWage, you can             Access the money you&apos;ve already earned, whenever you need it.
           </motion.h2>
 
           <motion.div

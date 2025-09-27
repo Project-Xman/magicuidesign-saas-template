@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Section from "@/components/section";
+import Image from "next/image";
 import { Marquee } from "@/components/ui/marquee";
 import { HyperText } from "@/components/ui/hyper-text";
 
@@ -97,7 +98,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial, index })
         <div className="flex items-center justify-between mt-auto">
           <div className="flex items-center space-x-3">
             <div className="h-10 w-10 rounded-full overflow-hidden ring-2 ring-primary">
-              <img
+              <Image
                 src={testimonial.src}
                 alt={testimonial.name}
                 className="h-full w-full object-cover"

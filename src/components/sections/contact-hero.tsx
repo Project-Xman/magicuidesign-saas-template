@@ -17,10 +17,10 @@ export default function ContactHero() {
             transition={{ duration: 0.8, ease }}
           >
             <Highlighter action="highlight" color="#A07CFE" isView={true}>
-              Let's Chat!
+              Let&apos;s Chat!
             </Highlighter>
             <br />
-            <span className="text-3xl md:text-4xl">We Don't Bite (Much)</span>
+            <span className="text-3xl md:text-4xl">We Don&apos;t Bite (Much)</span>
           </motion.h1>
           
           <motion.p
@@ -33,7 +33,7 @@ export default function ContactHero() {
             <br />
             <span className="font-semibold"><Highlighter action="highlight" color="#87CEFA" isView={true}>Book a demo, ask a question, or just say hi!</Highlighter></span> 
             <br />
-            <span className="text-lg italic">We promise we're <Highlighter action="underline" color="#A07CFE" isView={true}>more fun than your average payroll conversation</Highlighter>.</span>
+            <span className="text-lg italic">We promise we&apos;re <Highlighter action="underline" color="#A07CFE" isView={true}>more fun than your average payroll conversation</Highlighter>.</span>
           </motion.p>
         </div>
       </div>

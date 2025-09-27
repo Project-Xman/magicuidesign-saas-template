@@ -24,7 +24,7 @@ export default function ComplianceHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease }}
           >
-            At FinWage, security and compliance aren't afterthoughts—they're built into every aspect of our platform. We maintain the highest standards to protect your data and ensure regulatory compliance.
+                        At FinWage, security and compliance aren&apos;t afterthoughts—they&apos;re foundational to everything we do.
           </motion.p>
 
           {/* Key Security Highlights */}
