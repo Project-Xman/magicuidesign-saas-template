@@ -123,9 +123,9 @@ export default function CareersPage() {
           </div>
 
           <div className="bg-primary/5 rounded-2xl p-8 text-center">
-            <h3 className="text-2xl font-bold mb-4">Don't See Your Role?</h3>
+            <h3 className="text-2xl font-bold mb-4">Don&apos;t See Your Role?</h3>
             <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-              We're always looking for talented people to join our team. Send us your resume and tell us how you'd like to contribute to our mission.
+              We&apos;re always looking for talented people to join our team. Send us your resume and tell us how you&apos;d like to contribute to our mission.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild>
