@@ -95,7 +95,7 @@ export default function PricingSection() {
                   <Link
                     href={plan.href}
                     className={cn(
-                      buttonVariants({ variant: "premium", size: "lg" }),
+                      buttonVariants({ variant: "secondary", size: "lg" }),
                       "w-full font-semibold rounded-xl"
                     )}
                   >

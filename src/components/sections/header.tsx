@@ -95,7 +95,7 @@ export default function Header() {
                 For Employees
               </NavbarButton>
             )} */}
-            <NavbarButton as={Link} href="/contact#demo" variant="primary" aria-label="Schedule a product demonstration">
+            <NavbarButton as={Link} href="/contact#demo" variant="secondary" className="bg-primary text-primary-foreground" aria-label="Schedule a product demonstration">
               Book Demo
             </NavbarButton>
           </div>

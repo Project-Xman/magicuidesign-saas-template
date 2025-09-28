@@ -122,21 +122,18 @@ function HeroCTA() {
         <Link
           href="/employers"
           className={cn(
-            buttonVariants({ variant: "premium", size: "xl" }),
+            buttonVariants({ variant: "secondary", size: "xl" }),
             "w-full sm:w-auto text-primary-foreground flex gap-2 text-lg font-semibold rounded-xl focus:ring-2 focus:ring-primary focus:ring-offset-2"
           )}
           aria-label="Employer portal - Discover payroll solutions for your business"
           >
-          <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2V6z" />
-          </svg>
           I&apos;m an Employer
         </Link>
         <Link
           href="/employees"
           className={cn(
-            buttonVariants({ variant: "outline", size: "xl" }),
-            "w-full sm:w-auto border-primary text-primary hover:bg-primary hover:text-primary-foreground text-lg font-semibold rounded-xl focus:ring-2 focus:ring-primary focus:ring-offset-2"
+            buttonVariants({ variant: "default", size: "xl" }),
+            "w-full sm:w-auto border-primary bg-primary text-primary-foreground text-lg font-semibold rounded-xl focus:ring-2 focus:ring-primary focus:ring-offset-2"
           )}
           aria-label="Employee portal - Access your earned wages instantly"
         >
