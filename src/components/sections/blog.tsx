@@ -11,12 +11,8 @@ export default async function BlogSection() {
   );
 
   return (
-    <Section 
-      titleComponent={
-        <SpinningText duration={1.5} trigger="inView">
-          Blog
-        </SpinningText>
-      }
+    <Section
+      title="Blog"  
       subtitle="Latest Articles"
     >
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

@@ -36,10 +36,8 @@ export default function FAQ() {
           {/* Centered Header Section */}
           <div className="text-center space-y-6 pb-16 mx-auto max-w-4xl">
             <div className="space-y-4">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent leading-tight drop-shadow-lg mx-auto">
-                <BoxReveal duration={0.8} delay={0.3}>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight drop-shadow-lg mx-auto">
                   FAQ
-                </BoxReveal>
               </h2>
               <p className="mx-auto max-w-2xl text-lg md:text-xl font-medium text-foreground leading-relaxed drop-shadow-sm text-center">
                 Everything you need to know about FinWage

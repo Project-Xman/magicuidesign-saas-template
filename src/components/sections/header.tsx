@@ -12,7 +12,6 @@ import { usePathname } from "next/navigation";
 import { Info, X } from "lucide-react";
 
 const navItems = [
-  { name: "Home", link: "/" },
   { name: "How It Works", link: "/how-it-works" },
   { name: "Employers", link: "/employers" },
   { name: "Employees", link: "/employees" },
@@ -21,11 +20,6 @@ const navItems = [
 ];
 
 const floatingDockItems = [
-  {
-    title: "Home",
-    icon: <Icons.logo className="h-full w-full" />,
-    href: "/",
-  },
   {
     title: "GitHub",
     icon: <Icons.github className="h-full w-full" />,

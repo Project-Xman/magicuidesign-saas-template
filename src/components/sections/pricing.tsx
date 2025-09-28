@@ -22,15 +22,8 @@ export default function PricingSection() {
   };
 
   return (
-    <Section 
-      titleComponent={
-        <AnimatedGradientText 
-          colors={["#ff0080", "#ff8c00", "#40e0d0", "#ff0080"]}
-          animationSpeed={3}
-        >
-          Pricing
-        </AnimatedGradientText>
-      }
+    <Section
+      title="Pricing"
       subtitle="Choose the perfect plan for your payroll needs"
     >
       <div className="flex justify-center items-center mb-10 gap-4" role="group" aria-labelledby="billing-toggle">

@@ -101,6 +101,8 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial, index })
               <Image
                 src={testimonial.src}
                 alt={testimonial.name}
+                width={40}
+                height={40}
                 className="h-full w-full object-cover"
               />
             </div>
@@ -122,15 +124,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial, index })
 export default function Testimonials() {
   return (
     <Section
-      titleComponent={
-        <HyperText 
-          duration={1000}
-          delay={200}
-          className="font-bold"
-        >
-          What Our Customers Say
-        </HyperText>
-      }
+      title="What Our Customers Say"
       subtitle="Trusted by businesses worldwide for reliable payroll management"
     >
       <div className="mt-12 w-full relative space-y-8">
