@@ -91,7 +91,7 @@ export default function PricingSection() {
                   <div className="text-center">
                     <h3 className="text-xl font-bold text-foreground mb-2">{plan.name}</h3>
                     <div className="mb-4">
-                      <span className="text-4xl font-bold text-foreground">
+                      <span className="text-4xl font-bold text-[#1d45c3]">
                         {isMonthly ? plan.price : plan.yearlyPrice}
                       </span>
                       {plan.period !== "Next 3 months" && (
@@ -106,7 +106,7 @@ export default function PricingSection() {
                   <ul className="space-y-3 mb-8">
                     {plan.features.map((feature, idx) => (
                       <li key={idx} className="flex items-start gap-3">
-                        <Check className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                        <Check className="h-5 w-5 mt-0.5 flex-shrink-0 text-[#1d45c3]" />
                         <span className="text-sm">{feature}</span>
                       </li>
                     ))}
@@ -115,7 +115,7 @@ export default function PricingSection() {
                   <Link
                     href={plan.href}
                     className={cn(
-                      buttonVariants({ variant: "premium", size: "lg" }),
+                      buttonVariants({ variant: "secondary", size: "lg" }),
                       "w-full font-semibold rounded-xl"
                     )}
                   >
@@ -133,7 +133,7 @@ export default function PricingSection() {
                   <div className="text-center">
                     <h3 className="text-xl font-bold text-foreground mb-2">{plan.name}</h3>
                     <div className="mb-4">
-                      <span className="text-4xl font-bold text-foreground">
+                      <span className="text-4xl font-bold text-[#1d45c3]">
                         {isMonthly ? plan.price : plan.yearlyPrice}
                       </span>
                       {plan.period !== "Next 3 months" && (
@@ -148,7 +148,7 @@ export default function PricingSection() {
                   <ul className="space-y-3 mb-8">
                     {plan.features.map((feature, idx) => (
                       <li key={idx} className="flex items-start gap-3">
-                        <Check className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                        <Check className="h-5 w-5 text-[#1d45c3] mt-0.5 flex-shrink-0" />
                         <span className="text-sm">{feature}</span>
                       </li>
                     ))}

@@ -332,7 +332,7 @@ export const LaserFlow: React.FC<Props> = ({
     renderer.setClearColor(0xffffff, 1);
     const canvas = renderer.domElement;
     canvas.style.width = '100%';
-    canvas.style.height = '160%';
+    canvas.style.height = '100%';
     canvas.style.display = 'block';
     mount.appendChild(canvas);
 

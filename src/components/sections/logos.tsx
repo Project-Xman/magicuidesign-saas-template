@@ -41,7 +41,7 @@ export default function Logos() {
       <div className="container mx-auto px-4 md:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-primary mb-4">
-            Trusted by 10,000+ Companies Worldwide
+            Trusted by <span className="text-[#f64162]">10,000+</span> Companies Worldwide
           </h2>
           <p className="text-xl text-secondary font-medium max-w-2xl mx-auto">
             Join industry leaders who trust FinWage with their payroll management and compliance
@@ -86,7 +86,7 @@ export default function Logos() {
                 separator=","
                 direction="up"
                 duration={0.4}
-                className="text-4xl font-bold text-primary"
+                className="text-4xl font-bold text-[#1d45c3]"
                 />
                 <p className="mt-2 text-sm font-medium uppercase tracking-[0.28em] text-muted-foreground">
                 {stat.label}

@@ -2,16 +2,13 @@
 
 import { motion } from "framer-motion";
 
-import { Icons } from "@/components/icons";
 import { buttonVariants } from "@/components/ui/button";
-import { AuroraText } from "@/components/magicui/aurora-text";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import HeroVideoDialog from "../magicui/hero-video";
 import RotatingText from "../RotatingText";
 import { LaserFlow } from "../LaserFlow";
-import { useRef } from "react";
-import Image from "next/image";
 
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -38,7 +35,7 @@ function HeroPill() {
           transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut" }}
           aria-hidden="true"
         >
-          <svg className="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor">
+          <svg className="h-3.5 w-3.5" viewBox="0 0 20 20" fill="#f7cf00">
             <path d="M10 1.5l2.12 4.3 4.73.69-3.43 3.35.81 4.86L10 12.87l-4.23 2.83.81-4.86-3.43-3.35 4.73-.69L10 1.5z" />
           </svg>
         </motion.span>
@@ -79,7 +76,7 @@ function HeroTitles() {
       > 
         Earn Today, <RotatingText
           texts={["Paid Today", "Paid Instantly"]}
-          mainClassName="px-2 sm:px-2 md:px-3 bg-primary text-white overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg"
+          mainClassName="px-2 sm:px-2 md:px-3 bg-secondary text-white overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg"
           staggerFrom={"last"}
           initial={{ y: "100%" }}
           animate={{ y: 0 }}
@@ -111,7 +108,7 @@ function HeroCTA() {
   return (
     <>
       <motion.div
-        className="mx-auto mt-8 flex w-full max-w-2xl flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-6 sm:space-y-0"
+        className="mx-auto mt-8 mb-6 flex w-full max-w-2xl flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-6 sm:space-y-0"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.0, duration: 0.8, ease: ease as any}}
@@ -120,21 +117,18 @@ function HeroCTA() {
         <Link
           href="/employers"
           className={cn(
-            buttonVariants({ variant: "premium", size: "xl" }),
+            buttonVariants({ variant: "secondary", size: "xl" }),
             "w-full sm:w-auto text-primary-foreground flex gap-2 text-lg font-semibold rounded-xl focus:ring-2 focus:ring-primary focus:ring-offset-2"
           )}
           aria-label="Employer portal - Discover payroll solutions for your business"
           >
-          <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2V6z" />
-          </svg>
           I&apos;m an Employer
         </Link>
         <Link
           href="/employees"
           className={cn(
             buttonVariants({ variant: "outline", size: "xl" }),
-            "w-full sm:w-auto border-primary text-primary hover:bg-primary hover:text-primary-foreground text-lg font-semibold rounded-xl focus:ring-2 focus:ring-primary focus:ring-offset-2"
+            "w-full sm:w-auto border-primary bg-primary text-primary-foreground text-lg font-semibold rounded-xl focus:ring-2 focus:ring-primary focus:ring-offset-2"
           )}
           aria-label="Employee portal - Access your earned wages instantly"
         >
@@ -145,99 +139,110 @@ function HeroCTA() {
   );
 }
 
+type BeamConfig = {
+  horizontalOffset: number;
+  verticalOffset: number;
+  verticalSizing: number;
+  horizontalSizing: number;
+};
+
+const defaultBeamConfig: BeamConfig = {
+  horizontalOffset: 0.05,
+  verticalOffset: -0.06,
+  verticalSizing: 1.95,
+  horizontalSizing: 0.53,
+};
+
 function LaserFlowBox() {
-  const revealImgRef = useRef(null);
+  const [beamConfig, setBeamConfig] = useState<BeamConfig>(defaultBeamConfig);
+
+  useEffect(() => {
+    const clamp = (value: number, min: number, max: number) =>
+      Math.min(Math.max(value, min), max);
+
+    const pickConfig = (width: number, height: number): BeamConfig => {
+      const heightRatio = clamp((height - 640) / 640, 0, 1);
+      const verticalAdjust = heightRatio * 0.025;
+
+      if (width < 480) {
+        return {
+          horizontalOffset: 0.04,
+          verticalOffset: -0.03 - verticalAdjust,
+          verticalSizing: 1.72,
+          horizontalSizing: 0.58,
+        };
+      }
+
+      if (width < 768) {
+        return {
+          horizontalOffset: 0.045,
+          verticalOffset: -0.045 - verticalAdjust,
+          verticalSizing: 1.82,
+          horizontalSizing: 0.55,
+        };
+      }
+
+      if (width < 1280) {
+        return {
+          horizontalOffset: 0.05,
+          verticalOffset: -0.07 - verticalAdjust,
+          verticalSizing: 2.02,
+          horizontalSizing: 0.52,
+        };
+      }
+
+      if (width < 1600) {
+        return {
+          horizontalOffset: 0.05,
+          verticalOffset: -0.095 - verticalAdjust,
+          verticalSizing: 2.18,
+          horizontalSizing: 0.49,
+        };
+      }
+
+      return {
+        horizontalOffset: 0.05,
+        verticalOffset: -0.11 - verticalAdjust,
+        verticalSizing: 2.32,
+        horizontalSizing: 0.46,
+      };
+    };
+
+    const applyConfig = () => {
+      const next = pickConfig(window.innerWidth, window.innerHeight || 800);
+      setBeamConfig((prev) =>
+        prev.horizontalOffset === next.horizontalOffset &&
+        prev.verticalOffset === next.verticalOffset &&
+        prev.verticalSizing === next.verticalSizing &&
+        prev.horizontalSizing === next.horizontalSizing
+          ? prev
+          : next
+      );
+    };
+
+  applyConfig();
+  window.addEventListener("resize", applyConfig, { passive: true });
+
+    return () => window.removeEventListener("resize", applyConfig);
+  }, []);
 
   return (
     <div
       className="absolute inset-0"
       style={{
-        height: '100vh',
-        overflow: 'visible',
-      }}
-      onMouseMove={(e) => {
-        const rect = e.currentTarget.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const el = revealImgRef.current as HTMLImageElement | null;
-        if (el) {
-          el.style.setProperty('--mx', `${x}px`);
-          el.style.setProperty('--my', `${y + rect.height * 0.5}px`);
-        }
-      }}
-      onMouseLeave={() => {
-        const el = revealImgRef.current as HTMLImageElement | null;
-        if (el) {
-          el.style.setProperty('--mx', '-9999px');
-          el.style.setProperty('--my', '-9999px');
-        }
+        minHeight: "clamp(640px, 120vh, 1080px)",
       }}
     >
       <LaserFlow
-        horizontalBeamOffset={0.1}
-        verticalBeamOffset={0.0}
+        className="h-full w-full"
+        horizontalBeamOffset={beamConfig.horizontalOffset}
+        verticalBeamOffset={beamConfig.verticalOffset}
+        verticalSizing={beamConfig.verticalSizing}
+        horizontalSizing={beamConfig.horizontalSizing}
         color="#f470a6"
-
       />
-      
-      <div style={{
-        position: 'absolute',
-        top: '110%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        width: '95%',
-        maxWidth: '1000px',
-        minHeight: '600px',
-        backgroundColor: 'rgba(255, 255, 255, 0.95)',
-        borderRadius: '25px',
-        border: '2px solid #f470a6',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        color: 'black',
-        fontSize: '2rem',
-        zIndex: 25,
-        backdropFilter: 'blur(10px)',
-        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
-      }}>
-          <HeroAnimation />
-        <div 
-        className="rounded-full"
-          style={{ 
-            pointerEvents: 'none',
-            position: 'absolute',
-            bottom: 0,
-            left: 0,
-            right: 0,
-            height: '30%',
-            background: 'linear-gradient(to top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%)',
-            zIndex: 30
-          }}
-        ></div>
-      </div>
 
-      {/* <Image
-        ref={revealImgRef}
-        src="/dashboard.png"
-        alt="Reveal effect"
-        width={1200}
-        height={800}
-        style={{
-          width: '100%',
-          height: '100%',
-          position: 'absolute',
-          top: '0',
-          left: '0',
-          zIndex: 0,
-          mixBlendMode: 'lighten',
-          opacity: 0.2,
-          pointerEvents: 'none',
-          WebkitMaskImage: 'radial-gradient(circle at var(--mx) var(--my), rgba(255,255,255,1) 0px, rgba(255,255,255,0.95) 60px, rgba(255,255,255,0.6) 120px, rgba(255,255,255,0.25) 180px, rgba(255,255,255,0) 240px)',
-          maskImage: 'radial-gradient(circle at var(--mx) var(--my), rgba(255,255,255,1) 0px, rgba(255,255,255,0.95) 60px, rgba(255,255,255,0.6) 120px, rgba(255,255,255,0.25) 180px, rgba(255,255,255,0) 240px)',
-          WebkitMaskRepeat: 'no-repeat',
-          maskRepeat: 'no-repeat'
-        } as React.CSSProperties & { '--mx': string; '--my': string }}
-      /> */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[35%] bg-gradient-to-t from-white via-white/80 to-transparent dark:from-[#181825] dark:via-[#181825cc] dark:to-transparent" />
     </div>
   );
 }
@@ -246,18 +251,21 @@ function LaserFlowBox() {
 function HeroAnimation() {
   return (
     <motion.div
-      className="relative mx-auto flex w-full max-w-4xl items-center justify-center"
+      className="relative mx-auto w-full max-w-4xl overflow-hidden rounded-[28px] border border-primary/25 bg-white/80 p-4 shadow-2xl shadow-primary/10 backdrop-blur-lg transition-all duration-500"
+  style={{ marginTop: "clamp(72px, 20vh, 177px)" }}
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 1.2, duration: 1, ease: ease as any}}
+      transition={{ delay: 1.2, duration: 1, ease: ease as any }}
     >
-       <HeroVideoDialog
+      <HeroVideoDialog
         animationStyle="from-center"
         videoSrc="https://www.youtube.com/embed/qh3NGpYRG3I?si=4rb-zSdDkVK9qxxb"
         thumbnailSrc="/dashboard.png"
         thumbnailAlt="Hero Video"
-        className="border rounded-lg shadow-lg"
+        className="aspect-video w-full overflow-hidden rounded-[20px] border border-white/50 shadow-lg"
       />
+
+      <div className="pointer-events-none absolute inset-x-6 bottom-0 h-1/3 rounded-b-[28px] bg-gradient-to-t from-white via-white/80 to-transparent dark:from-[#181825] dark:via-[#181825cc]" />
     </motion.div>
   );
 }
@@ -358,23 +366,26 @@ function HeroFlow() {
 
 export default function Hero() {
   return (
-    <section id="hero" aria-labelledby="hero-title" role="banner" className="relative h-[160vh] overflow-hidden pt-28">
-      {/* LaserFlowBox as background */}
+    <section
+      id="hero"
+      aria-labelledby="hero-title"
+      role="banner"
+      className="relative min-h-[110vh] overflow-hidden pt-28 pb-24 sm:pt-32 md:min-h-[120vh] lg:min-h-[135vh]"
+    >
       <LaserFlowBox />
-      
-      <div className="relative z-10 flex w-full h-[145vh] flex-col items-center justify-start px-4 pt-32 sm:px-6 sm:pt-24 md:pt-32 lg:px-8">
+
+      <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center px-4 pt-32 sm:px-6 sm:pt-24 md:pt-28 lg:px-8">
         <HeroPill />
-        <header>
+        <header className="mt-8 w-full">
           <HeroTitles />
         </header>
         <HeroCTA />
+        <HeroAnimation />
 
         <div
-          className="pointer-events-none absolute inset-x-0 -bottom-12 h-1/2 bg-gradient-to-t from-white via-white/80 to-transparent dark:from-[#181825] dark:via-[#181825cc] dark:to-transparent lg:h-1/4 z-20"
+          className="pointer-events-none absolute inset-x-0 -bottom-12 h-1/2 bg-gradient-to-t from-white via-white/80 to-transparent dark:from-[#181825] dark:via-[#181825cc] dark:to-transparent lg:h-1/4"
           aria-hidden="true"
-        ></div>
-
-  
+        />
       </div>
     </section>
   );

@@ -16,10 +16,9 @@ export default async function BlogSection() {
     <Section 
       titleComponent={
         <span className="font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl">
-          Blogs
+          What<span className="text-[#f64162]">&apos;</span>s New
         </span>
       }
-      subtitle="Latest Articles"
     >
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {articles.map((data, idx) => (

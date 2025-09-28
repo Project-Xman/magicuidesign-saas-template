@@ -91,7 +91,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial, index })
     >
       <div className="flex flex-col h-full">
         <div className="mb-4">
-          <svg className="h-6 w-6 text-primary" fill="currentColor" viewBox="0 0 24 24">
+          <svg className="h-6 w-6 text-primary" fill="#1d45c3" viewBox="0 0 24 24">
             <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
           </svg>
         </div>
@@ -136,7 +136,7 @@ export default function Testimonials() {
       titleComponent={
         <>
         <span className="text-5xl block font-bold">What Our</span>
-          <LineShadowText className="italic text-[150px]" shadowColor={shadowColor}>
+          <LineShadowText className="italic text-[150px] text-[#f84364]" shadowColor="#ab2e45">
             Clients
           </LineShadowText>
           <span className="text-5xl block font-bold">Say</span>

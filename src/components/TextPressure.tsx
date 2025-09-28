@@ -1,3 +1,4 @@
+import { cn } from '@/lib/utils';
 import { useEffect, useRef, useState, useCallback } from 'react';
 
 interface TextPressureProps {
@@ -193,7 +194,7 @@ const TextPressure: React.FC<TextPressureProps> = ({
           margin: 0,
           fontWeight: 100,
           color: stroke ? undefined : textColor
-        }}
+        }}  
       >
         {chars.map((char, i) => (
           <span
@@ -202,7 +203,7 @@ const TextPressure: React.FC<TextPressureProps> = ({
               spansRef.current[i] = el;
             }}
             data-char={char}
-            className="inline-block"
+            className={cn('inline-block', char === '!' ? 'text-[#f84364]' : '')}
           >
             {char}
           </span>

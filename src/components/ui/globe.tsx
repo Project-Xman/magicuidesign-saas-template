@@ -92,7 +92,7 @@ export function Globe({
       dark: isDark ? 1 : 0,
       baseColor: isDark ? [0.3, 0.3, 0.3] : [1, 1, 1],
       glowColor: isDark ? [0.2, 0.2, 0.2] : [0.9, 0.9, 0.9],
-      markerColor: isDark ? [251 / 255, 100 / 255, 21 / 255] : [251 / 255, 100 / 255, 21 / 255],
+      markerColor: isDark ? [198/255, 83/255, 127/255] : [198/255, 83/255, 127/255],
       onRender: (state) => {
         if (!pointerInteracting.current) phi.current += 0.005;
         state.phi = phi.current + rs.get();

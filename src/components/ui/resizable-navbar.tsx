@@ -253,13 +253,10 @@ export const NavbarLogo = () => {
       <Image
         src="/logo.png"
         alt="logo"
-        width={160}
-        height={190}
+        width={130}
+        height={170}
         priority={true}
-        style={{
-          width: 'auto',
-          height: 'auto'
-        }}
+        className="h-14 w-auto object-contain"
       />
     </Link>
   );

@@ -39,7 +39,7 @@ export default function RootLayout({
           enableSystem={false}
         >
           {children}
-          <PrivacyConsentModal />
+          {/* <PrivacyConsentModal /> */}
           {/* <ThemeToggle /> */}
           <TailwindIndicator />
         </ThemeProvider>

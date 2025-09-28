@@ -67,7 +67,7 @@ export function FlipText({
         <motion.span
           key={index}
           variants={childVariants}
-          className="inline-block origin-center"
+          className={cn("inline-block origin-center", ["F", "i", "n", "W", "a", "g", "e"].includes(char) && (children[index -1] !== " " || char == "F") ? "text-[#f64162]" : "")}
           style={{ 
             whiteSpace: char === " " ? "pre" : "normal",
             transformStyle: "preserve-3d"

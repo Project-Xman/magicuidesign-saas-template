@@ -10,7 +10,7 @@ const data = [
     content:
       "Integrate FinWage with your existing payroll system in under 5 minutes. No complex setup or data migration required—we work with what you already have.",
     image: "/dashboard.png",
-    icon: <Upload className="w-6 h-6 text-primary" />,
+    icon: <Upload className="w-6 h-6 text-[#1d45c3] " />,
   },
   {
     id: 2,
@@ -18,7 +18,7 @@ const data = [
     content:
       "Your team can request earned wages through our simple app or platform. Requests are approved automatically based on hours worked—no manager approval needed.",
     image: "/dashboard.png",
-    icon: <Zap className="w-6 h-6 text-primary" />,
+    icon: <Zap className="w-6 h-6 text-[#1d45c3] " />,
   },
   {
     id: 3,
@@ -26,7 +26,7 @@ const data = [
     content:
       "Funds transfer instantly to employees' accounts, and repayment is automatically deducted from their next paycheck. Zero manual work for your HR team.",
     image: "/dashboard.png",
-    icon: <Sparkles className="w-6 h-6 text-primary" />,
+    icon: <Sparkles className="w-6 h-6 text-[#1d45c3] " />,
   },
 ];
 

@@ -103,7 +103,7 @@ export default function Component() {
           colors={{ first: "#c6537f", second: "#1e44c1" }}
           sparklesCount={12}
         >
-          The FinWage Solution
+          The <span className="text-[#f54462]">FinWage</span> Solution
         </SparklesText>
       }
       subtitle="Everything your payroll needs, automated and error-free"
@@ -130,7 +130,7 @@ export default function Component() {
             viewport={{ once: true }}
           >
             <div>
-              <h3 className="font-semibold mb-2 text-primary">
+              <h3 className="font-bold mb-2 text-[#1d45c3]">
                 {feature.title}
               </h3>
               <p className="text-foreground">{feature.description}</p>

@@ -73,7 +73,7 @@ export default function Component() {
     <Section
       titleComponent={
         <BlurText
-          text="Enterprise Success Stories!"
+          text="Enterprise Success Stories✨"
           delay={50}
           animateBy="letters"
           direction="top"

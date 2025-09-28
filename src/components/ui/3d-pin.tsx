@@ -97,8 +97,8 @@ const LottieAnimation = ({
     return (
       <div className={`flex items-center justify-center ${className}`}>
         <div className="relative">
-          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-blue-500"></div>
-          <div className="absolute inset-0 animate-ping rounded-full h-16 w-16 border border-blue-300 opacity-75"></div>
+          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-primary"></div>
+          <div className="absolute inset-0 animate-ping rounded-full h-16 w-16 border border-primary/30 opacity-75"></div>
         </div>
       </div>
     );
@@ -107,7 +107,7 @@ const LottieAnimation = ({
   if (error) {
     return (
       <div className={`flex items-center justify-center ${className}`}>
-        <div className="text-center text-gray-600">
+        <div className="text-center text-muted-foreground">
           <div className="text-4xl mb-2">⚠️</div>
           <p className="text-sm">Animation failed to load</p>
         </div>
@@ -312,7 +312,7 @@ export const PinContainer = ({
             style={{
               transform: transform,
             }}
-            className="absolute left-1/2 p-8 top-1/2 flex justify-start items-start rounded-2xl shadow-[0_8px_16px_rgb(0_0_0/0.4)] bg-gradient-to-br from-[#4a6fd9] via-white to-[#6b8ef0] border border-white/[0.3] group-hover/pin:border-blue-200/[0.7] transition duration-700 overflow-hidden w-96"
+            className="absolute left-1/2 p-8 top-1/2 flex justify-start items-start rounded-2xl shadow-lg bg-gradient-to-br from-[#1d45c3] to-transparent border border-border/30 group-hover/pin:border-[#f54462]/70 transition duration-700 overflow-hidden w-96"
           >
             <div className={cn("relative z-50", className)}>
               {/* Show icon in the pin card if provided */}
@@ -345,13 +345,13 @@ export const PinContainer = ({
               animate={getCardAnimation(title || "").animate}
               exit={getCardAnimation(title || "").exit}
               transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="relative w-full h-full bg-gradient-to-br from-[#4a6fd9] via-white to-[#6b8ef0] rounded-2xl shadow-[0_8px_16px_rgb(0_0_0/0.4)] border border-white/[0.3] p-8 overflow-hidden"
+              className="relative w-full h-full bg-gradient-to-br from-[#1d45c3] to-transparent rounded-2xl shadow-lg border border-border/30 p-8 overflow-hidden"
             >
               <div className="flex flex-col items-center justify-center text-center space-y-6 h-full">
                 {/* Close button - only show on last card */}
                 {pinIds.indexOf(expandedPin || '') === pinIds.length - 1 && (
                   <button 
-                    className="absolute top-4 right-4 text-gray-800 hover:text-gray-900 text-3xl z-10 font-bold transition-all duration-300 hover:scale-110"
+                    className="absolute top-4 right-4 text-foreground hover:text-foreground/80 text-3xl z-10 font-bold transition-all duration-300 hover:scale-110"
                     onClick={() => setExpandedPin(null)}
                   >
                     ✕
@@ -367,14 +367,14 @@ export const PinContainer = ({
                     transition={{ delay: 0.8, duration: 0.5 }}
                   >
                     <div className="flex flex-col items-center space-y-2">
-                      <p className="text-gray-700 text-sm font-medium">Scroll to continue</p>
+                      <p className="text-foreground text-sm font-medium">Scroll to continue</p>
                       <motion.div
-                        className="w-6 h-10 border-2 border-gray-700 rounded-full flex justify-center"
+                        className="w-6 h-10 border-2 border-foreground rounded-full flex justify-center"
                         animate={{ opacity: [1, 0.3, 1] }}
                         transition={{ duration: 1.5, repeat: Infinity }}
                       >
                         <motion.div
-                          className="w-1 h-3 bg-gray-700 rounded-full mt-2"
+                          className="w-1 h-3 bg-foreground rounded-full mt-2"
                           animate={{ y: [0, 12, 0] }}
                           transition={{ duration: 1.5, repeat: Infinity }}
                         />
@@ -461,13 +461,11 @@ export const PinContainer = ({
                 ) : (
                   icon && <div className="w-24 h-24 flex items-center justify-center">{icon}</div>
                 )}
-                 <h2 className="text-5xl font-bold mb-4">
-                      <AuroraText className="bg-gradient-to-r from-[#4a6fd9] via-[#6b8ef0] to-[#4a6fd9] bg-clip-text text-transparent text-5xl font-bold">
+                 <h2 className="text-5xl font-bold mb-4 text-[#f54462]">
                         {title}
-                      </AuroraText>
                     </h2>
                     {subheading && (
-                      <p className="text-lg text-gray-700 font-normal mb-6">
+                      <p className="text-lg text-foreground font-normal mb-6">
                         {subheading}
                       </p>
                 )}
@@ -495,9 +493,9 @@ export const PinPerspective = ({
       suppressHydrationWarning={true}>
       <div className="w-full h-full -mt-7 flex-none inset-0">
         <div className="absolute top-0 inset-x-0 flex justify-center">
-          <div className="relative flex space-x-2 items-center z-10 rounded-full bg-gradient-to-br from-primary via-primary to-secondary py-2 px-6 ring-1 ring-white/10">
+          <div className="relative flex space-x-2 items-center z-10 rounded-full bg-gradient-to-br from-[#f54462] to-[#ff8fa3] py-2 px-6 ring-1 ring-border/20">
             <span className="relative z-20 text-white text-lg font-bold inline-block py-2 px-2">
-              <AuroraText className="text-white text-lg font-bold">{title}</AuroraText>
+              {title}
             </span>
 
             <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-emerald-400/0 via-emerald-400/90 to-emerald-400/0 transition-opacity duration-500 group-hover/btn:opacity-40"></span>
@@ -576,10 +574,10 @@ export const PinPerspective = ({
         </div>
 
         <>
-          <motion.div className="absolute right-1/2 bottom-1/2 bg-gradient-to-b from-transparent to-cyan-500 translate-y-[14px] w-px h-20 group-hover/pin:h-40 blur-[2px]" />
-          <motion.div className="absolute right-1/2 bottom-1/2 bg-gradient-to-b from-transparent to-cyan-500 translate-y-[14px] w-px h-20 group-hover/pin:h-40  " />
-          <motion.div className="absolute right-1/2 translate-x-[1.5px] bottom-1/2 bg-cyan-600 translate-y-[14px] w-[4px] h-[4px] rounded-full z-40 blur-[3px]" />
-          <motion.div className="absolute right-1/2 translate-x-[0.5px] bottom-1/2 bg-cyan-300 translate-y-[14px] w-[2px] h-[2px] rounded-full z-40 " />
+          <motion.div className="absolute right-1/2 bottom-1/2 bg-gradient-to-b from-transparent to-[#f54462] translate-y-[14px] w-px h-20 group-hover/pin:h-40 blur-[2px]" />
+          <motion.div className="absolute right-1/2 bottom-1/2 bg-gradient-to-b from-transparent to-[#f54462] translate-y-[14px] w-px h-20 group-hover/pin:h-40  " />
+          <motion.div className="absolute right-1/2 translate-x-[1.5px] bottom-1/2 bg-[#f54462] translate-y-[14px] w-[4px] h-[4px] rounded-full z-40 blur-[3px]" />
+          <motion.div className="absolute right-1/2 translate-x-[0.5px] bottom-1/2 bg-[#f54462]/70 translate-y-[14px] w-[2px] h-[2px] rounded-full z-40 " />
         </>
       </div>
     </motion.div>

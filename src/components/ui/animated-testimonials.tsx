@@ -150,7 +150,7 @@ export const AnimatedTestimonials = ({
               <h3 className="text-2xl font-bold text-readable">
                 {testimonials[active].name}
               </h3>
-              <p className="text-md font-medium text-primary">
+              <p className="text-md font-medium text-[#1d45c3]">
                 {testimonials[active].company}
               </p>
               <p className="text-sm text-subtle">
@@ -187,7 +187,7 @@ export const AnimatedTestimonials = ({
             <div className="grid grid-cols-3 gap-4">
               {Object.entries(testimonials[active].metrics).map(([key, value]) => (
                 <div key={key} className="rounded-lg bg-muted/30 p-3">
-                  <p className="text-2xl font-bold text-primary">{value}</p>
+                  <p className="text-2xl font-bold text-[#1d45c3]">{value}</p>
                   <p className="text-xs text-subtle capitalize">{key.replace(/([A-Z])/g, ' $1').trim()}</p>
                 </div>
               ))}
@@ -196,15 +196,15 @@ export const AnimatedTestimonials = ({
           <div className="flex gap-4 pt-12 md:pt-0">
             <button
               onClick={handlePrev}
-              className="group/button flex h-7 w-7 items-center justify-center rounded-full bg-gray-100 dark:bg-neutral-800"
+              className="group/button flex h-7 w-7 items-center bg-primary/30 justify-center rounded-full dark:bg-neutral-800"
             >
-              <IconArrowLeft className="h-5 w-5 text-black transition-transform duration-300 group-hover/button:rotate-12 dark:text-neutral-400" />
+              <IconArrowLeft className="h-5 w-5 text-[#1d45c3] transition-transform duration-300 group-hover/button:rotate-12 dark:text-neutral-400" />
             </button>
             <button
               onClick={handleNext}
-              className="group/button flex h-7 w-7 items-center justify-center rounded-full bg-gray-100 dark:bg-neutral-800"
+              className="group/button flex h-7 w-7 items-center bg-primary/30 justify-center rounded-full dark:bg-neutral-800"
             >
-              <IconArrowRight className="h-5 w-5 text-black transition-transform duration-300 group-hover/button:-rotate-12 dark:text-neutral-400" />
+              <IconArrowRight className="h-5 w-5 text-[#1d45c3] transition-transform duration-300 group-hover/button:-rotate-12 dark:text-neutral-400" />
             </button>
           </div>
         </div>
